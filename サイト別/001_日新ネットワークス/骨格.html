@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>001 日新ネットワークス トップビュー 骨格</title>
+<!--
+  形(レイアウト構造)だけを抜き出したスケルトン。
+  色・テキスト・実画像は除去し、グレーのボックスで構造を可視化。
+  Claude Code はこの構造をそのまま流用してレイアウトを再現できる。
+  元URL: https://www.nisshin-networks.co.jp/
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#999;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;}
+
+  /* ===== ヘッダー ===== */
+  .header{max-width:1366px;margin:0 auto;padding:18px 32px;}
+  .header-top{display:flex;justify-content:space-between;align-items:center;}
+  .logo{width:240px;height:40px;}                 /* 左ロゴ */
+  .header-cta{display:flex;gap:12px;}
+  .header-cta .btn{width:120px;height:40px;border-radius:3px;}  /* 採用・問い合わせ */
+
+  /* グローバルナビ:横並び＋斜線スラッシュ区切り＋下線1本 */
+  .gnav{display:flex;gap:0;align-items:center;margin-top:20px;
+        border-bottom:1px solid #ddd;padding-bottom:18px;}
+  .gnav .item{padding:0 4px;}
+  .gnav .sep{color:#ccc;padding:0 22px;}          /* 斜線 / */
+
+  /* ===== ヒーロー(フルブリード) ===== */
+  .hero{position:relative;width:100%;height:620px;overflow:hidden;background:#f7f7f7;}
+  /* 背景:俯瞰3Dビジュアル(フルブリードで右〜中央) */
+  .hero-visual{position:absolute;inset:0;}
+  /* 斜め曲線リボン(ブランドモチーフ) */
+  .hero-ribbon{position:absolute;right:0;bottom:0;width:60%;height:80%;
+               background:#dcdcdc;clip-path:polygon(40% 100%,100% 30%,75% 0,0 100%);}
+  /* ヒーロー文言:左上〜中央左寄せ。和文大見出し2段＋欧文サブ */
+  .hero-copy{position:absolute;left:8%;top:30%;max-width:520px;}
+  .hero-copy .title{width:340px;height:36px;margin-bottom:18px;}  /* 大見出し1行目(字間広め) */
+  .hero-copy .title2{width:380px;height:36px;margin-bottom:24px;} /* 大見出し2行目 */
+  .hero-copy .sub{width:220px;height:18px;}                       /* 欧文サブコピー */
+</style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-top">
+      <div class="ph logo">LOGO</div>
+      <div class="header-cta">
+        <div class="ph btn">CTA</div>
+        <div class="ph btn">CTA</div>
+      </div>
+    </div>
+    <nav class="gnav">
+      <span class="ph item" style="width:90px;height:16px;">nav</span><span class="sep">/</span>
+      <span class="ph item" style="width:90px;height:16px;">nav</span><span class="sep">/</span>
+      <span class="ph item" style="width:80px;height:16px;">nav</span><span class="sep">/</span>
+      <span class="ph item" style="width:80px;height:16px;">nav</span><span class="sep">/</span>
+      <span class="ph item" style="width:70px;height:16px;">nav</span><span class="sep">/</span>
+      <span class="ph item" style="width:150px;height:16px;">nav</span>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="ph hero-visual">俯瞰3Dビジュアル(フルブリード背景)</div>
+    <div class="hero-ribbon"></div>
+    <div class="hero-copy">
+      <div class="ph title">大見出し1</div>
+      <div class="ph title2">大見出し2</div>
+      <div class="ph sub">英語サブコピー</div>
+    </div>
+  </section>
+
+</body>
+</html>

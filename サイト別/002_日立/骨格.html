@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>002 日立 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://www.hitachi.com/ja-jp/
+  含む形: LAYOUT-002(中央寄せヒーロー+スライダー) / DECO-002(カード重ねオフセットパーツ 左右反転2型)
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#999;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+  .label{max-width:1200px;margin:40px auto 8px;padding:0 32px;font-size:13px;color:#3a6ea5;font-weight:700;font-family:sans-serif;}
+
+  /* ===== LAYOUT-002 ヘッダー(2段) ===== */
+  .util{display:flex;justify-content:flex-end;gap:20px;padding:10px 40px;border-bottom:1px solid #eee;}
+  .util .it{width:70px;height:14px;}
+  .gnav{display:flex;align-items:center;padding:14px 40px;background:#fafafa;}
+  .gnav .logo{width:120px;height:18px;}
+  .gnav .menu{display:flex;gap:30px;margin-left:60px;}
+  .gnav .menu .it{width:90px;height:14px;}
+
+  /* ===== LAYOUT-002 ヒーロー(中央寄せ・フルブリード・スライダー) ===== */
+  .hero{position:relative;width:100%;height:560px;background:#ececec;overflow:hidden;
+        display:flex;flex-direction:column;align-items:center;justify-content:center;}
+  .hero .title{width:560px;height:34px;margin-bottom:14px;}
+  .hero .title2{width:420px;height:34px;margin-bottom:40px;}
+  .hero .cta{width:200px;height:48px;border-radius:40px;background:#fff;border:1px solid #ddd;}
+  /* スライダー左右矢印 */
+  .hero .arrow{position:absolute;top:50%;width:34px;height:48px;background:#d8d8d8;}
+  .hero .arrow.r{right:0;}
+  .hero .arrow.l{left:0;}
+
+  /* ===== DECO-002 カード重ねオフセットパーツ ===== */
+  /* 大きな横長画像に、テキストカードを角でオーバーラップさせる。左右反転で交互配置。 */
+  .feature{position:relative;max-width:1200px;margin:80px auto;height:380px;}
+  /* type-A: 画像=右寄せ大、カード=左下に重ねる */
+  .feature .img{position:absolute;top:0;width:62%;height:340px;}
+  .feature.a .img{right:0;}
+  .feature .card{position:absolute;width:42%;background:#fff;border:1px solid #e2e2e2;
+                 box-shadow:0 8px 24px rgba(0,0,0,.06);padding:34px;}
+  .feature.a .card{left:0;bottom:0;}
+  .feature .card .h{width:60%;height:26px;margin-bottom:16px;}
+  .feature .card .p{width:90%;height:12px;margin-bottom:8px;}
+  .feature .card .p2{width:75%;height:12px;margin-bottom:24px;}
+  .feature .card .btn{width:160px;height:44px;border-radius:40px;}
+  /* type-B: 反転(画像=左寄せ大、カード=右下に重ねる) */
+  .feature.b .img{left:0;}
+  .feature.b .card{right:0;bottom:0;}
+
+  /* ===== 見出し(セクションタイトル) ===== */
+  .sec-title{max-width:1200px;margin:80px auto 0;padding:0 0;width:300px;height:30px;}
+</style>
+</head>
+<body>
+
+  <!-- ===== LAYOUT-002 ===== -->
+  <div class="label">LAYOUT-002 / トップビュー(2段ヘッダー + 中央寄せヒーロー + スライダー)</div>
+
+  <!-- ヘッダー上段:ユーティリティ(右寄せ:言語/問合せ/検索) -->
+  <div class="util"><div class="ph it">lang</div><div class="ph it">contact</div><div class="ph it">search</div></div>
+  <!-- ヘッダー下段:ロゴ左 + メニュー横並び -->
+  <div class="gnav"><div class="ph logo">LOGO</div>
+    <div class="menu"><div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div></div>
+  </div>
+
+  <!-- ヒーロー:中央寄せ、コピー中央、丸ピルCTA、左右にスライダー矢印 -->
+  <section class="hero">
+    <div class="ph arrow l">‹</div>
+    <div class="ph title">大見出し1(中央)</div>
+    <div class="ph title2">大見出し2(中央)</div>
+    <div class="ph cta">ピル型CTA</div>
+    <div class="ph arrow r">›</div>
+  </section>
+
+  <!-- ===== DECO-002 ===== -->
+  <div class="label">DECO-002 / カード重ねオフセットパーツ(左右反転で交互)</div>
+
+  <!-- type-A:画像右・カード左下に重ねる -->
+  <div class="feature a">
+    <div class="ph img">横長画像</div>
+    <div class="card">
+      <div class="ph h">見出し</div>
+      <div class="ph p">本文</div>
+      <div class="ph p2">本文</div>
+      <div class="ph btn">ピル型CTA</div>
+    </div>
+  </div>
+
+  <!-- type-B:画像左・カード右下に重ねる(反転) -->
+  <div class="feature b">
+    <div class="ph img">横長画像</div>
+    <div class="card">
+      <div class="ph h">見出し</div>
+      <div class="ph p">本文</div>
+      <div class="ph p2">本文</div>
+      <div class="ph btn">ピル型CTA</div>
+    </div>
+  </div>
+
+</body>
+</html>

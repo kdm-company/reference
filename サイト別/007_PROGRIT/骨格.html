@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>007 PROGRIT 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://about.progrit.co.jp/
+  含む形:
+    LAYOUT-008 / 超大型見出しヒーロー(特大見出し+下線+斜め装飾シェイプ+角丸切り抜き画像)
+    LAYOUT-009 / 価値観カードグリッド(中央見出し+3列→2列を中央寄せ。アイコン+英語見出し+本文)
+    DECO-012   / 浮き立体カードのサービス紹介(角丸シェイプを浮かせる+左右テキスト)
+    DECO-013   / 人物はみ出しメッセージカード(横長白カードに人物写真を右端まではみ出し)
+    LAYOUT-010 / ダーク中央CONTACT + 大型フッター(複数カラムのリンク群)
+  ※ 画像はグレーのプレースホルダで代用。装飾色はオレンジ系の仮色。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+  .label{max-width:1100px;margin:46px auto 8px;padding:0 32px;font-size:13px;color:#3a6ea5;font-weight:700;}
+  .acc{background:#f08a24;}   /* アクセント(オレンジ)仮色 */
+
+  /* ===== LAYOUT-008 超大型見出しヒーロー ===== */
+  .hero{position:relative;padding:70px 40px 0;overflow:hidden;min-height:560px;}
+  .hero .nav{display:flex;justify-content:flex-end;gap:30px;align-items:center;margin-bottom:50px;}
+  .hero .nav .it{width:70px;height:14px;}
+  .hero .nav .contact{width:130px;height:40px;border-radius:40px;border:1px solid #ccc;}
+  .hero .copy{position:relative;z-index:2;}
+  .hero .copy .big{width:560px;max-width:80%;height:80px;margin-bottom:6px;}    /* 特大見出し1 */
+  .hero .copy .rule{width:560px;max-width:80%;height:6px;background:#1d1d1f;margin:6px 0 10px;} /* 太い下線 */
+  .hero .copy .big2{width:600px;max-width:84%;height:80px;margin-bottom:18px;}   /* 特大見出し2 */
+  .hero .copy .tag{width:90px;height:16px;background:#f08a24;}                    /* MISSION等の小ラベル */
+  /* 斜め装飾シェイプ(角丸の傾いた長方形を散りばめる) */
+  .hero .deco{position:absolute;border-radius:14px;transform:rotate(-30deg);z-index:1;opacity:.9;}
+  .hero .d1{top:20px;right:18%;width:120px;height:60px;background:#ffe0cc;}
+  .hero .d2{top:160px;right:4%;width:180px;height:90px;background:#f4642a;}
+  .hero .d3{top:330px;right:9%;width:150px;height:80px;background:#f08a24;}
+  /* 右下に大きな角丸切り抜き画像 */
+  .hero .cut{position:absolute;right:18%;bottom:-40px;width:420px;height:300px;border-radius:40px;z-index:1;}
+
+  /* ===== LAYOUT-009 価値観カードグリッド ===== */
+  .values{max-width:1080px;margin:0 auto;padding:50px 32px 70px;text-align:center;}
+  .values .h{width:200px;height:34px;background:#f08a24;margin:0 auto 12px;}
+  .values .sub{width:200px;height:14px;background:#ddd;margin:0 auto 36px;}
+  .values .row{display:flex;justify-content:center;gap:24px;margin-bottom:24px;flex-wrap:wrap;}
+  .values .vc{width:320px;background:#fff;border:1px solid #eee;border-radius:10px;box-shadow:0 6px 18px rgba(0,0,0,.05);padding:30px;}
+  .values .vc .ic{width:38px;height:38px;border-radius:50%;background:#fde3cc;margin:0 auto 14px;}
+  .values .vc .t{width:160px;height:20px;background:#f08a24;margin:0 auto 12px;}
+  .values .vc .p{width:90%;height:11px;background:#e2e2e2;margin:0 auto 6px;}
+
+  /* ===== DECO-012 浮き立体カードのサービス紹介 ===== */
+  .service{max-width:1080px;margin:0 auto;padding:50px 32px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;}
+  .service .float{height:300px;border-radius:18px;background:#f08a24;
+                  box-shadow:24px 24px 50px rgba(240,138,36,.25);transform:perspective(900px) rotateY(8deg);}  /* 浮き立体 */
+  .service .txt .t{width:140px;height:26px;background:#cfcfcf;margin-bottom:12px;}
+  .service .txt .st{width:180px;height:14px;background:#f08a24;margin-bottom:14px;}
+  .service .txt .p{width:100%;height:12px;background:#e2e2e2;margin-bottom:8px;}
+  .service .txt .btn{width:180px;height:46px;border-radius:40px;border:1px solid #ccc;margin-top:20px;}
+
+  /* ===== DECO-013 人物はみ出しメッセージカード ===== */
+  .ceo{max-width:1080px;margin:60px auto;padding:0 32px;position:relative;}
+  .ceo .card{background:#fff;border-radius:20px;box-shadow:0 16px 40px rgba(0,0,0,.08);
+             padding:60px;min-height:300px;width:88%;}
+  .ceo .card .en{width:110px;height:13px;background:#f08a24;margin-bottom:18px;}
+  .ceo .card .h{width:60%;height:24px;background:#cfcfcf;margin-bottom:10px;}
+  .ceo .card .h2{width:66%;height:24px;background:#cfcfcf;margin-bottom:30px;}
+  .ceo .card .btn{width:200px;height:48px;border-radius:40px;border:1px solid #ccc;}
+  /* 人物写真を右端からはみ出させる */
+  .ceo .person{position:absolute;right:32px;bottom:0;width:260px;height:360px;}
+
+  /* ===== LAYOUT-010 ダーク中央CONTACT + 大型フッター ===== */
+  .dark{background:#1a1a1a;color:#fff;}
+  .contact{position:relative;min-height:380px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+           background:#3a342e;}                 /* 暗い写真背景の代用 */
+  .contact .big{width:300px;height:48px;background:rgba(255,255,255,.85);margin-bottom:14px;}
+  .contact .sub{width:120px;height:14px;background:rgba(255,255,255,.5);margin-bottom:30px;}
+  .contact .p{width:360px;max-width:80%;height:12px;background:rgba(255,255,255,.4);margin-bottom:26px;}
+  .contact .btn{width:280px;height:56px;border-radius:40px;background:#fff;}
+  /* 大型フッター */
+  .footer{padding:60px 40px 30px;}
+  .footer .cols{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:200px repeat(4,1fr);gap:30px;}
+  .footer .logo{width:160px;height:36px;background:#f08a24;}
+  .footer .col .head{width:80px;height:13px;background:rgba(255,255,255,.7);margin-bottom:18px;}
+  .footer .col .lk{width:110px;height:11px;background:rgba(255,255,255,.4);margin-bottom:14px;}
+  .footer .copyrow{max-width:1080px;margin:40px auto 0;display:flex;gap:30px;align-items:center;}
+  .footer .copyrow .c{height:11px;background:rgba(255,255,255,.35);}
+</style>
+</head>
+<body>
+
+  <!-- ===== LAYOUT-008 ===== -->
+  <div class="label">LAYOUT-008 / 超大型見出しヒーロー(特大見出し+下線+斜め装飾+角丸切り抜き画像)</div>
+  <section class="hero">
+    <div class="nav">
+      <div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div>
+      <div class="ph contact">お問い合わせ</div>
+    </div>
+    <div class="deco d1"></div>
+    <div class="deco d2"></div>
+    <div class="deco d3"></div>
+    <div class="ph cut">角丸切り抜き画像</div>
+    <div class="copy">
+      <div class="ph big">特大見出し1</div>
+      <div class="rule"></div>
+      <div class="ph big2">特大見出し2</div>
+      <div class="ph tag" style="color:#fff;">MISSION</div>
+    </div>
+  </section>
+
+  <!-- ===== LAYOUT-009 ===== -->
+  <div class="label">LAYOUT-009 / 価値観カードグリッド(3列→2列を中央寄せ)</div>
+  <section class="values">
+    <div class="ph h" style="color:#fff;">FIVE GRIT</div>
+    <div class="ph sub"></div>
+    <div class="row">
+      <div class="vc"><div class="ic"></div><div class="ph t" style="color:#fff;">見出し</div><div class="p"></div><div class="p"></div></div>
+      <div class="vc"><div class="ic"></div><div class="ph t" style="color:#fff;">見出し</div><div class="p"></div><div class="p"></div></div>
+      <div class="vc"><div class="ic"></div><div class="ph t" style="color:#fff;">見出し</div><div class="p"></div><div class="p"></div></div>
+    </div>
+    <div class="row">
+      <div class="vc"><div class="ic"></div><div class="ph t" style="color:#fff;">見出し</div><div class="p"></div><div class="p"></div></div>
+      <div class="vc"><div class="ic"></div><div class="ph t" style="color:#fff;">見出し</div><div class="p"></div><div class="p"></div></div>
+    </div>
+  </section>
+
+  <!-- ===== DECO-012 ===== -->
+  <div class="label">DECO-012 / 浮き立体カードのサービス紹介(立体シェイプ+左右テキスト)</div>
+  <section class="service">
+    <div class="float"></div>
+    <div class="txt">
+      <div class="ph t">サービス名</div>
+      <div class="ph st" style="color:#fff;">サブ見出し</div>
+      <div class="p"></div><div class="p"></div>
+      <div class="ph btn">SERVICE SITE ↗</div>
+    </div>
+  </section>
+
+  <!-- ===== DECO-013 ===== -->
+  <div class="label">DECO-013 / 人物はみ出しメッセージカード</div>
+  <section class="ceo">
+    <div class="card">
+      <div class="ph en" style="color:#fff;">CEO MESSAGE</div>
+      <div class="ph h">見出し</div>
+      <div class="ph h2">見出し</div>
+      <div class="ph btn">代表メッセージ →</div>
+    </div>
+    <div class="ph person">人物写真(右端からはみ出し)</div>
+  </section>
+
+  <!-- ===== LAYOUT-010 ===== -->
+  <div class="label">LAYOUT-010 / ダーク中央CONTACT + 大型フッター</div>
+  <div class="dark">
+    <section class="contact">
+      <div class="ph big" style="background:rgba(255,255,255,.85);color:#333;">CONTACT</div>
+      <div class="sub"></div>
+      <div class="p"></div>
+      <div class="ph btn" style="color:#333;">お問い合わせ →</div>
+    </section>
+    <footer class="footer">
+      <div class="cols">
+        <div class="logo"></div>
+        <div class="col"><div class="head"></div><div class="lk"></div><div class="lk"></div><div class="lk"></div><div class="lk"></div></div>
+        <div class="col"><div class="head"></div><div class="lk"></div><div class="lk"></div><div class="lk"></div></div>
+        <div class="col"><div class="head"></div><div class="lk"></div></div>
+        <div class="col"><div class="head"></div><div class="lk"></div><div class="lk"></div></div>
+      </div>
+      <div class="copyrow">
+        <div class="c" style="width:240px;"></div>
+        <div class="c" style="width:90px;"></div>
+        <div class="c" style="width:120px;"></div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>

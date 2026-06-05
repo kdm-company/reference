@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>004 福助 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://f-fukuske.jp/fukuske/
+  含む形(LAYOUT-004 として1セットで扱う):
+    ・ぼかし写真フルブリード背景(背景画像をblurして全面に敷く)
+    ・円形画像カード3連の横並びナビ(主導線)
+    ・長方形バナー2連(白カード+ラベル、副導線)
+    ・末尾の見出し+補足テキスト(中央寄せ)
+  DECO-006 / フッター(中央寄せ縦積み:テキストメニュー縦区切り→ロゴ→丸SNS3つ→コピーライト)
+  ※ 写真はグレーのプレースホルダで代用。背景のblurは構造として再現。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#fff;}
+  .stage{position:relative;min-height:760px;overflow:hidden;
+         display:flex;flex-direction:column;align-items:center;}
+
+  /* ぼかし写真フル背景(LAYOUT-004内) */
+  .bg{position:absolute;inset:0;
+      background:#9a9a9a;            /* 実際は商品写真。ここはグレー代用 */
+      filter:blur(6px);transform:scale(1.05);  /* 端のにじみ防止に少し拡大 */
+      z-index:0;}
+  .bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.12);} /* 薄い暗幕で文字を読みやすく */
+
+  /* ハンバーガー(右上) */
+  .ham{position:absolute;top:28px;right:36px;width:34px;height:22px;
+       background:rgba(255,255,255,0.85);z-index:3;}
+
+  /* LAYOUT-004 円形カード3連 */
+  .circles{position:relative;z-index:2;display:flex;justify-content:center;
+           gap:90px;margin-top:90px;flex-wrap:wrap;}
+  .circle-card{text-align:center;}
+  .circle{width:300px;height:300px;border-radius:50%;
+          background:#e3e3e3;display:flex;align-items:center;justify-content:center;
+          color:#999;font-size:12px;overflow:hidden;}
+  .circle-card .cap{margin-top:22px;font-size:14px;color:#fff;}
+
+  /* 長方形バナー2連(LAYOUT-004内) */
+  .banners{position:relative;z-index:2;display:flex;justify-content:center;
+           gap:36px;margin-top:60px;flex-wrap:wrap;}
+  .banner{width:250px;text-align:center;}
+  .banner .box{height:120px;background:#fff;display:flex;align-items:center;justify-content:center;color:#999;font-size:12px;}
+  .banner .cap{margin-top:16px;font-size:13px;color:#fff;}
+
+  /* 末尾の見出し+補足テキスト(中央) */
+  .foot-note{position:relative;z-index:2;margin-top:54px;text-align:center;}
+  .foot-note .h{width:160px;height:18px;background:rgba(255,255,255,0.85);margin:0 auto 14px;}
+  .foot-note .p{width:560px;max-width:80vw;height:13px;background:rgba(255,255,255,0.6);margin:0 auto;}
+
+  /* ===== DECO-006 フッター(中央寄せ縦積み) ===== */
+  /* 濃色背景・全要素を中央寄せ。上から:テキストメニュー(縦区切り)→ロゴ→丸SNS3つ→コピーライト */
+  .footer{background:#3a3a3a;color:#fff;padding:60px 20px 48px;text-align:center;}
+  /* テキストメニュー(項目を縦線 | で区切る) */
+  .footer .fnav{display:flex;justify-content:center;align-items:center;gap:0;margin-bottom:40px;}
+  .footer .fnav .it{width:110px;height:14px;}
+  .footer .fnav .sep{width:1px;height:16px;background:rgba(255,255,255,0.4);margin:0 26px;}
+  /* ロゴ(中央) */
+  .footer .flogo{width:170px;height:40px;margin:0 auto 34px;}
+  /* 丸SNSアイコン3つ */
+  .footer .sns{display:flex;justify-content:center;gap:24px;margin-bottom:40px;}
+  .footer .sns .ic{width:56px;height:56px;border-radius:50%;background:#fff;}
+  /* コピーライト */
+  .footer .copy{width:360px;max-width:80vw;height:11px;background:rgba(255,255,255,0.5);margin:0 auto;}
+</style>
+</head>
+<body>
+
+  <section class="stage">
+    <!-- ぼかし写真背景(LAYOUT-004内) -->
+    <div class="bg"></div>
+
+    <!-- ハンバーガー -->
+    <div class="ham"></div>
+
+    <!-- LAYOUT-004 円形カード3連 -->
+    <div class="circles">
+      <div class="circle-card">
+        <div class="circle">円形画像(白地ロゴ等)</div>
+        <div class="cap">ラベル ›</div>
+      </div>
+      <div class="circle-card">
+        <div class="circle">円形画像(商品)</div>
+        <div class="cap">ラベル ›</div>
+      </div>
+      <div class="circle-card">
+        <div class="circle">円形画像(歴史)</div>
+        <div class="cap">ラベル ›</div>
+      </div>
+    </div>
+
+    <!-- 長方形バナー2連(LAYOUT-004 内) -->
+    <div class="banners">
+      <div class="banner"><div class="box">バナー</div><div class="cap">ラベル</div></div>
+      <div class="banner"><div class="box">バナー</div><div class="cap">ラベル</div></div>
+    </div>
+
+    <!-- 末尾の見出し+補足 -->
+    <div class="foot-note">
+      <div class="h"></div>
+      <div class="p"></div>
+    </div>
+  </section>
+
+  <!-- ===== DECO-006 フッター ===== -->
+  <footer class="footer">
+    <!-- テキストメニュー(縦線で区切る) -->
+    <div class="fnav">
+      <div class="ph it">menu</div>
+      <div class="sep"></div>
+      <div class="ph it">menu</div>
+      <div class="sep"></div>
+      <div class="ph it">menu</div>
+    </div>
+    <!-- ロゴ -->
+    <div class="ph flogo">LOGO</div>
+    <!-- 丸SNSアイコン3つ -->
+    <div class="sns">
+      <div class="ph ic">f</div>
+      <div class="ph ic">t</div>
+      <div class="ph ic">i</div>
+    </div>
+    <!-- コピーライト -->
+    <div class="copy"></div>
+  </footer>
+
+</body>
+</html>

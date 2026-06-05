@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>006 安川電機 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://www.yaskawa.co.jp/
+  含む形:
+    LAYOUT-007 / 情報密度の高い2段ヘッダー(上=ロゴ+ユーティリティ多数、下=メニュー横並び)
+    DECO-010   / スライダー型ヒーロー(ドットインジケータ+再生/停止ボタン+左右矢印)
+    DECO-011   / ニュース行リスト(日付+カラーのカテゴリラベル+タイトル、下に「さらに表示」)
+  ※ 画像はグレーのプレースホルダで代用。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+  .label{max-width:1100px;margin:40px auto 8px;padding:0 32px;font-size:13px;color:#3a6ea5;font-weight:700;}
+
+  /* ===== LAYOUT-007 情報密度の高い2段ヘッダー ===== */
+  .head-top{display:flex;align-items:center;justify-content:space-between;padding:12px 32px;}
+  .head-top .logo{width:200px;height:30px;}
+  .head-top .utils{display:flex;align-items:center;gap:18px;}
+  .head-top .utils .u{height:16px;}                  /* お問い合わせ等 */
+  .head-top .utils .toggle{width:60px;height:24px;border-radius:4px;} /* 文字大小トグル */
+  .head-top .utils .ic{width:18px;height:18px;}      /* 印刷・検索・地球 */
+  .gnav{display:flex;justify-content:center;gap:40px;padding:12px 32px 16px;border-bottom:2px solid #1558a8;}
+  .gnav .it{width:120px;height:15px;}
+
+  /* ===== DECO-010 スライダー型ヒーロー ===== */
+  .hero{position:relative;height:420px;background:#2a3550;overflow:hidden;}
+  .hero .slide{position:absolute;inset:0;}
+  .hero .arrow{position:absolute;top:50%;transform:translateY(-50%);width:30px;height:50px;
+               background:rgba(255,255,255,0.7);}
+  .hero .arrow.l{left:18px;} .hero .arrow.r{right:18px;}
+  /* ドットインジケータ + 再生/停止 */
+  .hero .dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+              display:flex;align-items:center;gap:12px;}
+  .hero .dots .d{width:11px;height:11px;border-radius:50%;background:rgba(255,255,255,0.5);}
+  .hero .dots .d.on{background:#1558a8;}
+  .hero .dots .pause{width:24px;height:24px;border-radius:50%;background:#444;}
+
+  /* ===== DECO-011 ニュース行リスト ===== */
+  .news{max-width:980px;margin:50px auto;padding:0 32px;}
+  .news h2{text-align:center;font-size:20px;color:#333;margin-bottom:24px;}
+  .news .bar{height:2px;background:#1558a8;margin-bottom:6px;}
+  .news .row{display:flex;align-items:center;gap:20px;padding:14px 4px;border-bottom:1px solid #eee;}
+  .news .row .date{width:110px;height:13px;flex:none;}
+  .news .row .cat{width:64px;height:24px;flex:none;background:#1558a8;border-radius:2px;} /* カラーのカテゴリラベル */
+  .news .row .ttl{flex:1;height:13px;}
+  .news .more{display:flex;justify-content:center;margin-top:24px;}
+  .news .more .btn{width:160px;height:40px;border-radius:40px;border:1px solid #ccc;}
+</style>
+</head>
+<body>
+
+  <!-- ===== LAYOUT-007 ===== -->
+  <div class="label">LAYOUT-007 / 情報密度の高い2段ヘッダー</div>
+  <header>
+    <div class="head-top">
+      <div class="ph logo">LOGO</div>
+      <div class="utils">
+        <div class="ph u" style="width:90px;">お問い合わせ</div>
+        <div class="ph u" style="width:120px;">技術情報サイト</div>
+        <div class="ph toggle">小/大</div>
+        <div class="ph ic">印</div>
+        <div class="ph ic">検</div>
+        <div class="ph ic">地</div>
+      </div>
+    </div>
+    <nav class="gnav">
+      <div class="ph it">企業情報</div>
+      <div class="ph it">製品</div>
+      <div class="ph it">サービス</div>
+      <div class="ph it">技術</div>
+      <div class="ph it">IR</div>
+      <div class="ph it">採用</div>
+    </nav>
+  </header>
+
+  <!-- ===== DECO-010 ===== -->
+  <div class="label">DECO-010 / スライダー型ヒーロー(ドット+再生制御+左右矢印)</div>
+  <section class="hero">
+    <div class="ph slide" style="background:#2a3550;color:#ccd;">スライド(全幅ビジュアル)</div>
+    <div class="ph arrow l">‹</div>
+    <div class="ph arrow r">›</div>
+    <div class="dots">
+      <span class="d"></span><span class="d"></span><span class="d on"></span>
+      <span class="d"></span><span class="d"></span><span class="d"></span>
+      <span class="ph pause">‖</span>
+    </div>
+  </section>
+
+  <!-- ===== DECO-011 ===== -->
+  <div class="label">DECO-011 / ニュース行リスト(日付+カラーラベル+タイトル)</div>
+  <section class="news">
+    <h2>ニュース</h2>
+    <div class="bar"></div>
+    <div class="row"><div class="ph date">日付</div><div class="ph cat" style="background:#1558a8;color:#fff;">IR</div><div class="ph ttl">タイトル</div></div>
+    <div class="row"><div class="ph date">日付</div><div class="ph cat" style="background:#1558a8;color:#fff;">新製品</div><div class="ph ttl">タイトル</div></div>
+    <div class="row"><div class="ph date">日付</div><div class="ph cat" style="background:#1558a8;color:#fff;">お知らせ</div><div class="ph ttl">タイトル</div></div>
+    <div class="row"><div class="ph date">日付</div><div class="ph cat" style="background:#1558a8;color:#fff;">イベント</div><div class="ph ttl">タイトル</div></div>
+    <div class="more"><div class="ph btn">さらに表示</div></div>
+  </section>
+
+</body>
+</html>
