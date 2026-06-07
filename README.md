@@ -29,6 +29,7 @@ cd 参考要素倉庫
 > `参考要素倉庫/sites/002_hitachi/skeleton.html` の LAYOUT-002 の構図でヒーローを作って。
 
 骨格HTMLは色・文字を抜いた構造スケルトンなので、そのまま流用できます。
+各 skeleton.html には**スマホ版の崩し方(`@media(max-width:768px)`)も含めて**あるので、SP対応もゼロから設計せず流用できます(崩し方の要点は composition.md の「スマホ版の構造(SP)」に記載)。
 
 ### 形を追加したくなったら
 

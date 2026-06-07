@@ -57,6 +57,21 @@
   .cardbox .p{width:100%;height:12px;margin-bottom:8px;}
   .cardbox .p2{width:80%;height:12px;}
   .cards.center .wide .h,.cards.center .wide .p,.cards.center .wide .p2{margin-left:auto;margin-right:auto;text-align:center;}
+
+  /* ===== スマホ版の構造(SP / 〜768px)===== */
+  /* 形の崩し方: 2カラム→1カラム / 非対称グリッド→1カラム縦積み / セグメントタブは横スクロール */
+  @media(max-width:768px){
+    .hero{padding:48px 16px 0;}
+    .hero .product{width:100%;height:220px;}
+    .twocol{padding:32px 16px 50px;}
+    .twocol .grid{grid-template-columns:1fr;gap:32px;}      /* DECO-008 2カラム→1カラム */
+    .twocol .item .vis{height:180px;}
+    .filter{padding:24px 16px 48px;}
+    .filter .seg{display:flex;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch;} /* タブは横スクロール */
+    .filter .seg .tab{flex:none;}
+    .cards{grid-template-columns:1fr;padding:24px 16px 50px;} /* LAYOUT-006 非対称グリッド→1カラム */
+    .cardbox{padding:28px;min-height:auto;}
+  }
 </style>
 </head>
 <body>

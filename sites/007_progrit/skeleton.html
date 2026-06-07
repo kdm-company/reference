@@ -86,6 +86,44 @@
   .footer .col .lk{width:110px;height:11px;background:rgba(255,255,255,.4);margin-bottom:14px;}
   .footer .copyrow{max-width:1080px;margin:40px auto 0;display:flex;gap:30px;align-items:center;}
   .footer .copyrow .c{height:11px;background:rgba(255,255,255,.35);}
+
+  /* ===== スマホ版の構造(SP / 〜768px)===== */
+  /* 形の崩し方: 重ね装飾/はみ出し→フロー内に整理 / 各グリッド→1カラム / 5カラムフッター→2カラム */
+  .ham{display:none;}                                  /* PCでは非表示。SPで表示 */
+  @media(max-width:768px){
+    /* LAYOUT-008 ヒーロー: nav→ハンバーガー / 見出し縮小 / 切り抜き画像は重ね解除し見出しの下へ */
+    .hero{padding:48px 16px 0;min-height:auto;display:flex;flex-direction:column;}
+    .hero .nav{order:0;gap:14px;margin-bottom:24px;justify-content:space-between;}
+    .hero .nav .it{display:none;}                      /* テキストnav→ハンバーガーへ集約 */
+    .hero .nav .contact{order:2;}
+    .ham{display:flex;order:1;width:28px;height:20px;}
+    .hero .copy{order:1;}
+    .hero .copy .big,.hero .copy .rule,.hero .copy .big2{width:100%;max-width:100%;}
+    .hero .copy .big,.hero .copy .big2{height:50px;}   /* 特大見出しを縮小 */
+    .hero .deco{transform:rotate(-30deg) scale(.55);}  /* 斜め装飾シェイプは縮小して残す */
+    .hero .d1{right:2%;} .hero .d2{right:-6%;} .hero .d3{right:-2%;}
+    .hero .cut{position:static;order:2;width:100%;height:200px;right:auto;bottom:auto;margin-top:28px;} /* 角丸切り抜き→フロー内 */
+    /* LAYOUT-009 価値観カード: 3列/2列→1列縦積み */
+    .values{padding:40px 16px 50px;}
+    .values .row{gap:16px;}
+    .values .vc{width:100%;max-width:340px;}
+    /* DECO-012 サービス: 左右2カラム→縦積み、立体回転は解除 */
+    .service{grid-template-columns:1fr;gap:30px;padding:40px 16px;}
+    .service .float{height:200px;transform:none;box-shadow:0 16px 36px rgba(240,138,36,.22);}
+    .service .txt .t,.service .txt .st,.service .txt .p{width:100%;}
+    /* DECO-013 人物はみ出し→カード内に収め、人物はカード下へ通常配置 */
+    .ceo{margin:40px auto;}
+    .ceo .card{width:100%;padding:32px;}
+    .ceo .card .h,.ceo .card .h2{width:80%;}
+    .ceo .person{position:static;width:160px;height:220px;margin:20px auto 0;}
+    /* LAYOUT-010 CONTACT+フッター: 中央CONTACT圧縮 / 5カラム→2カラム / コピー行縦積み */
+    .contact{min-height:300px;padding:48px 16px;}
+    .contact .big,.contact .p{width:100%;max-width:100%;}
+    .contact .btn{width:100%;max-width:280px;}
+    .footer{padding:48px 16px 30px;}
+    .footer .cols{grid-template-columns:1fr 1fr;gap:24px;}    /* 5カラム→2カラム */
+    .footer .copyrow{flex-direction:column;align-items:flex-start;gap:10px;}
+  }
 </style>
 </head>
 <body>
@@ -96,6 +134,7 @@
     <div class="nav">
       <div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div>
       <div class="ph contact">お問い合わせ</div>
+      <div class="ph ham">≡</div>            <!-- SP:ハンバーガー(PCでは非表示) -->
     </div>
     <div class="deco d1"></div>
     <div class="deco d2"></div>

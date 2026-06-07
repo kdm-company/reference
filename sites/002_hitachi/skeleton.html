@@ -53,6 +53,26 @@
 
   /* ===== 見出し(セクションタイトル) ===== */
   .sec-title{max-width:1200px;margin:80px auto 0;padding:0 0;width:300px;height:30px;}
+
+  /* ===== スマホ版の構造(SP / 〜768px)===== */
+  /* 形の崩し方: メニュー横並び→ハンバーガー / 中央ヒーロー圧縮 / カード重ねオフセット→画像→カードの縦積み */
+  .ham{display:none;}                                /* PCでは非表示。SPで表示 */
+  @media(max-width:768px){
+    .util{padding:8px 16px;gap:12px;}
+    .gnav{padding:12px 16px;justify-content:space-between;}
+    .gnav .menu{display:none;}                       /* 横並びメニュー→ハンバーガー化 */
+    .ham{display:flex;width:28px;height:20px;}
+    .hero{height:auto;min-height:360px;padding:48px 16px;}
+    .hero .title{width:100%;max-width:560px;height:28px;}
+    .hero .title2{width:80%;}
+    .hero .arrow{display:none;}                       /* SPは矢印を省きスワイプ前提 */
+    /* DECO-002:重ね→重ねをやめ「画像→カード」を縦積み(わずかに重ねて立体感は残す)*/
+    .feature{height:auto;margin:40px auto;padding:0 16px;}
+    .feature .img,.feature.b .img{position:static;width:100%;height:200px;left:auto;right:auto;}
+    .feature .card,.feature.b .card{position:static;width:100%;left:auto;right:auto;bottom:auto;
+      padding:24px;margin-top:-30px;}
+    .feature .card .h{width:80%;} .feature .card .p,.feature .card .p2{width:100%;}
+  }
 </style>
 </head>
 <body>
@@ -65,6 +85,7 @@
   <!-- ヘッダー下段:ロゴ左 + メニュー横並び -->
   <div class="gnav"><div class="ph logo">LOGO</div>
     <div class="menu"><div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div></div>
+    <div class="ph ham">≡</div>            <!-- SP:ハンバーガー(PCでは非表示) -->
   </div>
 
   <!-- ヒーロー:中央寄せ、コピー中央、丸ピルCTA、左右にスライダー矢印 -->

@@ -40,6 +40,21 @@
   .hero-copy .title{width:340px;height:36px;margin-bottom:18px;}  /* 大見出し1行目(字間広め) */
   .hero-copy .title2{width:380px;height:36px;margin-bottom:24px;} /* 大見出し2行目 */
   .hero-copy .sub{width:220px;height:18px;}                       /* 欧文サブコピー */
+
+  /* ===== スマホ版の構造(SP / 〜768px)===== */
+  /* 形の崩し方: 横並びナビ→ハンバーガー / 重ねヒーロー→縦積み / 高さ圧縮 */
+  .ham{display:none;}                                /* PCでは非表示。SPで表示 */
+  @media(max-width:768px){
+    .header{padding:14px 16px;}
+    .header-cta{display:none;}                       /* CTA2つはドロワー内へ集約 */
+    .gnav{display:none;}                             /* 横並び+斜線ナビ→ハンバーガー化 */
+    .ham{display:flex;width:30px;height:22px;}       /* 右上ハンバーガー */
+    .hero{height:auto;min-height:420px;}             /* ヒーロー高さを圧縮 */
+    .hero-ribbon{width:90%;height:45%;}              /* リボンは縮小して残す(モチーフ維持)*/
+    .hero-copy{position:static;left:auto;top:auto;max-width:100%;padding:48px 16px;} /* 三層の重ね→通常フロー縦積み */
+    .hero-copy .title,.hero-copy .title2{width:100%;max-width:320px;height:30px;}
+    .hero-copy .sub{width:60%;}
+  }
 </style>
 </head>
 <body>
@@ -52,6 +67,7 @@
         <div class="ph btn">CTA</div>
         <div class="ph btn">CTA</div>
       </div>
+      <div class="ph ham">≡</div>            <!-- SP:ハンバーガー(PCでは非表示) -->
     </div>
     <nav class="gnav">
       <span class="ph item" style="width:90px;height:16px;">nav</span><span class="sep">/</span>

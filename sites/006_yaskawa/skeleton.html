@@ -52,6 +52,23 @@
   .news .row .ttl{flex:1;height:13px;}
   .news .more{display:flex;justify-content:center;margin-top:24px;}
   .news .more .btn{width:160px;height:40px;border-radius:40px;border:1px solid #ccc;}
+
+  /* ===== スマホ版の構造(SP / 〜768px)===== */
+  /* 形の崩し方: 多数ユーティリティ+横並びメニュー→ハンバーガーに集約 / ニュース1行→折り返し */
+  .ham{display:none;}                                  /* PCでは非表示。SPで表示 */
+  @media(max-width:768px){
+    .head-top{padding:10px 16px;}
+    .head-top .utils{display:none;}                    /* お問い合わせ等の多数ユーティリティ→ドロワーへ */
+    .ham{display:flex;width:28px;height:20px;}
+    .gnav{display:none;}                               /* メニュー横並び→ハンバーガー化 */
+    .hero{height:260px;}                               /* スライダーヒーロー高さ圧縮 */
+    .hero .arrow{display:none;}                        /* SPは矢印を省きスワイプ前提 */
+    .news{padding:0 16px;margin:40px auto;}
+    /* DECO-011 ニュース行:日付+ラベル+タイトルの1行→折り返し(タイトルを改行で全幅)*/
+    .news .row{flex-wrap:wrap;gap:8px 12px;}
+    .news .row .date{order:1;} .news .row .cat{order:2;}
+    .news .row .ttl{order:3;flex:1 1 100%;}
+  }
 </style>
 </head>
 <body>
@@ -69,6 +86,7 @@
         <div class="ph ic">検</div>
         <div class="ph ic">地</div>
       </div>
+      <div class="ph ham">≡</div>          <!-- SP:ハンバーガー(PCでは非表示) -->
     </div>
     <nav class="gnav">
       <div class="ph it">企業情報</div>
