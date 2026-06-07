@@ -26,6 +26,19 @@
   .copied{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:9px 18px;border-radius:24px;font-size:13px;opacity:0;transition:opacity .2s;pointer-events:none;}
   .copied.show{opacity:1;}
   .hint{grid-column:1/-1;font-size:12px;color:var(--sub);margin:0;}
+  /* スマホ最適化(狭い画面では余白を詰め、リンクのタップ領域を広げる) */
+  @media(max-width:600px){
+    header.top{padding:14px 16px;}
+    header.top h1{font-size:17px;}
+    header.top p{font-size:12px;}
+    .wrap{padding:16px;gap:16px;}
+    .card{padding:16px;border-radius:10px;}
+    .card:hover{transform:none;box-shadow:none;} /* タッチ端末で浮き効果が貼り付くのを防ぐ */
+    .card h2{font-size:14px;}
+    .links{display:flex;flex-wrap:wrap;gap:4px 16px;}
+    .links a{margin-right:0;padding:6px 0;} /* 指で押しやすい高さを確保 */
+    .copied{bottom:16px;}
+  }
 </style>
 </head>
 <body>
