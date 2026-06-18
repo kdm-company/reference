@@ -61,15 +61,22 @@ cd 参考要素倉庫
 │  └─ 001_nisshin/
 │     ├─ skeleton.html        ← 構造スケルトン
 │     └─ composition.md      ← 形の説明＋再現のキモ
+├─ patterns/           ← 背景の柄(SVG)。1柄=1ファイル
+│  └─ PATTERN-001.svg
 └─ indexes/
    ├─ layouts.md      ← 構図パターン横断
-   └─ decorations.md           ← 形のパーツ横断
+   ├─ decorations.md           ← 形のパーツ横断
+   └─ patterns.md              ← 柄(背景パターン)横断
 ```
+
+`patterns/` は背景に敷く柄を `<pattern>` でタイル化したSVGで保管する(形の倉庫の例外。柄は図柄そのものが成果物)。
+`catalog.html` の「柄(PATTERN)」セクションで縮図を見て選び、IDを Claude Code に渡して使う。
 
 ## ID命名ルール
 
 - `LAYOUT-xxx` レイアウト・構図(主役)
 - `DECO-xxx` 形のあしらい(リボン・区切り・ボタン形など)
+- `PATTERN-xxx` 背景の柄(ドット・斜線・格子・市松など)
 
 ## 登録サイト一覧
 

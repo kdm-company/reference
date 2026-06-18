@@ -911,6 +911,112 @@
     </div>
   </div>
 
+  <!-- ============================ 柄(PATTERN) ここから ============================ -->
+  <p class="hint" style="margin-top:8px;padding-top:12px;border-top:2px solid var(--line);font-weight:700;color:var(--ink);font-size:14px;">柄(背景パターン) PATTERN-xxx … カードクリックでIDコピー / 「柄SVG」リンクで原本を開く。色は #334155 を淡く敷いた控えめ密度で、濃さは opacity で調整。</p>
+
+  <!-- ===== PATTERN-001 ===== -->
+  <div class="card" data-id="PATTERN-001">
+    <span class="id">PATTERN-001</span>
+    <h2>柄 / ドット(規則正しい水玉)</h2>
+    <div class="tags">
+      <span class="tag">#ドット</span>
+      <span class="tag">#水玉</span>
+      <span class="tag">#背景柄</span>
+      <span class="tag">#SVG pattern</span>
+    </div>
+    <svg class="wire" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="cpat-001" width="24" height="24" patternUnits="userSpaceOnUse">
+          <circle cx="12" cy="12" r="2.4" fill="#334155" fill-opacity="0.18"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="200" fill="#fff"/>
+      <rect width="400" height="200" fill="url(#cpat-001)"/>
+    </svg>
+    <p class="desc">規則正しい水玉。淡く控えめな密度でどんな背景にも重ねやすい。タイル24x24・主要色 #334155(濃さは fill-opacity)。</p>
+    <div class="links" onclick="event.stopPropagation()">
+      <a href="patterns/PATTERN-001.svg" target="_blank">柄SVG ↗</a>
+    </div>
+  </div>
+
+  <!-- ===== PATTERN-002 ===== -->
+  <div class="card" data-id="PATTERN-002">
+    <span class="id">PATTERN-002</span>
+    <h2>柄 / ストライプ(斜めの細い線)</h2>
+    <div class="tags">
+      <span class="tag">#ストライプ</span>
+      <span class="tag">#斜線</span>
+      <span class="tag">#背景柄</span>
+      <span class="tag">#SVG pattern</span>
+    </div>
+    <svg class="wire" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="cpat-002" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+          <rect x="0" y="0" width="2" height="14" fill="#334155" fill-opacity="0.16"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="200" fill="#fff"/>
+      <rect width="400" height="200" fill="url(#cpat-002)"/>
+    </svg>
+    <p class="desc">45度の細い斜線を等間隔に。端正で動きのある下地。傾きは patternTransform の rotate で変更可。主要色 #334155(濃さは fill-opacity)。</p>
+    <div class="links" onclick="event.stopPropagation()">
+      <a href="patterns/PATTERN-002.svg" target="_blank">柄SVG ↗</a>
+    </div>
+  </div>
+
+  <!-- ===== PATTERN-003 ===== -->
+  <div class="card" data-id="PATTERN-003">
+    <span class="id">PATTERN-003</span>
+    <h2>柄 / グリッド(細い格子)</h2>
+    <div class="tags">
+      <span class="tag">#グリッド</span>
+      <span class="tag">#格子</span>
+      <span class="tag">#方眼</span>
+      <span class="tag">#SVG pattern</span>
+    </div>
+    <svg class="wire" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="cpat-003" width="24" height="24" patternUnits="userSpaceOnUse">
+          <path d="M24 0 H0 V24" fill="none" stroke="#334155" stroke-opacity="0.18" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="200" fill="#fff"/>
+      <rect width="400" height="200" fill="url(#cpat-003)"/>
+    </svg>
+    <p class="desc">縦横の細線でつくる方眼。設計図的で端正な下地。マス24x24・線幅1・主要色 #334155(濃さは stroke-opacity)。</p>
+    <div class="links" onclick="event.stopPropagation()">
+      <a href="patterns/PATTERN-003.svg" target="_blank">柄SVG ↗</a>
+    </div>
+  </div>
+
+  <!-- ===== PATTERN-004 ===== -->
+  <div class="card" data-id="PATTERN-004">
+    <span class="id">PATTERN-004</span>
+    <h2>柄 / 市松(チェッカー)</h2>
+    <div class="tags">
+      <span class="tag">#市松</span>
+      <span class="tag">#チェッカー</span>
+      <span class="tag">#背景柄</span>
+      <span class="tag">#SVG pattern</span>
+    </div>
+    <svg class="wire" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="cpat-004" width="40" height="40" patternUnits="userSpaceOnUse">
+          <rect x="0" y="0" width="20" height="20" fill="#334155" fill-opacity="0.12"/>
+          <rect x="20" y="20" width="20" height="20" fill="#334155" fill-opacity="0.12"/>
+        </pattern>
+      </defs>
+      <rect width="400" height="200" fill="#fff"/>
+      <rect width="400" height="200" fill="url(#cpat-004)"/>
+    </svg>
+    <p class="desc">淡い市松。やわらかな陰影でリズムを出す下地。マス20・タイル40x40・主要色 #334155(濃さは fill-opacity)。</p>
+    <div class="links" onclick="event.stopPropagation()">
+      <a href="patterns/PATTERN-004.svg" target="_blank">柄SVG ↗</a>
+    </div>
+  </div>
+
+  <!-- ============================ 柄(PATTERN) ここまで ============================ -->
+
   <!-- 次サイトのカードはここに追記 -->
 
 </div>
