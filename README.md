@@ -82,3 +82,6 @@ cd 参考要素倉庫
 | 005 | Apple系 | #中央寄せ製品ヒーロー #ピル型CTA #角丸カード #セグメントタブ #非対称グリッド | [skeleton.html](sites/005_apple/skeleton.html) | [composition.md](sites/005_apple/composition.md) |
 | 006 | 安川電機 | #情報密度ヘッダー #2段ヘッダー #スライダーヒーロー #ニュース行リスト #カラーラベル | [skeleton.html](sites/006_yaskawa/skeleton.html) | [composition.md](sites/006_yaskawa/composition.md) |
 | 007 | PROGRIT | #超大型見出し #斜め装飾シェイプ #カードグリッド3+2 #浮き立体カード #人物はみ出し #大型フッター | [skeleton.html](sites/007_progrit/skeleton.html) | [composition.md](sites/007_progrit/composition.md) |
+| 008 | ビズリーチ | #問い合わせ案内 #中央寄せ #主CTA+電話 #補足リンク文 | [skeleton.html](sites/008_bizreach/skeleton.html) | [composition.md](sites/008_bizreach/composition.md) |
+| 009 | 京都きもの学院 | #リード訴求 #中央寄せ #キャッチ見出し #明朝系 #余白広め | [skeleton.html](sites/009_kyoto_kimono/skeleton.html) | [composition.md](sites/009_kyoto_kimono/composition.md) |
+| 010 | セブン-イレブン | #リンクグリッド #サービス案内 #見出し+説明 #取組み紹介カード横並び | [skeleton.html](sites/010_seven/skeleton.html) | [composition.md](sites/010_seven/composition.md) |

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>010 セブン-イレブン 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://www.sej.co.jp/
+  含む形:
+    LAYOUT-011 / サービス案内リンクグリッド(見出し+説明の小ブロックを多数グリッド配置)
+    DECO-016   / 取組み紹介カード横並び(画像+見出し+説明のカードを3〜4列)
+  ※ 色・画像は構造把握用の仮色/プレースホルダ。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+  .label{max-width:1080px;margin:46px auto 8px;padding:0 32px;font-size:13px;color:#3a6ea5;font-weight:700;}
+
+  /* ===== LAYOUT-011 サービス案内リンクグリッド ===== */
+  .svc{max-width:1080px;margin:0 auto;padding:30px 32px;
+       display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .svc .item{border:1px solid #eee;border-radius:8px;padding:22px;}
+  .svc .item .t{width:120px;height:16px;background:#cfcfcf;margin-bottom:12px;}   /* リンク見出し */
+  .svc .item .p{width:100%;height:11px;background:#e2e2e2;margin-bottom:6px;}      /* 説明 */
+  .svc .item .p.short{width:70%;}
+
+  /* ===== DECO-016 取組み紹介カード横並び ===== */
+  .acts{max-width:1080px;margin:0 auto;padding:30px 32px 70px;}
+  .acts h2{text-align:center;font-size:18px;color:#333;margin-bottom:30px;}
+  .acts .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+  .acts .card .img{width:100%;height:140px;border-radius:8px;}                      /* サムネ画像 */
+  .acts .card .t{width:80%;height:15px;background:#cfcfcf;margin:16px 0 10px;}       /* 見出し */
+  .acts .card .p{width:100%;height:11px;background:#e2e2e2;margin-bottom:6px;}        /* 説明 */
+  .acts .card .p.short{width:60%;}
+
+  @media(max-width:600px){
+    .svc{grid-template-columns:1fr;}
+    .acts .grid{grid-template-columns:1fr 1fr;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== LAYOUT-011 ===== -->
+  <div class="label">LAYOUT-011 / サービス案内リンクグリッド(見出し+説明の小ブロックを多数)</div>
+  <section class="svc">
+    <div class="item"><div class="ph t">サービス名</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+    <div class="item"><div class="ph t">サービス名</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+    <div class="item"><div class="ph t">サービス名</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+    <div class="item"><div class="ph t">サービス名</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+    <div class="item"><div class="ph t">サービス名</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+    <div class="item"><div class="ph t">サービス名</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+  </section>
+
+  <!-- ===== DECO-016 ===== -->
+  <div class="label">DECO-016 / 取組み紹介カード横並び(画像+見出し+説明を3〜4列)</div>
+  <section class="acts">
+    <h2 style="background:#e6e6e6;width:120px;height:20px;border-radius:3px;margin:0 auto 30px;"></h2>
+    <div class="grid">
+      <div class="card"><div class="ph img">画像</div><div class="ph t">見出し</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+      <div class="card"><div class="ph img">画像</div><div class="ph t">見出し</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+      <div class="card"><div class="ph img">画像</div><div class="ph t">見出し</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+      <div class="card"><div class="ph img">画像</div><div class="ph t">見出し</div><div class="ph p">説明</div><div class="ph p short">説明</div></div>
+    </div>
+  </section>
+
+</body>
+</html>
