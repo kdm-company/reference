@@ -30,3 +30,13 @@
 - 主要色 #334155(濃さは fill-opacity)。やわらかな陰影でリズムを出す。
 - 用途: 軽い装飾感を足したい背景、写真の無い面の単調さ回避。
 - 原本: patterns/PATTERN-004.svg
+
+---
+
+背景の質感系(タイル柄でないCSS背景。decorations から柄として移動。IDは元のまま)
+
+## DECO-005 / 放射状グロー背景(003 岩崎電気)
+
+- 濃紺の左上から差す光。写真でなく CSS の radial-gradient。楕円グラデを ::before で重ね、要素外へはみ出させ overflow:hidden で切る。
+- 用途: テック・光関連の濃色ヒーロー/セクション背景。
+- 骨格: sites/003_iwasaki/skeleton.html(構図は LAYOUT-003 に残置)

@@ -237,35 +237,6 @@
     </div>
   </div>
 
-  <!-- ===== DECO-005 ===== -->
-  <div class="card" data-id="DECO-005">
-    <span class="id">DECO-005</span>
-    <h2>003 岩崎電気 / 放射状グロー背景</h2>
-    <div class="tags">
-      <span class="tag">#放射状グロー</span>
-      <span class="tag">#radial-gradient</span>
-      <span class="tag">#濃色背景の光</span>
-      <span class="tag">#CSSコード(写真でない)</span>
-    </div>
-    <svg class="wire" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="glowonly" cx="40%" cy="20%" r="55%">
-          <stop offset="0%" stop-color="#bcd0ee" stop-opacity="0.85"/>
-          <stop offset="38%" stop-color="#3c5a96" stop-opacity="0.35"/>
-          <stop offset="72%" stop-color="#0d1f47" stop-opacity="0"/>
-        </radialGradient>
-      </defs>
-      <rect width="400" height="200" fill="#0d1f47"/>
-      <rect width="400" height="200" fill="url(#glowonly)"/>
-    </svg>
-    <p class="desc">濃紺背景の左上から差す光。写真ではなくCSSの radial-gradient。濃色ベースに「明るい青→中間→透明」の楕円グラデを ::before で重ね、要素外へはみ出させ overflow:hidden で柔らかく切る。</p>
-    <div class="links" onclick="event.stopPropagation()">
-      <a href="sites/003_iwasaki/skeleton.html" target="_blank">骨格HTML ↗</a>
-      <a href="sites/003_iwasaki/composition.md" target="_blank">構図メモ ↗</a>
-      <a href="https://www.iwasaki.co.jp/" target="_blank">元サイト ↗</a>
-    </div>
-  </div>
-
   <!-- ===== LAYOUT-004(1セット) ===== -->
   <div class="card" data-id="LAYOUT-004">
     <span class="id">LAYOUT-004</span>
@@ -1012,6 +983,35 @@
     <p class="desc">淡い市松。やわらかな陰影でリズムを出す下地。マス20・タイル40x40・主要色 #334155(濃さは fill-opacity)。</p>
     <div class="links" onclick="event.stopPropagation()">
       <a href="patterns/PATTERN-004.svg" target="_blank">柄SVG ↗</a>
+    </div>
+  </div>
+
+  <!-- ===== DECO-005(柄/背景へ移動・構図はLAYOUT-003に残置) ===== -->
+  <div class="card" data-id="DECO-005">
+    <span class="id">DECO-005</span>
+    <h2>柄 / 放射状グロー背景(003 岩崎電気)</h2>
+    <div class="tags">
+      <span class="tag">#放射状グロー</span>
+      <span class="tag">#radial-gradient</span>
+      <span class="tag">#濃色背景の光</span>
+      <span class="tag">#CSSコード(写真でない)</span>
+    </div>
+    <svg class="wire" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="glowonly" cx="40%" cy="20%" r="55%">
+          <stop offset="0%" stop-color="#bcd0ee" stop-opacity="0.85"/>
+          <stop offset="38%" stop-color="#3c5a96" stop-opacity="0.35"/>
+          <stop offset="72%" stop-color="#0d1f47" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="400" height="200" fill="#0d1f47"/>
+      <rect width="400" height="200" fill="url(#glowonly)"/>
+    </svg>
+    <p class="desc">濃紺背景の左上から差す光。写真ではなくCSSの radial-gradient。濃色ベースに「明るい青→中間→透明」の楕円グラデを ::before で重ね、要素外へはみ出させ overflow:hidden で柔らかく切る。タイル柄でなく背景の質感系。</p>
+    <div class="links" onclick="event.stopPropagation()">
+      <a href="sites/003_iwasaki/skeleton.html" target="_blank">骨格HTML ↗</a>
+      <a href="sites/003_iwasaki/composition.md" target="_blank">構図メモ ↗</a>
+      <a href="https://www.iwasaki.co.jp/" target="_blank">元サイト ↗</a>
     </div>
   </div>
 
