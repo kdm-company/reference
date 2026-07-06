@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>014 Golfcart Vision 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://www.golfcart-vision.jp/mediasheet
+  含む形:
+    LAYOUT-015 / ダブルCTAブロック付き浮きヘッダ(リード獲得型)
+  実物: Studio.Design製。ヘッダは position:fixed(高さ100px)+白背景+box-shadowで浮かせる。
+  navはトップページ各セクションへのアンカリンク。右端にCTAボタン2連
+  (180x64の角丸なし四角 / 深緑#285943「お問い合わせ」+ 若草#879d3b「媒体資料ダウンロード」/
+   hoverでどちらも#2a2a2aの黒地に変化)。
+  スマホは「ロゴ+ハンバーガー」の別ヘッダに切替。
+  ※ 色・画像は構造把握用の仮色/プレースホルダ。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fafafa;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+  .label{max-width:1200px;margin:46px auto 8px;padding:0 32px;font-size:13px;color:#3a6ea5;font-weight:700;}
+
+  /* ===== LAYOUT-015 ダブルCTAブロック付き浮きヘッダ ===== */
+  /* 実物は position:fixed; top:0; z-index:3。スケルトンでは通常配置で形だけ示す */
+  .hd{height:100px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);
+      display:flex;justify-content:space-between;align-items:center;padding:8px;}
+  .hd_logo{width:270px;height:26px;margin-left:16px;}                    /* 横長ロゴ(SVG) */
+  .hd_right{display:flex;align-items:center;}
+  .hd_nav{display:flex;align-items:center;}
+  .hd_nav .item{width:88px;height:12px;background:#cfcfcf;margin-left:24px;}  /* アンカリンク(hoverで色変化) */
+  .hd_cta{display:flex;margin-left:32px;}
+  .cta{width:180px;height:64px;display:flex;align-items:center;justify-content:center;
+       font-size:12px;color:#fff;}
+  .cta.c1{background:#8fa398;}                    /* 実物: 深緑#285943 お問い合わせ */
+  .cta.c2{background:#b9c49a;margin-left:8px;}     /* 実物: 若草#879d3b 媒体資料DL */
+  /* hoverはどちらも黒地(#2a2a2a)に変化 */
+
+  /* ページ側のダミー(浮きヘッダの影を見せるため) */
+  .dummy{height:180px;margin:0;}
+
+  /* ===== スマホ版: ロゴ+ハンバーガーの別ヘッダ ===== */
+  .hd_sp{display:none;}
+  @media(max-width:600px){
+    .hd{display:none;}
+    .hd_sp{height:72px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.2);
+           display:flex;justify-content:space-between;align-items:center;padding:8px 14px;}
+    .hd_sp .logo{width:170px;height:20px;}
+    .burger{width:30px;display:flex;flex-direction:column;gap:7px;}
+    .burger span{height:2px;background:#666;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== LAYOUT-015 ===== -->
+  <div class="label" style="margin-top:20px;">LAYOUT-015 / ダブルCTAブロック付き浮きヘッダ(リード獲得型・実物はfixed)</div>
+  <header class="hd">
+    <div class="ph hd_logo">横長ロゴ</div>
+    <div class="hd_right">
+      <nav class="hd_nav">
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+        <div class="item"></div><div class="item"></div>
+      </nav>
+      <div class="hd_cta">
+        <div class="cta c1">お問い合わせ<br>(深緑)</div>
+        <div class="cta c2">資料DL<br>(若草)</div>
+      </div>
+    </div>
+  </header>
+  <header class="hd_sp">
+    <div class="ph logo">横長ロゴ</div>
+    <div class="burger"><span></span><span></span><span></span></div>
+  </header>
+
+  <div class="dummy"></div>
+
+</body>
+</html>
