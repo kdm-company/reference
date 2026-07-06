@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>013 ノダRFテクノロジーズ トップ全体の骨格</title>
+<!--
+  トップページ全体を丸ごとテンプレ化したスケルトン。色・テキスト・実画像は除去。
+  元URL: https://www.n-rf.co.jp/
+  含む形:
+    LAYOUT-014 / 製造業トップ全体構成
+      (ヘッダー(言語+ハンバーガー) → 全画面クロスフェードMV(右寄せコピー+scroll指標)
+       → 同期スライダ(三つの軸) → 製品紹介(背景帯ずらし2カラム) → 採用(写真帯)
+       → ニュース3カード → CVフッター(濃色帯+白ボックス))
+    DECO-021   / 番号ページャ付き テキスト×画像 同期スライダ
+  実物の特徴: MVは3枚の背景がケンバーンズ(ゆっくり拡大)しながらクロスフェード。
+  見出しは英字(Oswald)+和文の2段。アクセントは紺(#003C87)。
+  ※ 色・画像は構造把握用の仮色/プレースホルダ。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+  .label{max-width:1080px;margin:46px auto 8px;padding:0 32px;font-size:13px;color:#3a6ea5;font-weight:700;}
+  .inner{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .h_en{width:110px;height:18px;background:#bfbfbf;margin-bottom:8px;}   /* 英字見出し(Oswald大文字) */
+  .h_ja{width:130px;height:12px;background:#cfcfcf;}                       /* 和文見出し(小) */
+  .p{height:10px;background:#e2e2e2;margin-bottom:7px;}
+  .btn{width:190px;height:44px;background:#b9c1ce;display:flex;align-items:center;justify-content:center;font-size:11px;color:#777;}
+
+  /* ===== ヘッダー: ロゴ+言語+ハンバーガー ===== */
+  .hd{display:flex;justify-content:space-between;align-items:center;height:60px;padding:0 28px;
+      border-bottom:1px solid #eee;}
+  .hd_logo{width:150px;height:28px;}
+  .hd_right{display:flex;align-items:center;gap:22px;}
+  .hd_lang{display:flex;gap:8px;align-items:center;}
+  .hd_lang .l{width:22px;height:9px;background:#d5d5d5;}
+  .burger{width:30px;display:flex;flex-direction:column;gap:6px;}
+  .burger span{height:2px;background:#999;}                                /* 実物は全画面ドロワーnav+CONTACTボタン */
+
+  /* ===== MV: 全画面クロスフェード+右寄せコピー ===== */
+  .mv{position:relative;height:540px;background:#c9ced6;border:1px dashed #aaa;overflow:hidden;}
+  .mv .note{position:absolute;top:10px;left:12px;font-size:11px;color:#8a8f98;}
+  .mv_copy{position:absolute;top:52%;right:9%;transform:translateY(-50%);}
+  .mv_copy .en{width:110px;height:12px;background:#dfe2e8;margin-bottom:16px;}   /* 英字小コピー */
+  .mv_copy .big{width:330px;height:30px;background:#dfe2e8;margin-bottom:12px;}    /* 和文大コピー1行目 */
+  .mv_copy .big.l2{width:280px;}                                                    /* 2行目 */
+  .mv_copy .sub{width:250px;height:10px;background:#d5dae2;margin-top:16px;}         /* サブコピー */
+  .mv_scroll{position:absolute;left:40px;bottom:0;display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .mv_scroll .t{width:36px;height:8px;background:#dfe2e8;}
+  .mv_scroll .line{width:2px;height:56px;background:#aab2bf;}                        /* 縦線が伸びるscroll指標 */
+
+  /* ===== DECO-021 同期スライダ(三つの軸) ===== */
+  .about{padding:80px 0;}
+  .about_flex{display:flex;justify-content:space-between;gap:30px;}
+  .about_txt{width:41%;}
+  .about_slide{border-top:1px solid #e5e5e5;margin-top:22px;padding-top:22px;}
+  .pager{display:flex;gap:6px;align-items:center;margin-bottom:16px;}
+  .pager .n{width:26px;height:14px;background:#bfbfbf;}                                /* 現在番号(01) */
+  .pager .sl{width:14px;height:2px;background:#ccc;}                                   /* スラッシュ */
+  .pager .total{width:26px;height:14px;background:#e0e0e0;}                            /* 総数(03) */
+  .about_copy{width:200px;height:20px;background:#bfbfbf;margin-bottom:14px;}          /* スライドの見出し */
+  .next{display:flex;gap:8px;align-items:center;margin-top:18px;}
+  .next .t{width:40px;height:9px;background:#cfcfcf;}
+  .next .arrow{width:44px;height:2px;background:#999;position:relative;}
+  .next .arrow::after{content:"";position:absolute;right:0;top:-4px;width:10px;height:2px;background:#999;transform:rotate(35deg);}
+  .about_img{width:55%;min-height:300px;}                                              /* 画像側スライダ(テキストと同期) */
+  .about .btn{margin-top:26px;}
+
+  /* ===== 製品紹介: 背景帯+ずらし2カラム ===== */
+  .product{position:relative;padding:70px 0 40px;}
+  .product::before{content:"";position:absolute;top:0;left:0;width:36%;height:82%;background:#dfe3e9;}  /* 左の背景帯(実物は写真) */
+  .prod_flex{position:relative;display:flex;justify-content:space-between;gap:36px;}
+  .prod_img{flex:1;margin-top:110px;min-height:280px;}                                 /* 画像は下げて帯に半掛かり */
+  .prod_txt{width:50%;padding-top:40px;}
+  .prod_txt .bigcopy{width:85%;height:16px;background:#c5c5c5;margin:16px 0 6px;}
+  .prod_txt .bigcopy.l2{width:65%;}
+  .prod_txt .li{display:flex;gap:8px;align-items:center;margin-top:10px;}
+  .prod_txt .li .dot{width:6px;height:6px;background:#999;flex-shrink:0;}
+  .prod_txt .li .tx{flex:1;height:9px;background:#e2e2e2;}
+  .prod_strip{margin-top:46px;min-height:150px;}                                        /* 全幅の製品群イメージ */
+
+  /* ===== 採用: 写真帯+白文字 ===== */
+  .recruit{position:relative;margin-top:60px;padding:70px 0;background:#9aa3b2;border:1px dashed #8a93a2;}
+  .recruit_flex{display:flex;gap:36px;align-items:center;}
+  .recruit_img{width:46%;min-height:220px;}
+  .recruit_txt{flex:1;}
+  .recruit_txt .h_en,.recruit_txt .h_ja{background:#e8eaee;}
+  .recruit_txt .copy{width:80%;height:14px;background:#dfe2e8;margin:18px 0 8px;}
+  .recruit_txt .copy.l2{width:60%;}
+  .recruit_txt .btn{margin-top:22px;background:#fff;}
+
+  /* ===== ニュース3カード ===== */
+  .news{padding:80px 0;}
+  .news .head{text-align:center;margin-bottom:34px;}
+  .news .h_en,.news .h_ja{margin-left:auto;margin-right:auto;}
+  .news_cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:34px;}
+  .news_card{background:#f3f3f3;}
+  .news_card .img{width:100%;aspect-ratio:16/10;}
+  .news_card .body{padding:14px 16px 18px;}
+  .news_card .date{width:70px;height:9px;background:#cfcfcf;margin-bottom:10px;}
+  .news .btn{margin:0 auto;}
+
+  /* ===== CVフッター: 濃色帯+白ボックス ===== */
+  .cv{background:#8e99ad;padding:46px 0 54px;border:1px dashed #7f8a9e;}
+  .cv .lead{width:380px;max-width:100%;height:12px;background:#dfe2e8;margin:0 auto 24px;}
+  .cv_box{background:#fff;max-width:640px;margin:0 auto;padding:30px 20px;text-align:center;}
+  .cv_box .tel{width:220px;height:22px;background:#bfbfbf;margin:0 auto 10px;}
+  .cv_box .note{width:240px;height:9px;background:#e2e2e2;margin:0 auto 20px;}
+  .cv_box .btn{margin:0 auto;}
+  footer .ft{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;}
+  footer .ft_logo{width:140px;height:24px;}
+  footer .ft_nav{display:flex;gap:18px;}
+  footer .ft_nav .l{width:56px;height:8px;background:#d5d5d5;}
+  footer .cr{text-align:center;font-size:10px;color:#aaa;padding-bottom:14px;}
+
+  @media(max-width:600px){
+    .mv{height:460px;}
+    .mv_copy{right:16px;}
+    .about_flex,.prod_flex,.recruit_flex{flex-direction:column;}
+    .about_txt,.about_img,.prod_txt,.recruit_img{width:100%;}
+    .prod_img{margin-top:0;}
+    .product::before{width:70%;}
+    .news_cards{grid-template-columns:1fr;}
+    .news_card{display:grid;grid-template-columns:44% 1fr;}   /* スマホは横型カードに切替 */
+    .news_card .img{aspect-ratio:auto;height:100%;}
+    footer .ft{flex-direction:column;gap:14px;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== LAYOUT-014 トップ全体構成 ここから ===== -->
+  <div class="label" style="margin-top:20px;">LAYOUT-014 / 製造業トップ全体構成(全画面MV → 同期スライダ → 製品 → 採用 → ニュース → CVフッター)</div>
+
+  <!-- ヘッダー: ロゴ+言語リスト+ハンバーガー(navは全画面ドロワー) -->
+  <header class="hd">
+    <div class="ph hd_logo">ロゴ</div>
+    <div class="hd_right">
+      <div class="hd_lang"><div class="l"></div><div class="l"></div><div class="l"></div></div>
+      <div class="burger"><span></span><span></span><span></span></div>
+    </div>
+  </header>
+
+  <!-- MV: 全画面。背景3枚がケンバーンズ+クロスフェード。コピーは右寄せ、左下にscroll指標 -->
+  <section class="mv">
+    <span class="note">背景: 写真3枚がゆっくり拡大しながらクロスフェード</span>
+    <div class="mv_copy">
+      <div class="en"></div>
+      <div class="big"></div>
+      <div class="big l2"></div>
+      <div class="sub"></div>
+    </div>
+    <div class="mv_scroll"><div class="t"></div><div class="line"></div></div>
+  </section>
+
+  <!-- ===== DECO-021 同期スライダ ===== -->
+  <div class="label">DECO-021 / 番号ページャ付き テキスト×画像 同期スライダ(「三つの軸」型)</div>
+  <section class="about">
+    <div class="inner">
+      <div class="about_flex">
+        <div class="about_txt">
+          <div class="h_en"></div><div class="h_ja"></div>
+          <div class="about_slide">
+            <div class="pager"><div class="n"></div><div class="sl"></div><div class="total"></div></div>
+            <div class="about_copy"></div>
+            <div class="p" style="width:95%;"></div>
+            <div class="p" style="width:80%;"></div>
+            <div class="next"><div class="t"></div><div class="arrow"></div></div>
+          </div>
+          <div class="btn">ボタン</div>
+        </div>
+        <div class="ph about_img">画像スライダ(左のテキストと同期して切替)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 製品紹介: 左に背景帯、画像を下げて半掛かり、右にテキスト -->
+  <section class="product">
+    <div class="inner prod_flex">
+      <div class="ph prod_img">製品写真(帯に半掛かり)</div>
+      <div class="prod_txt">
+        <div class="h_en"></div><div class="h_ja"></div>
+        <div class="bigcopy"></div><div class="bigcopy l2"></div>
+        <div class="li"><div class="dot"></div><div class="tx"></div></div>
+        <div class="li"><div class="dot"></div><div class="tx"></div></div>
+        <div class="li"><div class="dot"></div><div class="tx"></div></div>
+        <div class="btn" style="margin-top:22px;">ボタン</div>
+      </div>
+    </div>
+    <div class="inner"><div class="ph prod_strip">製品ラインアップの横長イメージ(全幅)</div></div>
+  </section>
+
+  <!-- 採用: 写真背景の帯に、画像+白文字コピー -->
+  <section class="recruit">
+    <div class="inner recruit_flex">
+      <div class="ph recruit_img">画像</div>
+      <div class="recruit_txt">
+        <div class="h_en"></div><div class="h_ja"></div>
+        <div class="copy"></div><div class="copy l2"></div>
+        <div class="btn">白ボタン</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ニュース: 3カード(PC=縦型3列 / スマホ=横型1列) -->
+  <section class="news">
+    <div class="inner">
+      <div class="head"><div class="h_en"></div><div class="h_ja"></div></div>
+      <div class="news_cards">
+        <div class="news_card"><div class="ph img">画像</div><div class="body"><div class="date"></div><div class="p"></div><div class="p" style="width:70%;"></div></div></div>
+        <div class="news_card"><div class="ph img">画像</div><div class="body"><div class="date"></div><div class="p"></div><div class="p" style="width:70%;"></div></div></div>
+        <div class="news_card"><div class="ph img">画像</div><div class="body"><div class="date"></div><div class="p"></div><div class="p" style="width:70%;"></div></div></div>
+      </div>
+      <div class="btn">一覧ボタン</div>
+    </div>
+  </section>
+
+  <!-- CVフッター: 濃色帯にリード+白ボックス(TEL+ボタン) -->
+  <section class="cv">
+    <div class="inner">
+      <div class="lead"></div>
+      <div class="cv_box">
+        <div class="tel"></div>
+        <div class="note"></div>
+        <div class="btn">お問い合わせボタン</div>
+      </div>
+    </div>
+  </section>
+  <footer>
+    <div class="ft">
+      <div class="ph ft_logo">ロゴ</div>
+      <div class="ft_nav"><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div>
+    </div>
+    <div class="cr">copyright</div>
+  </footer>
+  <!-- ===== LAYOUT-014 ここまで ===== -->
+
+</body>
+</html>
