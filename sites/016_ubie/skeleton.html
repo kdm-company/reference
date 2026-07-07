@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>016 Ubie 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://ubie.life/
+  含む形:
+    DECO-023   / アイコン付き正方ダブルCTA(ヘッダー右端の色違い2ブロック)
+    LAYOUT-017 / 淡グラデヒーロー+対象者別リンク3連バー
+    DECO-024   / 対象者タグピル付きサービス交互ブロック(ロゴ見出し+ストアバッジ)
+  実物: Studio.Design製。白ヘッダー(ロゴ左+nav+右端にアイコン+ラベルの正方CTA2個)。
+  MVは白〜淡ピンクの斜めグラデ背景に黒の大コピー左寄せ。その下に枠線ボタン3本
+  (医療機関/製薬企業/採用)を横並び。Servicesは対象者タグピル+製品ロゴを見出しにした
+  交互2カラムを3ブロック。
+  ※ 色・画像は構造把握用の仮色/プレースホルダ。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+  .label{max-width:1200px;margin:46px auto 8px;padding:0 32px;font-size:13px;color:#3a6ea5;font-weight:700;}
+  .inner{max-width:1080px;margin:0 auto;padding:0 32px;}
+
+  /* ===== ヘッダー+DECO-023 ===== */
+  .hd{height:72px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.06);
+      display:flex;justify-content:space-between;align-items:center;padding-left:32px;}
+  .hd_logo{width:120px;height:30px;}
+  .hd_right{display:flex;align-items:center;height:100%;}
+  .hd_nav{display:flex;align-items:center;gap:24px;margin-right:24px;}
+  .hd_nav .item{width:60px;height:11px;background:#cfcfcf;}
+  .hd_nav .item.has-sub{position:relative;}
+  .hd_nav .item.has-sub::after{content:"";position:absolute;right:-13px;top:3px;border:4px solid transparent;border-top-color:#999;}
+  .sq_cta{height:100%;width:82px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;color:#fff;font-size:10px;}
+  .sq_cta .ico{width:20px;height:20px;border-radius:4px;background:rgba(255,255,255,.85);}
+  .sq_cta.c1{background:#8f9fd6;}      /* 実物: 青(お問合せ・メールアイコン) */
+  .sq_cta.c2{background:#d68fa8;}      /* 実物: ピンク(採用情報・人アイコン) */
+
+  /* ===== LAYOUT-017 淡グラデヒーロー+対象者別リンク3連 ===== */
+  .hero{position:relative;background:linear-gradient(115deg,#f3e8ec 0%,#faf7f8 42%,#fff 43%,#f7f2f4 100%);
+        padding:90px 0 60px;border-bottom:1px solid #f3f3f3;}
+  .hero_copy{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .hero_copy .t1{width:440px;max-width:90%;height:32px;background:#c9c9c9;margin-bottom:16px;}
+  .hero_copy .t2{width:520px;max-width:100%;height:32px;background:#c9c9c9;margin-bottom:24px;}
+  .hero_copy .p{width:330px;height:10px;background:#dcdcdc;margin-bottom:8px;}
+  .aud{max-width:1080px;margin:70px auto 0;padding:0 32px;
+       display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .aud a{display:flex;align-items:center;gap:10px;height:52px;padding:0 18px;
+         background:#fff;border:1px solid #d5d5d5;border-radius:4px;text-decoration:none;}
+  .aud .ico{width:18px;height:18px;background:#b9b9b9;flex-shrink:0;}
+  .aud .t{flex:1;height:11px;background:#cfcfcf;}
+  .aud .ar{width:8px;height:8px;border-top:2px solid #999;border-right:2px solid #999;transform:rotate(45deg);flex-shrink:0;}
+
+  /* ===== DECO-024 対象者タグピル付きサービス交互ブロック ===== */
+  .svc{padding:70px 0 80px;}
+  .svc_head{width:90px;height:16px;background:#d68fa8;margin-bottom:44px;}     /* 英字小見出し(アクセント色) */
+  .blk{display:flex;gap:50px;align-items:center;margin-bottom:90px;}
+  .blk.rev{flex-direction:row-reverse;}
+  .blk .img{flex:0 0 44%;min-height:240px;border-radius:10px;}
+  .blk .txt{flex:1;}
+  .tagpill{display:inline-block;width:80px;height:20px;border:1px solid #bbb;border-radius:3px;background:#fff;margin-bottom:14px;}
+  .svclogo{width:200px;height:30px;background:#c9c9c9;margin-bottom:16px;}      /* 製品ロゴをそのまま見出しに */
+  .blk .p{width:100%;height:10px;background:#e2e2e2;margin-bottom:8px;}
+  .blk .p.s{width:72%;}
+  .row{display:flex;gap:12px;margin-top:18px;align-items:center;flex-wrap:wrap;}
+  .badge{width:110px;height:34px;background:#4b4b4b;border-radius:6px;}          /* App Store / Google Play バッジ */
+  .pillbtn{width:120px;height:36px;background:#8f9fd6;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;}
+
+  @media(max-width:600px){
+    .hd_nav{display:none;}
+    .sq_cta{width:64px;}
+    .hero{padding:60px 0 40px;}
+    .hero_copy .t1,.hero_copy .t2{width:90%;height:24px;}
+    .aud{grid-template-columns:1fr;gap:12px;margin-top:44px;}
+    .blk,.blk.rev{flex-direction:column;gap:22px;margin-bottom:60px;}
+    .blk .img{flex:auto;width:100%;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== ヘッダー+DECO-023 ===== -->
+  <div class="label" style="margin-top:20px;">DECO-023 / アイコン付き正方ダブルCTA(ヘッダー右端・色違い2ブロック・ヘッダー高いっぱい)</div>
+  <header class="hd">
+    <div class="ph hd_logo">ロゴ</div>
+    <div class="hd_right">
+      <nav class="hd_nav">
+        <div class="item"></div><div class="item has-sub"></div><div class="item"></div>
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+      </nav>
+      <div class="sq_cta c1"><div class="ico"></div>お問合せ</div>
+      <div class="sq_cta c2"><div class="ico"></div>採用情報</div>
+    </div>
+  </header>
+
+  <!-- ===== LAYOUT-017 ===== -->
+  <div class="label">LAYOUT-017 / 淡グラデヒーロー(左寄せ大コピー)+対象者別リンク3連バー</div>
+  <section class="hero">
+    <div class="hero_copy">
+      <div class="t1"></div>
+      <div class="t2"></div>
+      <div class="p"></div><div class="p" style="width:280px;"></div>
+    </div>
+    <div class="aud">
+      <a href="#"><div class="ico"></div><div class="t"></div><div class="ar"></div></a>
+      <a href="#"><div class="ico"></div><div class="t"></div><div class="ar"></div></a>
+      <a href="#"><div class="ico"></div><div class="t"></div><div class="ar"></div></a>
+    </div>
+  </section>
+
+  <!-- ===== DECO-024 ===== -->
+  <div class="label">DECO-024 / 対象者タグピル付きサービス交互ブロック(ロゴ見出し+ストアバッジ/ピルボタン)</div>
+  <section class="svc">
+    <div class="inner">
+      <div class="svc_head"></div>
+
+      <!-- 生活者向け: 画像左 / テキスト右(ストアバッジ+小ボタン) -->
+      <div class="blk">
+        <div class="ph img">アプリ画面コラージュ</div>
+        <div class="txt">
+          <div class="tagpill"></div>
+          <div class="svclogo"></div>
+          <div class="p"></div><div class="p s"></div>
+          <div class="row"><div class="ph badge">Store</div><div class="ph badge">Store</div><div class="pillbtn">WEB版</div></div>
+        </div>
+      </div>
+
+      <!-- 医療機関向け: 反転(テキスト左 / 画像右) -->
+      <div class="blk rev">
+        <div class="ph img">デバイスモックアップ</div>
+        <div class="txt">
+          <div class="tagpill"></div>
+          <div class="svclogo"></div>
+          <div class="p"></div><div class="p"></div><div class="p s"></div>
+          <div class="row"><div class="pillbtn">サービスを見る →</div></div>
+        </div>
+      </div>
+
+      <!-- 製薬企業向け: 画像左 / テキスト右 -->
+      <div class="blk" style="margin-bottom:0;">
+        <div class="ph img">イラスト</div>
+        <div class="txt">
+          <div class="tagpill"></div>
+          <div class="svclogo"></div>
+          <div class="p"></div><div class="p"></div><div class="p s"></div>
+          <div class="row"><div class="pillbtn">サービスを見る →</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
