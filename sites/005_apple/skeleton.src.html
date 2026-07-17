@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>005 Apple系 形の骨格</title>
-<!--
+<html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/005_apple/skeleton.html</title></head>
+<body>
+<h1>sites/005_apple/skeleton.html</h1>
+<p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;005 Apple系 形の骨格&lt;/title&gt;
+&lt;!--
   形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
   元URL: apple.com/jp、apple.com/jp/mac、support.apple.com/ja-jp
   含む形:
@@ -13,8 +18,8 @@
     DECO-009   / ピル型セグメントタブ(選択中が塗りつぶし丸、グレーのトラックに乗る)
     LAYOUT-006 / 角丸カードの非対称グリッド(幅広1枚+下に2カラム)
   ※ 画像はグレーのプレースホルダで代用。
--->
-<style>
+--&gt;
+&lt;style&gt;
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:sans-serif;color:#555;background:#fff;}
   .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
@@ -72,84 +77,86 @@
     .cards{grid-template-columns:1fr;padding:24px 16px 50px;} /* LAYOUT-006 非対称グリッド→1カラム */
     .cardbox{padding:28px;min-height:auto;}
   }
-</style>
-</head>
-<body>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-  <!-- ===== LAYOUT-005 ===== -->
-  <div class="label">LAYOUT-005 / 中央寄せ製品ヒーロー(ピル型CTA2連 + 下に製品画像)</div>
-  <section class="sec">
-    <div class="hero">
-      <div class="ph title">製品名</div>
-      <div class="ph sub">サブコピー</div>
-      <div class="ctas">
-        <div class="ph pill fill">CTA(塗)</div>
-        <div class="ph pill line">CTA(線)</div>
-      </div>
-      <div class="ph product">製品画像(中央)</div>
-    </div>
-  </section>
+  &lt;!-- ===== LAYOUT-005 ===== --&gt;
+  &lt;div class="label"&gt;LAYOUT-005 / 中央寄せ製品ヒーロー(ピル型CTA2連 + 下に製品画像)&lt;/div&gt;
+  &lt;section class="sec"&gt;
+    &lt;div class="hero"&gt;
+      &lt;div class="ph title"&gt;製品名&lt;/div&gt;
+      &lt;div class="ph sub"&gt;サブコピー&lt;/div&gt;
+      &lt;div class="ctas"&gt;
+        &lt;div class="ph pill fill"&gt;CTA(塗)&lt;/div&gt;
+        &lt;div class="ph pill line"&gt;CTA(線)&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="ph product"&gt;製品画像(中央)&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- ===== DECO-008 ===== -->
-  <div class="label">DECO-008 / 2カラム関連情報カード</div>
-  <section class="sec">
-    <div class="twocol">
-      <h3 class="sec-t" style="background:#e6e6e6;width:120px;height:20px;border-radius:3px;margin:0 auto 40px;"></h3>
-      <div class="grid">
-        <div class="item">
-          <div class="ph vis">角丸ビジュアル</div>
-          <div class="ph h">見出し</div>
-          <div class="ph p">本文</div>
-          <div class="link"></div>
-        </div>
-        <div class="item">
-          <div class="ph vis">角丸ビジュアル(写真)</div>
-          <div class="ph h">見出し</div>
-          <div class="ph p">本文</div>
-          <div class="link"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+  &lt;!-- ===== DECO-008 ===== --&gt;
+  &lt;div class="label"&gt;DECO-008 / 2カラム関連情報カード&lt;/div&gt;
+  &lt;section class="sec"&gt;
+    &lt;div class="twocol"&gt;
+      &lt;h3 class="sec-t" style="background:#e6e6e6;width:120px;height:20px;border-radius:3px;margin:0 auto 40px;"&gt;&lt;/h3&gt;
+      &lt;div class="grid"&gt;
+        &lt;div class="item"&gt;
+          &lt;div class="ph vis"&gt;角丸ビジュアル&lt;/div&gt;
+          &lt;div class="ph h"&gt;見出し&lt;/div&gt;
+          &lt;div class="ph p"&gt;本文&lt;/div&gt;
+          &lt;div class="link"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="item"&gt;
+          &lt;div class="ph vis"&gt;角丸ビジュアル(写真)&lt;/div&gt;
+          &lt;div class="ph h"&gt;見出し&lt;/div&gt;
+          &lt;div class="ph p"&gt;本文&lt;/div&gt;
+          &lt;div class="link"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- ===== DECO-009 ===== -->
-  <div class="label">DECO-009 / ピル型セグメントタブ(大見出し + フィルター)</div>
-  <section class="sec">
-    <div class="filter">
-      <div class="ph big">大見出し</div>
-      <div><span class="seg">
-        <span class="tab on">すべて</span>
-        <span class="tab">カテゴリ</span>
-        <span class="tab">カテゴリ</span>
-        <span class="tab">カテゴリ</span>
-      </span></div>
-    </div>
-  </section>
+  &lt;!-- ===== DECO-009 ===== --&gt;
+  &lt;div class="label"&gt;DECO-009 / ピル型セグメントタブ(大見出し + フィルター)&lt;/div&gt;
+  &lt;section class="sec"&gt;
+    &lt;div class="filter"&gt;
+      &lt;div class="ph big"&gt;大見出し&lt;/div&gt;
+      &lt;div&gt;&lt;span class="seg"&gt;
+        &lt;span class="tab on"&gt;すべて&lt;/span&gt;
+        &lt;span class="tab"&gt;カテゴリ&lt;/span&gt;
+        &lt;span class="tab"&gt;カテゴリ&lt;/span&gt;
+        &lt;span class="tab"&gt;カテゴリ&lt;/span&gt;
+      &lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- ===== LAYOUT-006 ===== -->
-  <div class="label">LAYOUT-006 / 角丸カードの非対称グリッド(全幅1枚 + 下に2カラム)</div>
-  <section class="sec">
-    <div class="cards center">
-      <!-- 上段:全幅の幅広カード(中央寄せ) -->
-      <div class="cardbox wide">
-        <div class="ph h">見出し</div>
-        <div class="ph p">本文</div>
-        <div class="ph p2">本文</div>
-      </div>
-      <!-- 下段左:大きめカード -->
-      <div class="cardbox">
-        <div class="ph h">見出し</div>
-        <div class="ph p">本文</div>
-        <div class="ph p2">本文</div>
-      </div>
-      <!-- 下段右:小さめカード -->
-      <div class="cardbox">
-        <div class="ph h">見出し</div>
-        <div class="ph p">本文</div>
-        <div class="ph p2">本文</div>
-      </div>
-    </div>
-  </section>
+  &lt;!-- ===== LAYOUT-006 ===== --&gt;
+  &lt;div class="label"&gt;LAYOUT-006 / 角丸カードの非対称グリッド(全幅1枚 + 下に2カラム)&lt;/div&gt;
+  &lt;section class="sec"&gt;
+    &lt;div class="cards center"&gt;
+      &lt;!-- 上段:全幅の幅広カード(中央寄せ) --&gt;
+      &lt;div class="cardbox wide"&gt;
+        &lt;div class="ph h"&gt;見出し&lt;/div&gt;
+        &lt;div class="ph p"&gt;本文&lt;/div&gt;
+        &lt;div class="ph p2"&gt;本文&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- 下段左:大きめカード --&gt;
+      &lt;div class="cardbox"&gt;
+        &lt;div class="ph h"&gt;見出し&lt;/div&gt;
+        &lt;div class="ph p"&gt;本文&lt;/div&gt;
+        &lt;div class="ph p2"&gt;本文&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;!-- 下段右:小さめカード --&gt;
+      &lt;div class="cardbox"&gt;
+        &lt;div class="ph h"&gt;見出し&lt;/div&gt;
+        &lt;div class="ph p"&gt;本文&lt;/div&gt;
+        &lt;div class="ph p2"&gt;本文&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
 
-</body>
-</html>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body></html>

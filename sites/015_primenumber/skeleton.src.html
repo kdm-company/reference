@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>015 primeNumber 形の骨格</title>
-<!--
+<html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/015_primenumber/skeleton.html</title></head>
+<body>
+<h1>sites/015_primenumber/skeleton.html</h1>
+<p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;015 primeNumber 形の骨格&lt;/title&gt;
+&lt;!--
   形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
   元URL: https://primenumber.com/
   含む形:
@@ -14,8 +19,8 @@
   白の大見出し2行+リード4行を左寄せ、右側〜右下に明度違いの矩形タイルが重なる装飾。
   直下の白帯に導入企業ロゴが1列で流れる(マーキー)。
   ※ 色・画像は構造把握用の仮色/プレースホルダ。
--->
-<style>
+--&gt;
+&lt;style&gt;
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:sans-serif;color:#555;background:#fff;}
   .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
@@ -69,53 +74,55 @@
     .tile{opacity:.6;}
     .marquee .lg{flex-basis:80px;height:26px;}
   }
-</style>
-</head>
-<body>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-  <!-- ===== ヘッダー+DECO-022 ===== -->
-  <div class="label" style="margin-top:20px;">DECO-022 / 見出しグループ付きドロップダウンナビ(下は開いた状態。カテゴリ小見出し+項目リスト)</div>
-  <header>
-    <div class="hd">
-      <div class="ph hd_logo">ロゴ</div>
-      <div class="hd_right">
-        <nav class="hd_nav">
-          <div class="item has-sub"></div><div class="item"></div><div class="item"></div>
-          <div class="item"></div><div class="item"></div>
-        </nav>
-        <div class="hd_cta">お問い合わせ →</div>
-      </div>
-    </div>
-    <div class="drop">
-      <div class="drop_inner">
-        <div class="grp"><div class="head"></div><div class="item"></div><div class="item s"></div></div>
-        <div class="grp"><div class="head"></div><div class="item"></div></div>
-        <div class="grp"><div class="head"></div><div class="item"></div><div class="item s"></div></div>
-      </div>
-    </div>
-  </header>
+  &lt;!-- ===== ヘッダー+DECO-022 ===== --&gt;
+  &lt;div class="label" style="margin-top:20px;"&gt;DECO-022 / 見出しグループ付きドロップダウンナビ(下は開いた状態。カテゴリ小見出し+項目リスト)&lt;/div&gt;
+  &lt;header&gt;
+    &lt;div class="hd"&gt;
+      &lt;div class="ph hd_logo"&gt;ロゴ&lt;/div&gt;
+      &lt;div class="hd_right"&gt;
+        &lt;nav class="hd_nav"&gt;
+          &lt;div class="item has-sub"&gt;&lt;/div&gt;&lt;div class="item"&gt;&lt;/div&gt;&lt;div class="item"&gt;&lt;/div&gt;
+          &lt;div class="item"&gt;&lt;/div&gt;&lt;div class="item"&gt;&lt;/div&gt;
+        &lt;/nav&gt;
+        &lt;div class="hd_cta"&gt;お問い合わせ →&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="drop"&gt;
+      &lt;div class="drop_inner"&gt;
+        &lt;div class="grp"&gt;&lt;div class="head"&gt;&lt;/div&gt;&lt;div class="item"&gt;&lt;/div&gt;&lt;div class="item s"&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="grp"&gt;&lt;div class="head"&gt;&lt;/div&gt;&lt;div class="item"&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="grp"&gt;&lt;div class="head"&gt;&lt;/div&gt;&lt;div class="item"&gt;&lt;/div&gt;&lt;div class="item s"&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
 
-  <!-- ===== LAYOUT-016 ===== -->
-  <div class="label">LAYOUT-016 / ソリッドカラーヒーロー(左コピー+右幾何タイル)+直下ロゴマーキー帯</div>
-  <section class="hero">
-    <div class="tile t-a"></div>
-    <div class="tile t-b"></div>
-    <div class="tile t-c"></div>
-    <div class="tile t-d"></div>
-    <div class="hero_copy">
-      <div class="t1"></div>
-      <div class="t2"></div>
-      <div class="p"></div><div class="p"></div><div class="p"></div><div class="p s"></div>
-    </div>
-  </section>
-  <div class="marquee">
-    <div class="marquee_track">
-      <div class="ph lg">ロゴ</div><div class="ph lg">ロゴ</div><div class="ph lg">ロゴ</div>
-      <div class="ph lg">ロゴ</div><div class="ph lg">ロゴ</div><div class="ph lg">ロゴ</div>
-      <div class="ph lg">ロゴ</div><div class="ph lg">ロゴ</div><div class="ph lg">ロゴ</div>
-      <div class="ph lg">ロゴ</div>
-    </div>
-  </div>
+  &lt;!-- ===== LAYOUT-016 ===== --&gt;
+  &lt;div class="label"&gt;LAYOUT-016 / ソリッドカラーヒーロー(左コピー+右幾何タイル)+直下ロゴマーキー帯&lt;/div&gt;
+  &lt;section class="hero"&gt;
+    &lt;div class="tile t-a"&gt;&lt;/div&gt;
+    &lt;div class="tile t-b"&gt;&lt;/div&gt;
+    &lt;div class="tile t-c"&gt;&lt;/div&gt;
+    &lt;div class="tile t-d"&gt;&lt;/div&gt;
+    &lt;div class="hero_copy"&gt;
+      &lt;div class="t1"&gt;&lt;/div&gt;
+      &lt;div class="t2"&gt;&lt;/div&gt;
+      &lt;div class="p"&gt;&lt;/div&gt;&lt;div class="p"&gt;&lt;/div&gt;&lt;div class="p"&gt;&lt;/div&gt;&lt;div class="p s"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+  &lt;div class="marquee"&gt;
+    &lt;div class="marquee_track"&gt;
+      &lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;&lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;&lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;
+      &lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;&lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;&lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;
+      &lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;&lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;&lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;
+      &lt;div class="ph lg"&gt;ロゴ&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 
-</body>
-</html>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body></html>

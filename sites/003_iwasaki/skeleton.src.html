@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>003 岩崎電気 形の骨格</title>
-<!--
+<html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/003_iwasaki/skeleton.html</title></head>
+<body>
+<h1>sites/003_iwasaki/skeleton.html</h1>
+<p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;003 岩崎電気 形の骨格&lt;/title&gt;
+&lt;!--
   形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
   元URL: https://www.iwasaki.co.jp/
   含む形:
@@ -13,8 +18,8 @@
     DECO-004 / スクロール時に出る固定ヘッダー(白・横長・ロゴ左+メニュー右+ハンバーガー+検索)
     DECO-005 / 放射状グロー背景(左上から差す光。radial-gradientで描くCSSコード。写真ではない)
   ※ DECO-005の確認: 中心から外周へ均一に減衰する楕円グラデ。ノイズ・色ムラがなくHTMLに画像要素もないためCSS背景と判定。
--->
-<style>
+--&gt;
+&lt;style&gt;
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:sans-serif;color:#999;background:#fff;}
   .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
@@ -50,7 +55,7 @@
       rgba(13,31,71,0) 70%);
     pointer-events:none;
   }
-  .dark > *{position:relative;z-index:1;}         /* 中身はグローの上に */
+  .dark &gt; *{position:relative;z-index:1;}         /* 中身はグローの上に */
   /* 濃紺上ではプレースホルダ枠を白系に */
   .dark .ph{background:rgba(255,255,255,0.10);border-color:rgba(255,255,255,0.3);color:#ccd;}
   .dark .sec-head .jp::after,
@@ -93,58 +98,60 @@
     .row.rev .txt{order:1;}                           /* SPは反転を解除し全行「テキスト→画像」で統一 */
     .row.rev .img{order:2;}
   }
-</style>
-</head>
-<body>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-  <!-- ===== DECO-004 ===== -->
-  <div class="label">DECO-004 / スクロール時に出る固定ヘッダー</div>
-  <header class="fixed-header">
-    <div class="left">
-      <div class="ph logo">LOGO</div>
-      <div class="ph lang">JA/EN</div>
-    </div>
-    <div class="right">
-      <div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div>
-      <div class="ph it">nav</div><div class="ph it">nav</div>
-      <div class="ph icon">≡</div><div class="ph icon">⌕</div>
-    </div>
-  </header>
+  &lt;!-- ===== DECO-004 ===== --&gt;
+  &lt;div class="label"&gt;DECO-004 / スクロール時に出る固定ヘッダー&lt;/div&gt;
+  &lt;header class="fixed-header"&gt;
+    &lt;div class="left"&gt;
+      &lt;div class="ph logo"&gt;LOGO&lt;/div&gt;
+      &lt;div class="ph lang"&gt;JA/EN&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="right"&gt;
+      &lt;div class="ph it"&gt;nav&lt;/div&gt;&lt;div class="ph it"&gt;nav&lt;/div&gt;&lt;div class="ph it"&gt;nav&lt;/div&gt;
+      &lt;div class="ph it"&gt;nav&lt;/div&gt;&lt;div class="ph it"&gt;nav&lt;/div&gt;
+      &lt;div class="ph icon"&gt;≡&lt;/div&gt;&lt;div class="ph icon"&gt;⌕&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
 
-  <!-- ===== 濃色背景セクション(DECO-003 + LAYOUT-003) ===== -->
-  <div class="label">DECO-003 セクション見出し + LAYOUT-003 テキスト左/画像右(交互)</div>
-  <div class="dark">
+  &lt;!-- ===== 濃色背景セクション(DECO-003 + LAYOUT-003) ===== --&gt;
+  &lt;div class="label"&gt;DECO-003 セクション見出し + LAYOUT-003 テキスト左/画像右(交互)&lt;/div&gt;
+  &lt;div class="dark"&gt;
 
-    <!-- セクション見出し(英語ラベル+下線見出し+斜めtick) -->
-    <div class="sec-head">
-      <div class="ph en">English</div>
-      <div class="ph jp">和文大見出し</div>
-      <div class="tick"></div>
-    </div>
+    &lt;!-- セクション見出し(英語ラベル+下線見出し+斜めtick) --&gt;
+    &lt;div class="sec-head"&gt;
+      &lt;div class="ph en"&gt;English&lt;/div&gt;
+      &lt;div class="ph jp"&gt;和文大見出し&lt;/div&gt;
+      &lt;div class="tick"&gt;&lt;/div&gt;
+    &lt;/div&gt;
 
-    <!-- row1:テキスト左・画像右 -->
-    <div class="row">
-      <div class="txt">
-        <div class="ph en">label</div>
-        <div class="ph jp">小見出し</div>
-        <div class="ph p">本文</div>
-        <div class="ph p2">本文</div>
-      </div>
-      <div class="ph img">横長画像</div>
-    </div>
+    &lt;!-- row1:テキスト左・画像右 --&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="txt"&gt;
+        &lt;div class="ph en"&gt;label&lt;/div&gt;
+        &lt;div class="ph jp"&gt;小見出し&lt;/div&gt;
+        &lt;div class="ph p"&gt;本文&lt;/div&gt;
+        &lt;div class="ph p2"&gt;本文&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="ph img"&gt;横長画像&lt;/div&gt;
+    &lt;/div&gt;
 
-    <!-- row2:同じ型を繰り返し(縦に積む) -->
-    <div class="row">
-      <div class="txt">
-        <div class="ph en">label</div>
-        <div class="ph jp">小見出し</div>
-        <div class="ph p">本文</div>
-        <div class="ph p2">本文</div>
-      </div>
-      <div class="ph img">横長画像</div>
-    </div>
+    &lt;!-- row2:同じ型を繰り返し(縦に積む) --&gt;
+    &lt;div class="row"&gt;
+      &lt;div class="txt"&gt;
+        &lt;div class="ph en"&gt;label&lt;/div&gt;
+        &lt;div class="ph jp"&gt;小見出し&lt;/div&gt;
+        &lt;div class="ph p"&gt;本文&lt;/div&gt;
+        &lt;div class="ph p2"&gt;本文&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="ph img"&gt;横長画像&lt;/div&gt;
+    &lt;/div&gt;
 
-  </div>
+  &lt;/div&gt;
 
-</body>
-</html>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body></html>

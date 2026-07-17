@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>006 安川電機 形の骨格</title>
-<!--
+<html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/006_yaskawa/skeleton.html</title></head>
+<body>
+<h1>sites/006_yaskawa/skeleton.html</h1>
+<p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;006 安川電機 形の骨格&lt;/title&gt;
+&lt;!--
   形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
   元URL: https://www.yaskawa.co.jp/
   含む形:
@@ -12,8 +17,8 @@
     DECO-010   / スライダー型ヒーロー(ドットインジケータ+再生/停止ボタン+左右矢印)
     DECO-011   / ニュース行リスト(日付+カラーのカテゴリラベル+タイトル、下に「さらに表示」)
   ※ 画像はグレーのプレースホルダで代用。
--->
-<style>
+--&gt;
+&lt;style&gt;
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:sans-serif;color:#555;background:#fff;}
   .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
@@ -69,59 +74,61 @@
     .news .row .date{order:1;} .news .row .cat{order:2;}
     .news .row .ttl{order:3;flex:1 1 100%;}
   }
-</style>
-</head>
-<body>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-  <!-- ===== LAYOUT-007 ===== -->
-  <div class="label">LAYOUT-007 / 情報密度の高い2段ヘッダー</div>
-  <header>
-    <div class="head-top">
-      <div class="ph logo">LOGO</div>
-      <div class="utils">
-        <div class="ph u" style="width:90px;">お問い合わせ</div>
-        <div class="ph u" style="width:120px;">技術情報サイト</div>
-        <div class="ph toggle">小/大</div>
-        <div class="ph ic">印</div>
-        <div class="ph ic">検</div>
-        <div class="ph ic">地</div>
-      </div>
-      <div class="ph ham">≡</div>          <!-- SP:ハンバーガー(PCでは非表示) -->
-    </div>
-    <nav class="gnav">
-      <div class="ph it">企業情報</div>
-      <div class="ph it">製品</div>
-      <div class="ph it">サービス</div>
-      <div class="ph it">技術</div>
-      <div class="ph it">IR</div>
-      <div class="ph it">採用</div>
-    </nav>
-  </header>
+  &lt;!-- ===== LAYOUT-007 ===== --&gt;
+  &lt;div class="label"&gt;LAYOUT-007 / 情報密度の高い2段ヘッダー&lt;/div&gt;
+  &lt;header&gt;
+    &lt;div class="head-top"&gt;
+      &lt;div class="ph logo"&gt;LOGO&lt;/div&gt;
+      &lt;div class="utils"&gt;
+        &lt;div class="ph u" style="width:90px;"&gt;お問い合わせ&lt;/div&gt;
+        &lt;div class="ph u" style="width:120px;"&gt;技術情報サイト&lt;/div&gt;
+        &lt;div class="ph toggle"&gt;小/大&lt;/div&gt;
+        &lt;div class="ph ic"&gt;印&lt;/div&gt;
+        &lt;div class="ph ic"&gt;検&lt;/div&gt;
+        &lt;div class="ph ic"&gt;地&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="ph ham"&gt;≡&lt;/div&gt;          &lt;!-- SP:ハンバーガー(PCでは非表示) --&gt;
+    &lt;/div&gt;
+    &lt;nav class="gnav"&gt;
+      &lt;div class="ph it"&gt;企業情報&lt;/div&gt;
+      &lt;div class="ph it"&gt;製品&lt;/div&gt;
+      &lt;div class="ph it"&gt;サービス&lt;/div&gt;
+      &lt;div class="ph it"&gt;技術&lt;/div&gt;
+      &lt;div class="ph it"&gt;IR&lt;/div&gt;
+      &lt;div class="ph it"&gt;採用&lt;/div&gt;
+    &lt;/nav&gt;
+  &lt;/header&gt;
 
-  <!-- ===== DECO-010 ===== -->
-  <div class="label">DECO-010 / スライダー型ヒーロー(ドット+再生制御+左右矢印)</div>
-  <section class="hero">
-    <div class="ph slide" style="background:#2a3550;color:#ccd;">スライド(全幅ビジュアル)</div>
-    <div class="ph arrow l">‹</div>
-    <div class="ph arrow r">›</div>
-    <div class="dots">
-      <span class="d"></span><span class="d"></span><span class="d on"></span>
-      <span class="d"></span><span class="d"></span><span class="d"></span>
-      <span class="ph pause">‖</span>
-    </div>
-  </section>
+  &lt;!-- ===== DECO-010 ===== --&gt;
+  &lt;div class="label"&gt;DECO-010 / スライダー型ヒーロー(ドット+再生制御+左右矢印)&lt;/div&gt;
+  &lt;section class="hero"&gt;
+    &lt;div class="ph slide" style="background:#2a3550;color:#ccd;"&gt;スライド(全幅ビジュアル)&lt;/div&gt;
+    &lt;div class="ph arrow l"&gt;‹&lt;/div&gt;
+    &lt;div class="ph arrow r"&gt;›&lt;/div&gt;
+    &lt;div class="dots"&gt;
+      &lt;span class="d"&gt;&lt;/span&gt;&lt;span class="d"&gt;&lt;/span&gt;&lt;span class="d on"&gt;&lt;/span&gt;
+      &lt;span class="d"&gt;&lt;/span&gt;&lt;span class="d"&gt;&lt;/span&gt;&lt;span class="d"&gt;&lt;/span&gt;
+      &lt;span class="ph pause"&gt;‖&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- ===== DECO-011 ===== -->
-  <div class="label">DECO-011 / ニュース行リスト(日付+カラーラベル+タイトル)</div>
-  <section class="news">
-    <h2>ニュース</h2>
-    <div class="bar"></div>
-    <div class="row"><div class="ph date">日付</div><div class="ph cat" style="background:#1558a8;color:#fff;">IR</div><div class="ph ttl">タイトル</div></div>
-    <div class="row"><div class="ph date">日付</div><div class="ph cat" style="background:#1558a8;color:#fff;">新製品</div><div class="ph ttl">タイトル</div></div>
-    <div class="row"><div class="ph date">日付</div><div class="ph cat" style="background:#1558a8;color:#fff;">お知らせ</div><div class="ph ttl">タイトル</div></div>
-    <div class="row"><div class="ph date">日付</div><div class="ph cat" style="background:#1558a8;color:#fff;">イベント</div><div class="ph ttl">タイトル</div></div>
-    <div class="more"><div class="ph btn">さらに表示</div></div>
-  </section>
+  &lt;!-- ===== DECO-011 ===== --&gt;
+  &lt;div class="label"&gt;DECO-011 / ニュース行リスト(日付+カラーラベル+タイトル)&lt;/div&gt;
+  &lt;section class="news"&gt;
+    &lt;h2&gt;ニュース&lt;/h2&gt;
+    &lt;div class="bar"&gt;&lt;/div&gt;
+    &lt;div class="row"&gt;&lt;div class="ph date"&gt;日付&lt;/div&gt;&lt;div class="ph cat" style="background:#1558a8;color:#fff;"&gt;IR&lt;/div&gt;&lt;div class="ph ttl"&gt;タイトル&lt;/div&gt;&lt;/div&gt;
+    &lt;div class="row"&gt;&lt;div class="ph date"&gt;日付&lt;/div&gt;&lt;div class="ph cat" style="background:#1558a8;color:#fff;"&gt;新製品&lt;/div&gt;&lt;div class="ph ttl"&gt;タイトル&lt;/div&gt;&lt;/div&gt;
+    &lt;div class="row"&gt;&lt;div class="ph date"&gt;日付&lt;/div&gt;&lt;div class="ph cat" style="background:#1558a8;color:#fff;"&gt;お知らせ&lt;/div&gt;&lt;div class="ph ttl"&gt;タイトル&lt;/div&gt;&lt;/div&gt;
+    &lt;div class="row"&gt;&lt;div class="ph date"&gt;日付&lt;/div&gt;&lt;div class="ph cat" style="background:#1558a8;color:#fff;"&gt;イベント&lt;/div&gt;&lt;div class="ph ttl"&gt;タイトル&lt;/div&gt;&lt;/div&gt;
+    &lt;div class="more"&gt;&lt;div class="ph btn"&gt;さらに表示&lt;/div&gt;&lt;/div&gt;
+  &lt;/section&gt;
 
-</body>
-</html>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body></html>

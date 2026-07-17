@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>013 ノダRFテクノロジーズ トップ全体の骨格</title>
-<!--
+<html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/013_nrf/skeleton.html</title></head>
+<body>
+<h1>sites/013_nrf/skeleton.html</h1>
+<p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;013 ノダRFテクノロジーズ トップ全体の骨格&lt;/title&gt;
+&lt;!--
   トップページ全体を丸ごとテンプレ化したスケルトン。色・テキスト・実画像は除去。
   元URL: https://www.n-rf.co.jp/
   含む形:
@@ -16,8 +21,8 @@
   実物の特徴: MVは3枚の背景がケンバーンズ(ゆっくり拡大)しながらクロスフェード。
   見出しは英字(Oswald)+和文の2段。アクセントは紺(#003C87)。
   ※ 色・画像は構造把握用の仮色/プレースホルダ。
--->
-<style>
+--&gt;
+&lt;style&gt;
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:sans-serif;color:#555;background:#fff;}
   .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
@@ -126,115 +131,117 @@
     .news_card .img{aspect-ratio:auto;height:100%;}
     footer .ft{flex-direction:column;gap:14px;}
   }
-</style>
-</head>
-<body>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-  <!-- ===== LAYOUT-014 トップ全体構成 ここから ===== -->
-  <div class="label" style="margin-top:20px;">LAYOUT-014 / 製造業トップ全体構成(全画面MV → 同期スライダ → 製品 → 採用 → ニュース → CVフッター)</div>
+  &lt;!-- ===== LAYOUT-014 トップ全体構成 ここから ===== --&gt;
+  &lt;div class="label" style="margin-top:20px;"&gt;LAYOUT-014 / 製造業トップ全体構成(全画面MV → 同期スライダ → 製品 → 採用 → ニュース → CVフッター)&lt;/div&gt;
 
-  <!-- ヘッダー: ロゴ+言語リスト+ハンバーガー(navは全画面ドロワー) -->
-  <header class="hd">
-    <div class="ph hd_logo">ロゴ</div>
-    <div class="hd_right">
-      <div class="hd_lang"><div class="l"></div><div class="l"></div><div class="l"></div></div>
-      <div class="burger"><span></span><span></span><span></span></div>
-    </div>
-  </header>
+  &lt;!-- ヘッダー: ロゴ+言語リスト+ハンバーガー(navは全画面ドロワー) --&gt;
+  &lt;header class="hd"&gt;
+    &lt;div class="ph hd_logo"&gt;ロゴ&lt;/div&gt;
+    &lt;div class="hd_right"&gt;
+      &lt;div class="hd_lang"&gt;&lt;div class="l"&gt;&lt;/div&gt;&lt;div class="l"&gt;&lt;/div&gt;&lt;div class="l"&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="burger"&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
 
-  <!-- MV: 全画面。背景3枚がケンバーンズ+クロスフェード。コピーは右寄せ、左下にscroll指標 -->
-  <section class="mv">
-    <span class="note">背景: 写真3枚がゆっくり拡大しながらクロスフェード</span>
-    <div class="mv_copy">
-      <div class="en"></div>
-      <div class="big"></div>
-      <div class="big l2"></div>
-      <div class="sub"></div>
-    </div>
-    <div class="mv_scroll"><div class="t"></div><div class="line"></div></div>
-  </section>
+  &lt;!-- MV: 全画面。背景3枚がケンバーンズ+クロスフェード。コピーは右寄せ、左下にscroll指標 --&gt;
+  &lt;section class="mv"&gt;
+    &lt;span class="note"&gt;背景: 写真3枚がゆっくり拡大しながらクロスフェード&lt;/span&gt;
+    &lt;div class="mv_copy"&gt;
+      &lt;div class="en"&gt;&lt;/div&gt;
+      &lt;div class="big"&gt;&lt;/div&gt;
+      &lt;div class="big l2"&gt;&lt;/div&gt;
+      &lt;div class="sub"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="mv_scroll"&gt;&lt;div class="t"&gt;&lt;/div&gt;&lt;div class="line"&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- ===== DECO-021 同期スライダ ===== -->
-  <div class="label">DECO-021 / 番号ページャ付き テキスト×画像 同期スライダ(「三つの軸」型)</div>
-  <section class="about">
-    <div class="inner">
-      <div class="about_flex">
-        <div class="about_txt">
-          <div class="h_en"></div><div class="h_ja"></div>
-          <div class="about_slide">
-            <div class="pager"><div class="n"></div><div class="sl"></div><div class="total"></div></div>
-            <div class="about_copy"></div>
-            <div class="p" style="width:95%;"></div>
-            <div class="p" style="width:80%;"></div>
-            <div class="next"><div class="t"></div><div class="arrow"></div></div>
-          </div>
-          <div class="btn">ボタン</div>
-        </div>
-        <div class="ph about_img">画像スライダ(左のテキストと同期して切替)</div>
-      </div>
-    </div>
-  </section>
+  &lt;!-- ===== DECO-021 同期スライダ ===== --&gt;
+  &lt;div class="label"&gt;DECO-021 / 番号ページャ付き テキスト×画像 同期スライダ(「三つの軸」型)&lt;/div&gt;
+  &lt;section class="about"&gt;
+    &lt;div class="inner"&gt;
+      &lt;div class="about_flex"&gt;
+        &lt;div class="about_txt"&gt;
+          &lt;div class="h_en"&gt;&lt;/div&gt;&lt;div class="h_ja"&gt;&lt;/div&gt;
+          &lt;div class="about_slide"&gt;
+            &lt;div class="pager"&gt;&lt;div class="n"&gt;&lt;/div&gt;&lt;div class="sl"&gt;&lt;/div&gt;&lt;div class="total"&gt;&lt;/div&gt;&lt;/div&gt;
+            &lt;div class="about_copy"&gt;&lt;/div&gt;
+            &lt;div class="p" style="width:95%;"&gt;&lt;/div&gt;
+            &lt;div class="p" style="width:80%;"&gt;&lt;/div&gt;
+            &lt;div class="next"&gt;&lt;div class="t"&gt;&lt;/div&gt;&lt;div class="arrow"&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="btn"&gt;ボタン&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="ph about_img"&gt;画像スライダ(左のテキストと同期して切替)&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- 製品紹介: 左に背景帯、画像を下げて半掛かり、右にテキスト -->
-  <section class="product">
-    <div class="inner prod_flex">
-      <div class="ph prod_img">製品写真(帯に半掛かり)</div>
-      <div class="prod_txt">
-        <div class="h_en"></div><div class="h_ja"></div>
-        <div class="bigcopy"></div><div class="bigcopy l2"></div>
-        <div class="li"><div class="dot"></div><div class="tx"></div></div>
-        <div class="li"><div class="dot"></div><div class="tx"></div></div>
-        <div class="li"><div class="dot"></div><div class="tx"></div></div>
-        <div class="btn" style="margin-top:22px;">ボタン</div>
-      </div>
-    </div>
-    <div class="inner"><div class="ph prod_strip">製品ラインアップの横長イメージ(全幅)</div></div>
-  </section>
+  &lt;!-- 製品紹介: 左に背景帯、画像を下げて半掛かり、右にテキスト --&gt;
+  &lt;section class="product"&gt;
+    &lt;div class="inner prod_flex"&gt;
+      &lt;div class="ph prod_img"&gt;製品写真(帯に半掛かり)&lt;/div&gt;
+      &lt;div class="prod_txt"&gt;
+        &lt;div class="h_en"&gt;&lt;/div&gt;&lt;div class="h_ja"&gt;&lt;/div&gt;
+        &lt;div class="bigcopy"&gt;&lt;/div&gt;&lt;div class="bigcopy l2"&gt;&lt;/div&gt;
+        &lt;div class="li"&gt;&lt;div class="dot"&gt;&lt;/div&gt;&lt;div class="tx"&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="li"&gt;&lt;div class="dot"&gt;&lt;/div&gt;&lt;div class="tx"&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="li"&gt;&lt;div class="dot"&gt;&lt;/div&gt;&lt;div class="tx"&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="btn" style="margin-top:22px;"&gt;ボタン&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="inner"&gt;&lt;div class="ph prod_strip"&gt;製品ラインアップの横長イメージ(全幅)&lt;/div&gt;&lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- 採用: 写真背景の帯に、画像+白文字コピー -->
-  <section class="recruit">
-    <div class="inner recruit_flex">
-      <div class="ph recruit_img">画像</div>
-      <div class="recruit_txt">
-        <div class="h_en"></div><div class="h_ja"></div>
-        <div class="copy"></div><div class="copy l2"></div>
-        <div class="btn">白ボタン</div>
-      </div>
-    </div>
-  </section>
+  &lt;!-- 採用: 写真背景の帯に、画像+白文字コピー --&gt;
+  &lt;section class="recruit"&gt;
+    &lt;div class="inner recruit_flex"&gt;
+      &lt;div class="ph recruit_img"&gt;画像&lt;/div&gt;
+      &lt;div class="recruit_txt"&gt;
+        &lt;div class="h_en"&gt;&lt;/div&gt;&lt;div class="h_ja"&gt;&lt;/div&gt;
+        &lt;div class="copy"&gt;&lt;/div&gt;&lt;div class="copy l2"&gt;&lt;/div&gt;
+        &lt;div class="btn"&gt;白ボタン&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- ニュース: 3カード(PC=縦型3列 / スマホ=横型1列) -->
-  <section class="news">
-    <div class="inner">
-      <div class="head"><div class="h_en"></div><div class="h_ja"></div></div>
-      <div class="news_cards">
-        <div class="news_card"><div class="ph img">画像</div><div class="body"><div class="date"></div><div class="p"></div><div class="p" style="width:70%;"></div></div></div>
-        <div class="news_card"><div class="ph img">画像</div><div class="body"><div class="date"></div><div class="p"></div><div class="p" style="width:70%;"></div></div></div>
-        <div class="news_card"><div class="ph img">画像</div><div class="body"><div class="date"></div><div class="p"></div><div class="p" style="width:70%;"></div></div></div>
-      </div>
-      <div class="btn">一覧ボタン</div>
-    </div>
-  </section>
+  &lt;!-- ニュース: 3カード(PC=縦型3列 / スマホ=横型1列) --&gt;
+  &lt;section class="news"&gt;
+    &lt;div class="inner"&gt;
+      &lt;div class="head"&gt;&lt;div class="h_en"&gt;&lt;/div&gt;&lt;div class="h_ja"&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="news_cards"&gt;
+        &lt;div class="news_card"&gt;&lt;div class="ph img"&gt;画像&lt;/div&gt;&lt;div class="body"&gt;&lt;div class="date"&gt;&lt;/div&gt;&lt;div class="p"&gt;&lt;/div&gt;&lt;div class="p" style="width:70%;"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="news_card"&gt;&lt;div class="ph img"&gt;画像&lt;/div&gt;&lt;div class="body"&gt;&lt;div class="date"&gt;&lt;/div&gt;&lt;div class="p"&gt;&lt;/div&gt;&lt;div class="p" style="width:70%;"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;div class="news_card"&gt;&lt;div class="ph img"&gt;画像&lt;/div&gt;&lt;div class="body"&gt;&lt;div class="date"&gt;&lt;/div&gt;&lt;div class="p"&gt;&lt;/div&gt;&lt;div class="p" style="width:70%;"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="btn"&gt;一覧ボタン&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- CVフッター: 濃色帯にリード+白ボックス(TEL+ボタン) -->
-  <section class="cv">
-    <div class="inner">
-      <div class="lead"></div>
-      <div class="cv_box">
-        <div class="tel"></div>
-        <div class="note"></div>
-        <div class="btn">お問い合わせボタン</div>
-      </div>
-    </div>
-  </section>
-  <footer>
-    <div class="ft">
-      <div class="ph ft_logo">ロゴ</div>
-      <div class="ft_nav"><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div><div class="l"></div></div>
-    </div>
-    <div class="cr">copyright</div>
-  </footer>
-  <!-- ===== LAYOUT-014 ここまで ===== -->
+  &lt;!-- CVフッター: 濃色帯にリード+白ボックス(TEL+ボタン) --&gt;
+  &lt;section class="cv"&gt;
+    &lt;div class="inner"&gt;
+      &lt;div class="lead"&gt;&lt;/div&gt;
+      &lt;div class="cv_box"&gt;
+        &lt;div class="tel"&gt;&lt;/div&gt;
+        &lt;div class="note"&gt;&lt;/div&gt;
+        &lt;div class="btn"&gt;お問い合わせボタン&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+  &lt;footer&gt;
+    &lt;div class="ft"&gt;
+      &lt;div class="ph ft_logo"&gt;ロゴ&lt;/div&gt;
+      &lt;div class="ft_nav"&gt;&lt;div class="l"&gt;&lt;/div&gt;&lt;div class="l"&gt;&lt;/div&gt;&lt;div class="l"&gt;&lt;/div&gt;&lt;div class="l"&gt;&lt;/div&gt;&lt;div class="l"&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="cr"&gt;copyright&lt;/div&gt;
+  &lt;/footer&gt;
+  &lt;!-- ===== LAYOUT-014 ここまで ===== --&gt;
 
-</body>
-</html>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body></html>

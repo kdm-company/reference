@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html lang="ja">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>002 日立 形の骨格</title>
-<!--
+<html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/002_hitachi/skeleton.html</title></head>
+<body>
+<h1>sites/002_hitachi/skeleton.html</h1>
+<p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;002 日立 形の骨格&lt;/title&gt;
+&lt;!--
   形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
   元URL: https://www.hitachi.com/ja-jp/
   含む形: LAYOUT-002(中央寄せヒーロー+スライダー) / DECO-002(カード重ねオフセットパーツ 左右反転2型)
--->
-<style>
+--&gt;
+&lt;style&gt;
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:sans-serif;color:#999;background:#fff;}
   .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
@@ -73,54 +78,56 @@
       padding:24px;margin-top:-30px;}
     .feature .card .h{width:80%;} .feature .card .p,.feature .card .p2{width:100%;}
   }
-</style>
-</head>
-<body>
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
 
-  <!-- ===== LAYOUT-002 ===== -->
-  <div class="label">LAYOUT-002 / トップビュー(2段ヘッダー + 中央寄せヒーロー + スライダー)</div>
+  &lt;!-- ===== LAYOUT-002 ===== --&gt;
+  &lt;div class="label"&gt;LAYOUT-002 / トップビュー(2段ヘッダー + 中央寄せヒーロー + スライダー)&lt;/div&gt;
 
-  <!-- ヘッダー上段:ユーティリティ(右寄せ:言語/問合せ/検索) -->
-  <div class="util"><div class="ph it">lang</div><div class="ph it">contact</div><div class="ph it">search</div></div>
-  <!-- ヘッダー下段:ロゴ左 + メニュー横並び -->
-  <div class="gnav"><div class="ph logo">LOGO</div>
-    <div class="menu"><div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div><div class="ph it">nav</div></div>
-    <div class="ph ham">≡</div>            <!-- SP:ハンバーガー(PCでは非表示) -->
-  </div>
+  &lt;!-- ヘッダー上段:ユーティリティ(右寄せ:言語/問合せ/検索) --&gt;
+  &lt;div class="util"&gt;&lt;div class="ph it"&gt;lang&lt;/div&gt;&lt;div class="ph it"&gt;contact&lt;/div&gt;&lt;div class="ph it"&gt;search&lt;/div&gt;&lt;/div&gt;
+  &lt;!-- ヘッダー下段:ロゴ左 + メニュー横並び --&gt;
+  &lt;div class="gnav"&gt;&lt;div class="ph logo"&gt;LOGO&lt;/div&gt;
+    &lt;div class="menu"&gt;&lt;div class="ph it"&gt;nav&lt;/div&gt;&lt;div class="ph it"&gt;nav&lt;/div&gt;&lt;div class="ph it"&gt;nav&lt;/div&gt;&lt;div class="ph it"&gt;nav&lt;/div&gt;&lt;div class="ph it"&gt;nav&lt;/div&gt;&lt;/div&gt;
+    &lt;div class="ph ham"&gt;≡&lt;/div&gt;            &lt;!-- SP:ハンバーガー(PCでは非表示) --&gt;
+  &lt;/div&gt;
 
-  <!-- ヒーロー:中央寄せ、コピー中央、丸ピルCTA、左右にスライダー矢印 -->
-  <section class="hero">
-    <div class="ph arrow l">‹</div>
-    <div class="ph title">大見出し1(中央)</div>
-    <div class="ph title2">大見出し2(中央)</div>
-    <div class="ph cta">ピル型CTA</div>
-    <div class="ph arrow r">›</div>
-  </section>
+  &lt;!-- ヒーロー:中央寄せ、コピー中央、丸ピルCTA、左右にスライダー矢印 --&gt;
+  &lt;section class="hero"&gt;
+    &lt;div class="ph arrow l"&gt;‹&lt;/div&gt;
+    &lt;div class="ph title"&gt;大見出し1(中央)&lt;/div&gt;
+    &lt;div class="ph title2"&gt;大見出し2(中央)&lt;/div&gt;
+    &lt;div class="ph cta"&gt;ピル型CTA&lt;/div&gt;
+    &lt;div class="ph arrow r"&gt;›&lt;/div&gt;
+  &lt;/section&gt;
 
-  <!-- ===== DECO-002 ===== -->
-  <div class="label">DECO-002 / カード重ねオフセットパーツ(左右反転で交互)</div>
+  &lt;!-- ===== DECO-002 ===== --&gt;
+  &lt;div class="label"&gt;DECO-002 / カード重ねオフセットパーツ(左右反転で交互)&lt;/div&gt;
 
-  <!-- type-A:画像右・カード左下に重ねる -->
-  <div class="feature a">
-    <div class="ph img">横長画像</div>
-    <div class="card">
-      <div class="ph h">見出し</div>
-      <div class="ph p">本文</div>
-      <div class="ph p2">本文</div>
-      <div class="ph btn">ピル型CTA</div>
-    </div>
-  </div>
+  &lt;!-- type-A:画像右・カード左下に重ねる --&gt;
+  &lt;div class="feature a"&gt;
+    &lt;div class="ph img"&gt;横長画像&lt;/div&gt;
+    &lt;div class="card"&gt;
+      &lt;div class="ph h"&gt;見出し&lt;/div&gt;
+      &lt;div class="ph p"&gt;本文&lt;/div&gt;
+      &lt;div class="ph p2"&gt;本文&lt;/div&gt;
+      &lt;div class="ph btn"&gt;ピル型CTA&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 
-  <!-- type-B:画像左・カード右下に重ねる(反転) -->
-  <div class="feature b">
-    <div class="ph img">横長画像</div>
-    <div class="card">
-      <div class="ph h">見出し</div>
-      <div class="ph p">本文</div>
-      <div class="ph p2">本文</div>
-      <div class="ph btn">ピル型CTA</div>
-    </div>
-  </div>
+  &lt;!-- type-B:画像左・カード右下に重ねる(反転) --&gt;
+  &lt;div class="feature b"&gt;
+    &lt;div class="ph img"&gt;横長画像&lt;/div&gt;
+    &lt;div class="card"&gt;
+      &lt;div class="ph h"&gt;見出し&lt;/div&gt;
+      &lt;div class="ph p"&gt;本文&lt;/div&gt;
+      &lt;div class="ph p2"&gt;本文&lt;/div&gt;
+      &lt;div class="ph btn"&gt;ピル型CTA&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
 
-</body>
-</html>
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body></html>
