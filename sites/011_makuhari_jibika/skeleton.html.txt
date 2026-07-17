@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>011 幕張ベイパーク耳鼻咽喉科 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://makuhari-jibika.yukenkai.com/
+  含む形:
+    DECO-017   / 画像カード付きフルワイドメガメニュー(固定ヘッダーのドロップダウン)
+    LAYOUT-012 / 全画面KV: 背景スライド+中央キャッチ+右下オーバーラップ情報カード
+    DECO-018   / 正方形リンクパネル横並び(診療メニュー5連・1:1)
+  実物はヘッダー固定(position:fixed)、KVは高さ calc(100vh - ヘッダー)、
+  背景はvegasの写真スライドショー、キャッチは1文字ずつspanで出現アニメ。
+  ※ 色・画像は構造把握用の仮色/プレースホルダ。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+  .label{max-width:1080px;margin:46px auto 8px;padding:0 32px;font-size:13px;color:#3a6ea5;font-weight:700;}
+
+  /* ===== DECO-017 ヘッダー+メガメニュー ===== */
+  header{border-bottom:1px solid #eee;background:#fff;}
+  .hd_inner{max-width:1280px;margin:0 auto;height:72px;padding:0 40px;
+            display:flex;justify-content:space-between;align-items:center;}
+  .hd_logo{width:180px;height:34px;}                                   /* ロゴ(h1) */
+  .hd_nav{display:flex;gap:26px;align-items:center;}
+  .hd_nav .item{width:72px;height:13px;background:#cfcfcf;}             /* navリンク(hoverで下線が伸びる) */
+  .mega{background:#f4f1ec;box-shadow:0 14px 18px -8px rgba(0,0,0,.12);padding:26px 40px 30px;}
+  .mega_inner{max-width:1280px;margin:0 auto;display:flex;gap:30px;align-items:flex-start;}
+  .mega_index{flex:0 0 170px;padding-top:24px;}
+  .mega_index .t{width:110px;height:14px;background:#cfcfcf;margin-bottom:10px;}   /* 「一覧を見る」 */
+  .mega_index .b{width:140px;height:2px;background:#cfcfcf;}                        /* 下線あしらい */
+  .mega_cards{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:18px;}
+  .mega_cards .thumb{width:100%;height:74px;border-radius:6px;}          /* サムネ(hoverでtilt) */
+  .mega_cards .name{width:80%;height:10px;background:#cfcfcf;margin:10px auto 0;}
+
+  /* ===== LAYOUT-012 全画面KV ===== */
+  .kv{position:relative;height:520px;background:#d8d8d8;border:1px dashed #bbb;}
+  .kv .slide_note{position:absolute;top:10px;left:12px;font-size:11px;color:#999;}
+  .kv_catch{position:absolute;top:44%;left:0;right:0;transform:translateY(-50%);text-align:center;}
+  .kv_badge{width:150px;height:12px;background:#bfbfbf;margin:0 auto 16px;}          /* 開院日などの小バッジ */
+  .kv_line{width:340px;height:26px;background:#bfbfbf;margin:0 auto 12px;}            /* キャッチ1行目(1文字ずつ出現) */
+  .kv_line.l2{width:260px;}                                                            /* キャッチ2行目 */
+  .kv_sub{width:420px;height:11px;background:#c9c9c9;margin:18px auto 0;}              /* サブコピー1文 */
+  .kv_news{position:absolute;left:0;bottom:34px;width:300px;background:#fff;border:1px solid #eee;padding:12px 16px;}
+  .kv_news .t{width:70px;height:11px;background:#cfcfcf;margin-bottom:8px;}            /* お知らせ見出し */
+  .kv_news .p{width:100%;height:9px;background:#e2e2e2;}                                /* 記事1行 */
+  .kv_info{position:absolute;right:0;bottom:-64px;background:#fff;border:1px solid #eee;
+           box-shadow:0 16px 24px rgba(0,0,0,.08);padding:26px 34px;width:420px;}
+  .kv_info .cap{width:110px;height:12px;background:#cfcfcf;margin-bottom:14px;}        /* 「診療受付時間」 */
+  .kv_info table{width:100%;border-collapse:collapse;margin-bottom:16px;}
+  .kv_info th,.kv_info td{border:1px solid #eee;height:22px;}
+  .kv_info .tel{display:flex;gap:12px;align-items:center;}
+  .kv_info .tel .num{width:170px;height:18px;background:#cfcfcf;}                       /* TEL番号(大きめ) */
+  .kv_info .tel .note{width:150px;height:9px;background:#e2e2e2;}                       /* 電話受付時間 */
+
+  /* ===== DECO-018 正方形リンクパネル5連 ===== */
+  .treat{background:#f4f1ec;padding:110px 0 70px;margin-top:64px;}   /* 上paddingはkv_infoのはみ出し分 */
+  .treat_inner{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .treat_head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;}
+  .treat_tit .en{width:90px;height:10px;background:#cfcfcf;margin-bottom:10px;}        /* 英字小見出し */
+  .treat_tit .ja{width:180px;height:22px;background:#bfbfbf;}                           /* 和文見出し */
+  .treat_lead{flex:0 0 46%;}
+  .treat_lead .p{width:100%;height:10px;background:#dcd8d2;margin-bottom:8px;}
+  .treat_lead .btn{width:170px;height:38px;border:1px solid #bbb;border-radius:20px;margin-top:14px;
+                   display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;}
+  .panels{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+  .panel{position:relative;aspect-ratio:1/1;background:#fff;border:1px solid #e2ded7;}
+  .panel::before,.panel::after{content:"";position:absolute;left:10px;right:10px;height:2px;background:#d5d0c8;}
+  .panel::before{top:10px;}                                                             /* 上枠あしらい */
+  .panel::after{bottom:10px;}                                                            /* 下枠あしらい */
+  .panel .ico{width:44px;height:44px;border-radius:50%;margin:0 auto;}                   /* 症状アイコン */
+  .panel .inner{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:12px;}
+  .panel .name{width:70%;height:10px;background:#cfcfcf;margin:0 auto;}
+  .panel .name.s2{width:50%;height:8px;background:#e2e2e2;}
+
+  @media(max-width:600px){
+    .hd_nav{display:none;}                       /* 実物はハンバーガー+ドロワー */
+    .mega_cards{grid-template-columns:repeat(2,1fr);}
+    .kv{height:420px;}
+    .kv_line{width:70%;}
+    .kv_line.l2{width:52%;}
+    .kv_sub{width:80%;}
+    .kv_news{display:none;}
+    .kv_info{position:static;width:auto;margin:0 16px;transform:translateY(40px);}
+    .treat{padding-top:80px;}
+    .treat_head{flex-direction:column;align-items:flex-start;gap:18px;}
+    .treat_lead{flex:auto;}
+    .panels{grid-template-columns:repeat(2,1fr);}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== DECO-017 ===== -->
+  <div class="label" style="margin-top:20px;">DECO-017 / 画像カード付きフルワイドメガメニュー(固定ヘッダーのドロップダウン・下は開いた状態)</div>
+  <header>
+    <div class="hd_inner">
+      <div class="ph hd_logo">ロゴ+医院名</div>
+      <nav class="hd_nav">
+        <div class="item"></div><div class="item"></div><div class="item"></div>
+        <div class="item"></div><div class="item"></div>
+      </nav>
+    </div>
+    <div class="mega">
+      <div class="mega_inner">
+        <div class="mega_index"><div class="t"></div><div class="b"></div></div>
+        <div class="mega_cards">
+          <div><div class="ph thumb">画像</div><div class="name"></div></div>
+          <div><div class="ph thumb">画像</div><div class="name"></div></div>
+          <div><div class="ph thumb">画像</div><div class="name"></div></div>
+          <div><div class="ph thumb">画像</div><div class="name"></div></div>
+          <div><div class="ph thumb">画像</div><div class="name"></div></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== LAYOUT-012 ===== -->
+  <div class="label">LAYOUT-012 / 全画面KV: 背景スライド+中央キャッチ+右下オーバーラップ情報カード</div>
+  <section class="kv">
+    <span class="slide_note">背景: 写真スライドショー(全面)</span>
+    <div class="kv_catch">
+      <div class="kv_badge"></div>
+      <div class="kv_line"></div>
+      <div class="kv_line l2"></div>
+      <div class="kv_sub"></div>
+    </div>
+    <div class="kv_news"><div class="t"></div><div class="p"></div></div>
+    <div class="kv_info">
+      <div class="cap"></div>
+      <table>
+        <tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      </table>
+      <div class="tel"><div class="num"></div><div class="note"></div></div>
+    </div>
+  </section>
+
+  <!-- ===== DECO-018 ===== -->
+  <div class="label" style="margin-top:100px;">DECO-018 / 正方形リンクパネル横並び(診療メニュー5連・1:1・hoverでtilt)</div>
+  <section class="treat" style="margin-top:0;">
+    <div class="treat_inner">
+      <div class="treat_head">
+        <div class="treat_tit"><div class="en"></div><div class="ja"></div></div>
+        <div class="treat_lead">
+          <div class="p"></div><div class="p" style="width:80%;"></div>
+          <div class="btn">一覧ボタン(枠線+矢印)</div>
+        </div>
+      </div>
+      <div class="panels">
+        <div class="panel"><div class="inner"><div class="ph ico"></div><div class="name"></div><div class="name s2"></div></div></div>
+        <div class="panel"><div class="inner"><div class="ph ico"></div><div class="name"></div><div class="name s2"></div></div></div>
+        <div class="panel"><div class="inner"><div class="ph ico"></div><div class="name"></div><div class="name s2"></div></div></div>
+        <div class="panel"><div class="inner"><div class="ph ico"></div><div class="name"></div><div class="name s2"></div></div></div>
+        <div class="panel"><div class="inner"><div class="ph ico"></div><div class="name"></div><div class="name s2"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

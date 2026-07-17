@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>008 ビズリーチ 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://bizreach.biz/service/bizreach/
+  含む形:
+    DECO-014 / 問い合わせ案内ブロック(見出し→主CTA→電話番号(補足)→補足リンク文、中央寄せ)
+  ※ 色は構造把握用の仮色。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+  /* DECO-014 問い合わせ案内ブロック */
+  .contact{max-width:680px;margin:60px auto;padding:48px 32px;text-align:center;
+           background:#f6f8fa;border-radius:12px;}
+  .contact .h{width:280px;max-width:80%;height:22px;background:#cfcfcf;margin:0 auto 28px;}
+  .contact .cta{display:inline-block;width:320px;max-width:90%;height:56px;border-radius:6px;background:#1a73e8;margin:0 auto 24px;}
+  .contact .telnote{width:240px;height:13px;background:#ddd;margin:0 auto 8px;}   /* 電話受付時間 */
+  .contact .tel{width:200px;height:26px;background:#cfcfcf;margin:0 auto 22px;}    /* 電話番号(大きめ) */
+  .contact .note{width:90%;height:12px;background:#e2e2e2;margin:0 auto 6px;}      /* 補足リンク文 */
+
+  @media(max-width:600px){
+    .contact{padding:32px 18px;margin:30px 16px;}
+    .contact .cta{height:50px;}
+  }
+</style>
+</head>
+<body>
+
+  <section class="contact">
+    <div class="ph h">見出し(◯◯に関するお問い合わせ)</div>
+    <div class="ph cta">主CTA(お問い合わせ)</div>
+    <div class="ph telnote">電話受付の案内(平日◯時〜◯時)</div>
+    <div class="ph tel">電話番号(大きく)</div>
+    <div class="ph note">補足:別窓口へのリンクを含む案内文</div>
+  </section>
+
+</body>
+</html>

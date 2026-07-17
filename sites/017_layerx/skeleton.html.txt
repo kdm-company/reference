@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>017 LayerX 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://layerx.co.jp/
+  含む形:
+    LAYOUT-018 / 余白極大タイポヒーロー(ほぼ白紙+特大コピー左下寄せ)
+    DECO-025   / 複合ピルCTA(塗りピル+枠ピルの2重ボタン)
+  実物: 白背景のミニマル1行ヘッダー(ロゴ+テキストnav+右端に複合ピル)。
+  MVは画面の大半が余白で、下1/3あたりに特大の黒コピー2行だけを置く。
+  背景には細いSVGライングラフィックがスクロールに応じてゆっくり動く。
+  右下にscrollダウンボタン、右上に丸いスクロール進捗インジケータが追従。
+  ※ 色・画像は構造把握用の仮色/プレースホルダ。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+  .label{max-width:1200px;margin:46px auto 8px;padding:0 32px;font-size:13px;color:#3a6ea5;font-weight:700;}
+
+  /* ===== ヘッダー: ミニマル1行+DECO-025 ===== */
+  .hd{height:70px;background:#fff;display:flex;justify-content:space-between;align-items:center;padding:0 36px;}
+  .hd_left{display:flex;align-items:center;gap:40px;}
+  .hd_logo{width:120px;height:28px;}
+  .hd_nav{display:flex;align-items:center;gap:26px;}
+  .hd_nav .item{width:70px;height:11px;background:#cfcfcf;}
+  .hd_nav .item.has-sub{position:relative;}
+  .hd_nav .item.has-sub::after{content:"";position:absolute;right:-13px;top:3px;border:4px solid transparent;border-top-color:#999;}
+  /* DECO-025 複合ピルCTA: 白枠の器に「塗りピル+枠ピル」を内包 */
+  .pill_wrap{display:flex;align-items:center;gap:4px;padding:5px;border-radius:28px;
+             box-shadow:0 3px 12px rgba(0,0,0,.14);background:#fff;}
+  .pill_main{width:88px;height:38px;border-radius:20px;background:#9aa2d8;
+             display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;}  /* 実物: 青紫 Join Us */
+  .pill_sub{width:82px;height:34px;border-radius:18px;border:1px solid #b9bede;background:#aab1e0;
+            display:flex;align-items:center;justify-content:center;font-size:10px;color:#fff;}    /* 採用情報(枠ピル) */
+
+  /* ===== LAYOUT-018 余白極大タイポヒーロー ===== */
+  .hero{position:relative;height:640px;background:#fff;border-bottom:1px solid #f2f2f2;overflow:hidden;}
+  .hero_copy{position:absolute;left:10%;bottom:22%;}
+  .hero_copy .t1{width:420px;height:52px;background:#3a4150;margin-bottom:18px;}   /* 特大コピー1行目 */
+  .hero_copy .t2{width:330px;height:52px;background:#3a4150;}                        /* 特大コピー2行目 */
+  /* 背景の細ライングラフィック(実物はSVGがスクロール連動で動く) */
+  .lines{position:absolute;right:6%;top:12%;width:340px;height:340px;border:1px solid #e8e8e8;border-radius:50%;}
+  .lines::before{content:"";position:absolute;inset:52px;border:1px solid #eee;border-radius:50%;}
+  .lines::after{content:"";position:absolute;left:-40%;top:50%;width:180%;height:1px;background:#ececec;transform:rotate(-18deg);}
+  /* scrollダウンボタン(右下)と丸い進捗インジケータ(右上・fixed) */
+  .scrolldown{position:absolute;right:36px;bottom:30px;display:flex;align-items:center;gap:10px;}
+  .scrolldown .t{width:44px;height:8px;background:#d5d5d5;}
+  .scrolldown .circ{width:44px;height:44px;border:1px solid #ccc;border-radius:50%;position:relative;}
+  .scrolldown .circ::after{content:"";position:absolute;left:50%;top:14px;width:1px;height:16px;background:#999;}
+  .indicator{position:absolute;right:36px;top:86px;width:52px;height:52px;border:1px solid #ddd;border-radius:50%;
+             display:flex;align-items:center;justify-content:center;font-size:9px;color:#bbb;}    /* 実物はfixedでスクロール進捗の円弧を描く */
+
+  @media(max-width:600px){
+    .hd{padding:0 16px;}
+    .hd_nav{display:none;}          /* 実物はmenuボタンで全画面オーバーレイナビ */
+    .hero{height:480px;}
+    .hero_copy{left:7%;bottom:18%;}
+    .hero_copy .t1{width:78%;height:36px;}
+    .hero_copy .t2{width:60%;height:36px;}
+    .lines{right:-20%;top:6%;width:260px;height:260px;}
+    .indicator{display:none;}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ===== ヘッダー+DECO-025 ===== -->
+  <div class="label" style="margin-top:20px;">DECO-025 / 複合ピルCTA(塗りピル+枠ピルを1つの器にまとめた2重ボタン)</div>
+  <header class="hd">
+    <div class="hd_left">
+      <div class="ph hd_logo">ロゴ</div>
+      <nav class="hd_nav">
+        <div class="item has-sub"></div><div class="item"></div><div class="item"></div>
+        <div class="item"></div><div class="item has-sub"></div>
+      </nav>
+    </div>
+    <div class="pill_wrap">
+      <div class="pill_main">Join Us</div>
+      <div class="pill_sub">採用情報</div>
+    </div>
+  </header>
+
+  <!-- ===== LAYOUT-018 ===== -->
+  <div class="label">LAYOUT-018 / 余白極大タイポヒーロー(特大コピー左下寄せ+細ライングラフィック+scroll指標)</div>
+  <section class="hero">
+    <div class="lines"></div>
+    <div class="hero_copy">
+      <div class="t1"></div>
+      <div class="t2"></div>
+    </div>
+    <div class="scrolldown"><div class="t"></div><div class="circ"></div></div>
+    <div class="indicator">scroll</div>
+  </section>
+
+</body>
+</html>
