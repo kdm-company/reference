@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>020 弁護士法人ステラ 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://stellalaw.jp/faq/
+  含む形:
+    DECO-028 / FAQ(カテゴリ内リンク→カテゴリ別Q&A縦積み)
+  ※ 色は構造把握用の仮色。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+  /* DECO-028 FAQ */
+  .faq{max-width:800px;margin:60px auto;padding:0 24px;}
+  .faq .h{width:280px;height:24px;margin:0 auto 36px;background:#cfcfcf;}
+
+  /* カテゴリ内リンク */
+  .anchors{display:flex;gap:16px;justify-content:center;margin-bottom:56px;flex-wrap:wrap;}
+  .anchors a{display:flex;align-items:center;justify-content:center;width:200px;height:46px;border:1px solid #bbb;border-radius:4px;font-size:11px;color:#999;text-decoration:none;}
+
+  /* カテゴリ見出し(左バー) */
+  .cat{display:flex;align-items:center;gap:14px;margin:56px 0 8px;}
+  .cat::before{content:"";width:6px;height:26px;background:#8fa3bf;flex:none;}
+  .cat .t{width:220px;height:18px;background:#cfcfcf;}
+
+  /* Q&A縦積み */
+  .qa{border-bottom:1px solid #e2e2e2;padding:22px 0;}
+  .q{display:flex;align-items:center;gap:14px;}
+  .q .badge{flex:none;width:28px;height:28px;border-radius:50%;background:#8fa3bf;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .q .t{flex:1;height:14px;}
+  .q .arw{flex:none;width:10px;height:10px;border-right:2px solid #bbb;border-bottom:2px solid #bbb;transform:rotate(45deg);} /* 開閉矢印 */
+  .a{display:flex;gap:14px;margin-top:16px;}
+  .a .badge{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid #8fa3bf;color:#8fa3bf;display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .a .body{flex:1;padding-top:4px;}
+  .a .t{height:11px;margin-top:8px;}
+  .a .t:first-child{margin-top:0;}
+  .a .t.short{width:75%;}
+
+  @media(max-width:768px){
+    .faq{margin:40px auto;}
+    .anchors{flex-direction:column;align-items:stretch;}
+    .anchors a{width:100%;}
+    .cat{margin-top:44px;}
+  }
+</style>
+</head>
+<body>
+
+  <section class="faq">
+    <div class="ph h">見出し(よくあるご質問)</div>
+
+    <nav class="anchors">
+      <a href="#c1">カテゴリ1(ご依頼について)</a>
+      <a href="#c2">カテゴリ2(面談について)</a>
+      <a href="#c3">カテゴリ3(費用について)</a>
+    </nav>
+
+    <div class="cat" id="c1"><div class="t ph">カテゴリ見出し1</div></div>
+    <div class="qa">
+      <div class="q"><span class="badge">Q</span><div class="ph t">質問文</div><span class="arw"></span></div>
+      <div class="a"><span class="badge">A</span><div class="body"><div class="ph t">回答文</div><div class="ph t short">回答文</div></div></div>
+    </div>
+    <div class="qa">
+      <div class="q"><span class="badge">Q</span><div class="ph t">質問文</div><span class="arw"></span></div>
+      <div class="a"><span class="badge">A</span><div class="body"><div class="ph t">回答文</div><div class="ph t short">回答文</div></div></div>
+    </div>
+
+    <div class="cat" id="c2"><div class="t ph">カテゴリ見出し2</div></div>
+    <div class="qa">
+      <div class="q"><span class="badge">Q</span><div class="ph t">質問文</div><span class="arw"></span></div>
+      <div class="a"><span class="badge">A</span><div class="body"><div class="ph t">回答文</div><div class="ph t short">回答文</div></div></div>
+    </div>
+    <div class="qa">
+      <div class="q"><span class="badge">Q</span><div class="ph t">質問文</div><span class="arw"></span></div>
+      <div class="a"><span class="badge">A</span><div class="body"><div class="ph t">回答文</div><div class="ph t short">回答文</div></div></div>
+    </div>
+
+    <div class="cat" id="c3"><div class="t ph">カテゴリ見出し3</div></div>
+    <div class="qa">
+      <div class="q"><span class="badge">Q</span><div class="ph t">質問文</div><span class="arw"></span></div>
+      <div class="a"><span class="badge">A</span><div class="body"><div class="ph t">回答文</div><div class="ph t short">回答文</div></div></div>
+    </div>
+    <div class="qa">
+      <div class="q"><span class="badge">Q</span><div class="ph t">質問文</div><span class="arw"></span></div>
+      <div class="a"><span class="badge">A</span><div class="body"><div class="ph t">回答文</div><div class="ph t short">回答文</div></div></div>
+    </div>
+  </section>
+
+</body>
+</html>

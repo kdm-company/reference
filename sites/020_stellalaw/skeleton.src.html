@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/020_stellalaw/skeleton.html</title></head>
+<body>
+<h1>sites/020_stellalaw/skeleton.html</h1>
+<p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;020 弁護士法人ステラ 形の骨格&lt;/title&gt;
+&lt;!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://stellalaw.jp/faq/
+  含む形:
+    DECO-028 / FAQ(カテゴリ内リンク→カテゴリ別Q&amp;A縦積み)
+  ※ 色は構造把握用の仮色。
+--&gt;
+&lt;style&gt;
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+  /* DECO-028 FAQ */
+  .faq{max-width:800px;margin:60px auto;padding:0 24px;}
+  .faq .h{width:280px;height:24px;margin:0 auto 36px;background:#cfcfcf;}
+
+  /* カテゴリ内リンク */
+  .anchors{display:flex;gap:16px;justify-content:center;margin-bottom:56px;flex-wrap:wrap;}
+  .anchors a{display:flex;align-items:center;justify-content:center;width:200px;height:46px;border:1px solid #bbb;border-radius:4px;font-size:11px;color:#999;text-decoration:none;}
+
+  /* カテゴリ見出し(左バー) */
+  .cat{display:flex;align-items:center;gap:14px;margin:56px 0 8px;}
+  .cat::before{content:"";width:6px;height:26px;background:#8fa3bf;flex:none;}
+  .cat .t{width:220px;height:18px;background:#cfcfcf;}
+
+  /* Q&amp;A縦積み */
+  .qa{border-bottom:1px solid #e2e2e2;padding:22px 0;}
+  .q{display:flex;align-items:center;gap:14px;}
+  .q .badge{flex:none;width:28px;height:28px;border-radius:50%;background:#8fa3bf;color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .q .t{flex:1;height:14px;}
+  .q .arw{flex:none;width:10px;height:10px;border-right:2px solid #bbb;border-bottom:2px solid #bbb;transform:rotate(45deg);} /* 開閉矢印 */
+  .a{display:flex;gap:14px;margin-top:16px;}
+  .a .badge{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid #8fa3bf;color:#8fa3bf;display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .a .body{flex:1;padding-top:4px;}
+  .a .t{height:11px;margin-top:8px;}
+  .a .t:first-child{margin-top:0;}
+  .a .t.short{width:75%;}
+
+  @media(max-width:768px){
+    .faq{margin:40px auto;}
+    .anchors{flex-direction:column;align-items:stretch;}
+    .anchors a{width:100%;}
+    .cat{margin-top:44px;}
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;section class="faq"&gt;
+    &lt;div class="ph h"&gt;見出し(よくあるご質問)&lt;/div&gt;
+
+    &lt;nav class="anchors"&gt;
+      &lt;a href="#c1"&gt;カテゴリ1(ご依頼について)&lt;/a&gt;
+      &lt;a href="#c2"&gt;カテゴリ2(面談について)&lt;/a&gt;
+      &lt;a href="#c3"&gt;カテゴリ3(費用について)&lt;/a&gt;
+    &lt;/nav&gt;
+
+    &lt;div class="cat" id="c1"&gt;&lt;div class="t ph"&gt;カテゴリ見出し1&lt;/div&gt;&lt;/div&gt;
+    &lt;div class="qa"&gt;
+      &lt;div class="q"&gt;&lt;span class="badge"&gt;Q&lt;/span&gt;&lt;div class="ph t"&gt;質問文&lt;/div&gt;&lt;span class="arw"&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="a"&gt;&lt;span class="badge"&gt;A&lt;/span&gt;&lt;div class="body"&gt;&lt;div class="ph t"&gt;回答文&lt;/div&gt;&lt;div class="ph t short"&gt;回答文&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="qa"&gt;
+      &lt;div class="q"&gt;&lt;span class="badge"&gt;Q&lt;/span&gt;&lt;div class="ph t"&gt;質問文&lt;/div&gt;&lt;span class="arw"&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="a"&gt;&lt;span class="badge"&gt;A&lt;/span&gt;&lt;div class="body"&gt;&lt;div class="ph t"&gt;回答文&lt;/div&gt;&lt;div class="ph t short"&gt;回答文&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="cat" id="c2"&gt;&lt;div class="t ph"&gt;カテゴリ見出し2&lt;/div&gt;&lt;/div&gt;
+    &lt;div class="qa"&gt;
+      &lt;div class="q"&gt;&lt;span class="badge"&gt;Q&lt;/span&gt;&lt;div class="ph t"&gt;質問文&lt;/div&gt;&lt;span class="arw"&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="a"&gt;&lt;span class="badge"&gt;A&lt;/span&gt;&lt;div class="body"&gt;&lt;div class="ph t"&gt;回答文&lt;/div&gt;&lt;div class="ph t short"&gt;回答文&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="qa"&gt;
+      &lt;div class="q"&gt;&lt;span class="badge"&gt;Q&lt;/span&gt;&lt;div class="ph t"&gt;質問文&lt;/div&gt;&lt;span class="arw"&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="a"&gt;&lt;span class="badge"&gt;A&lt;/span&gt;&lt;div class="body"&gt;&lt;div class="ph t"&gt;回答文&lt;/div&gt;&lt;div class="ph t short"&gt;回答文&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="cat" id="c3"&gt;&lt;div class="t ph"&gt;カテゴリ見出し3&lt;/div&gt;&lt;/div&gt;
+    &lt;div class="qa"&gt;
+      &lt;div class="q"&gt;&lt;span class="badge"&gt;Q&lt;/span&gt;&lt;div class="ph t"&gt;質問文&lt;/div&gt;&lt;span class="arw"&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="a"&gt;&lt;span class="badge"&gt;A&lt;/span&gt;&lt;div class="body"&gt;&lt;div class="ph t"&gt;回答文&lt;/div&gt;&lt;div class="ph t short"&gt;回答文&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="qa"&gt;
+      &lt;div class="q"&gt;&lt;span class="badge"&gt;Q&lt;/span&gt;&lt;div class="ph t"&gt;質問文&lt;/div&gt;&lt;span class="arw"&gt;&lt;/span&gt;&lt;/div&gt;
+      &lt;div class="a"&gt;&lt;span class="badge"&gt;A&lt;/span&gt;&lt;div class="body"&gt;&lt;div class="ph t"&gt;回答文&lt;/div&gt;&lt;div class="ph t short"&gt;回答文&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body></html>

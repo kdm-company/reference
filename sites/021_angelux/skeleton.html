@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>021 Angelux 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://angelux.co.jp/voices/president/
+  含む形:
+    DECO-029 / 代表挨拶(キャッチコピー主役→本文→引用→右寄せ署名)
+  ※ 色は構造把握用の仮色。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+  /* DECO-029 代表挨拶 */
+  .msg{max-width:720px;margin:60px auto;padding:0 24px;}
+  .catch .l{height:34px;background:#cfcfcf;margin-bottom:12px;}
+  .catch .l2{width:78%;}
+  .sub{width:56%;height:18px;background:#cfcfcf;margin:36px 0 10px;}
+  .who{width:40%;height:13px;background:#e2e2e2;margin-bottom:40px;}
+  .msg p{margin-top:18px;}
+  .msg .t{height:12px;margin-top:10px;}
+  .msg .t.short{width:72%;}
+
+  /* ビジョン引用 */
+  .vision{margin:44px 0;padding:26px 28px;background:#f6f8fa;border-left:4px solid #8fa3bf;}
+  .vision .t{height:12px;margin-top:10px;}
+  .vision .t:first-child{margin-top:0;}
+  .vision .t.short{width:60%;}
+
+  /* 右寄せ署名 */
+  .sign{display:flex;flex-direction:column;align-items:flex-end;gap:10px;margin-top:44px;}
+  .sign .role{width:180px;height:11px;background:#e2e2e2;}
+  .sign .name{width:220px;height:22px;background:#cfcfcf;}
+
+  @media(max-width:768px){
+    .msg{margin:40px auto;}
+    .catch .l{height:24px;}
+    .sub{width:80%;}
+    .who{width:60%;}
+    .vision{padding:20px;}
+  }
+</style>
+</head>
+<body>
+
+  <section class="msg">
+    <div class="catch">
+      <div class="ph l">キャッチコピー1行目(大)</div>
+      <div class="ph l l2">キャッチコピー2行目(大)</div>
+    </div>
+    <div class="ph sub">サブ見出し</div>
+    <div class="ph who">名乗り(会社名+代表の肩書き)</div>
+
+    <p><div class="ph t">本文</div><div class="ph t">本文</div><div class="ph t short">本文</div></p>
+    <p><div class="ph t">本文</div><div class="ph t">本文</div><div class="ph t short">本文</div></p>
+
+    <div class="vision">
+      <div class="ph t">理念・ビジョン(引用風)</div>
+      <div class="ph t short">理念・ビジョン(引用風)</div>
+    </div>
+
+    <p><div class="ph t">本文</div><div class="ph t">本文</div><div class="ph t short">本文</div></p>
+
+    <div class="sign">
+      <div class="ph role">肩書き(小)</div>
+      <div class="ph name">代表者名(大)</div>
+    </div>
+  </section>
+
+</body>
+</html>
