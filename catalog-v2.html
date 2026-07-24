@@ -29,7 +29,7 @@
 </head>
 <body>
 <h1>参考要素カタログ v2（プロトタイプ）</h1>
-<p class="note">parts/ のデータファイルからブラウザ上で動的生成。既存カタログ（catalog-live.html）とは独立。</p>
+<p class="note">parts/ のデータファイルからブラウザ上で動的生成。既存カタログ（catalog-live.html）とは独立。TEST-で始まるIDは tests/fixtures/ から読み込む。</p>
 <div class="errors" id="errors"></div>
 <div class="filters">
   <select id="f-part"><option value="">部位: すべて</option></select>
@@ -45,6 +45,8 @@
   const AXES = { part: '部位', use: '用途', industry: '業種', taste: 'テイスト' };
   const bust = 'v=' + Date.now();
   const manifestUrl = new URLSearchParams(location.search).get('manifest') || 'parts/manifest.json';
+  // TEST-で始まるIDのJSONは検証専用ディレクトリ tests/fixtures/ に置く（本番parts/には置かない）
+  const partDir = (id) => String(id).startsWith('TEST-') ? 'tests/fixtures/' : 'parts/';
   let vocab = {};
   try { vocab = await (await fetch('parts/vocab.json?' + bust)).json(); } catch (e) { /* 語彙なしでも動作 */ }
   let ids = [];
@@ -57,7 +59,7 @@
   // 各JSONを個別に取得し、失敗しても全体を止めない
   const results = await Promise.all(ids.map(async id => {
     try {
-      const r = await fetch('parts/' + id + '.json?' + bust);
+      const r = await fetch(partDir(id) + id + '.json?' + bust);
       if (!r.ok) throw new Error('HTTP ' + r.status);
       return { id, data: await r.json() };
     } catch (e) {

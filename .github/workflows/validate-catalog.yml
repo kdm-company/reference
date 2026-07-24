@@ -10,6 +10,7 @@ on:
       - "tests/**"
       - "playwright.config.js"
       - "package.json"
+      - "package-lock.json"
       - ".github/workflows/validate-catalog.yml"
   pull_request:
     paths:
@@ -24,16 +25,16 @@ jobs:
     name: "データ検証"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
       - name: "本番manifestの検証（終了コード0を要求）"
         run: node scripts/validate-catalog.js parts/manifest.json
       - name: "テストフィクスチャの検証（終了コード1が期待結果。正しく拒否されればPASS）"
         run: |
           set +e
-          node scripts/validate-catalog.js parts/manifest.test.json
+          node scripts/validate-catalog.js tests/fixtures/manifest.test.json
           code=$?
           set -e
           if [ "$code" -eq 1 ]; then
@@ -47,10 +48,10 @@ jobs:
     name: "ブラウザ自動テスト（Playwright）"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
-          node-version: 20
+          node-version: 24
       - name: "依存インストール"
         run: npm install
       - name: "Chromiumインストール"

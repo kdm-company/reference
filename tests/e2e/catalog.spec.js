@@ -68,9 +68,9 @@ test.describe("スマートフォン幅（375px）", () => {
   });
 });
 
-test.describe("テストmanifest（破損・語彙違反フィクスチャ）", () => {
+test.describe("テストmanifest（破損・語彙違反フィクスチャ。tests/fixtures/ から読込）", () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto("/catalog-v2.html?manifest=parts/manifest.test.json");
+    await page.goto("/catalog-v2.html?manifest=tests/fixtures/manifest.test.json");
   });
 
   test("JSONが1件壊れても正常なカードが表示される", async ({ page }) => {

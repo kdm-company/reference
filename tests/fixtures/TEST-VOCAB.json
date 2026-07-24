@@ -1,0 +1,19 @@
+{
+  "id": "TEST-VOCAB",
+  "name": "未定義語彙テスト（意図的に語彙違反・desc欠落・リンク切れ）",
+  "category": "DECO",
+  "kind": "widget",
+  "site": { "no": "999", "name": "テスト", "url": "https://example.com/" },
+  "attrs": {
+    "part": ["メイン"],
+    "use": ["テスト用途"],
+    "industry": ["汎用"],
+    "taste": ["サイバー"]
+  },
+  "tags": ["#テスト"],
+  "links": {
+    "skeleton": "sites/999_test/skeleton.html",
+    "composition": "sites/999_test/composition.md"
+  },
+  "svg": "parts/TEST-VOCAB.svg"
+}

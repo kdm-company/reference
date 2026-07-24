@@ -16,15 +16,20 @@
 ## 構造
 
 ```
-parts/
+parts/                 … 本番データのみ（正式なパーツJSON・SVG・manifest・schema・vocab）
   manifest.json        … 登録パーツIDの配列（目録。ID昇順を維持）
   vocab.json           … 統制語彙（kind・4軸・category）。統制語彙の正本
   parts.schema.json    … パーツJSONのJSON Schema。構造（必須項目・型）の正本
   DECO-0XX.json        … 1パーツ=1データファイル
   DECO-0XX.svg         … ワイヤーフレーム（単体SVG）
-  manifest.test.json / TEST-*.json … 検証用フィクスチャ（自動検証の機能確認専用）
+tests/
+  fixtures/            … 検証専用フィクスチャ（manifest.test.json / TEST-*.json）。本番parts/には置かない
+  e2e/catalog.spec.js  … Playwrightブラウザ自動テスト
 scripts/validate-catalog.js … 自動検証スクリプト（Node、依存なし）
-.github/workflows/validate-catalog.yml … push / Pull Request時に自動検証を実行
+.github/workflows/validate-catalog.yml   … push / Pull Request時にデータ検証＋ブラウザ自動テスト
+.github/workflows/generate-lockfile.yml  … package.json変更時にpackage-lock.jsonを自動生成
+package.json / package-lock.json … E2Eテストの依存定義。依存はlockfileで固定し、CIは npm ci を使う
+playwright.config.js   … E2Eテスト設定（ローカルHTTPサーバーを自動起動）
 catalog-v2.html        … 動的生成ビューア（?manifest= で読込先を差し替え可能）
 validate.html          … 整合チェッカー（ブラウザ実行の補助ツール）
 docs/catalog-v2-design.md … 本書
@@ -32,6 +37,7 @@ docs/catalog-v2-design.md … 本書
 
 - git が正。Notion DB は従（従来通り）。
 - SVGをJSONに埋めず別ファイルにする理由: エスケープ不要、`<img loading="lazy">` で遅延読み込みでき件数増に耐える。
+- **TEST-IDの解決ルール**: TEST- で始まるIDのJSONは tests/fixtures/ から、それ以外は parts/ から読み込む（catalog-v2.html・validate.html・validate-catalog.js 共通）。
 
 ## 役割分担（二重管理しない）
 
@@ -91,11 +97,11 @@ docs/catalog-v2-design.md … 本書
 
 部位は**物理的な場所のみ**を表す。会社概要・沿革・料金表・FAQ等の内容分類は「用途」で管理する。範囲が広すぎる語は許可語彙に含めない。
 
-## 検証（2層）
+## 検証（3層）
 
-### 正式ゲート: GitHub Actionsによる自動検証
+### 正式ゲート1: GitHub Actionsによるデータ検証
 
-parts/ または検証スクリプトへのpush / Pull Request時に `scripts/validate-catalog.js` が自動実行される。検出項目:
+parts/・tests/・検証スクリプト等へのpush / Pull Request時に `scripts/validate-catalog.js` が自動実行される。検出項目:
 
 1. JSON構文エラー
 2. 必須項目の欠落（下位キー含む）
@@ -112,12 +118,19 @@ parts/ または検証スクリプトへのpush / Pull Request時に `scripts/va
 
 ログは `FAIL [チェック名] id=対象ID file=ファイル名 : 理由` 形式で出力する。
 
+- 本番manifest（parts/manifest.json）は終了コード0を要求する。
+- テストフィクスチャ（tests/fixtures/manifest.test.json）は**終了コード1が期待結果**。正しく拒否されればステップはPASSとし、意図的なテストデータでワークフロー全体を赤にしない。
+
+### 正式ゲート2: GitHub ActionsによるブラウザE2Eテスト（Playwright）
+
+`tests/e2e/catalog.spec.js` をCI上のChromiumで実行し、初期表示・ID順固定・4軸フィルター・キーワード検索・内部リンク・スマートフォン幅・障害分離（1件破損時の表示とエラー件数/ID表示）・未定義語彙検出を確認する。依存は package-lock.json で固定し、CIでは `npm ci` でインストールする。
+
 ### 補助: validate.html（ブラウザ実行）
 
 手元で即座に確認したいときの補助ツール。判定の正はGitHub Actions。
 
 - 通常チェック: `validate.html`
-- テストデータでのチェック: `validate.html?manifest=parts/manifest.test.json`
+- テストデータでのチェック: `validate.html?manifest=tests/fixtures/manifest.test.json`
 
 ## 追加手順（v2でのSTEP4以降）
 
@@ -132,18 +145,18 @@ parts/ または検証スクリプトへのpush / Pull Request時に `scripts/va
 
 ## 移行計画（既存は一括変更しない）
 
-1. **検証期（今）**: パイロット2件（DECO-032, 033）＋テストフィクスチャで検証。既存ファイルは一切変更しない。
-2. **並行期**: 新規パーツはv2形式で追加。DECO-026〜031をv2に変換。catalog.html / catalog-live.html はそのまま残す。
+1. **検証期（完了）**: パイロット2件（DECO-032, 033）＋テストフィクスチャで検証。既存ファイルは一切変更しない。
+2. **並行期（今）**: 新規パーツはv2形式で追加。DECO-026〜031をv2に変換。catalog.html / catalog-live.html はそのまま残す。
 3. **統合期**: 既存001〜025をClaude Codeで一度だけv2形式に変換（属性付与込み）。以降 catalog-v2.html を正とし、旧catalog.htmlはアーカイブ扱い。
 
 ## 検証項目
 
-- [ ] 初期表示で2件とも表示される（ID昇順で固定）
-- [ ] 4軸フィルターが動く
-- [ ] キーワード検索が動く
-- [ ] 各リンク（骨格HTML・構図メモ・元サイト）が開く
-- [ ] スマートフォン幅で操作できる
-- [ ] JSONが1件壊れていても他のカードが表示され、エラー件数とIDが出る（manifest.test.jsonで確認）
-- [ ] 未定義語彙が検出される
-- [ ] GitHub Actionsの本番manifest検証がPASSする
-- [ ] テストフィクスチャではGitHub Actionsの検証が意図どおりFAILする
+- [x] 初期表示で2件とも表示される（ID昇順で固定）
+- [x] 4軸フィルターが動く
+- [x] キーワード検索が動く
+- [x] 各リンク（骨格HTML・構図メモ・元サイト）が開く
+- [x] スマートフォン幅で操作できる
+- [x] JSONが1件壊れていても他のカードが表示され、エラー件数とIDが出る（tests/fixtures/manifest.test.jsonで確認）
+- [x] 未定義語彙が検出される
+- [x] GitHub Actionsの本番manifest検証がPASSする
+- [x] テストフィクスチャは終了コード1で拒否され、ワークフロー全体はPASS（緑）になる

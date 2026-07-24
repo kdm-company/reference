@@ -19,7 +19,7 @@
 </head>
 <body>
 <h1>カタログ v2 整合チェッカー</h1>
-<p class="note">parts/ の目録・データ・語彙・リンクを検査します。?manifest=parts/manifest.test.json でテスト用目録を検査できます。</p>
+<p class="note">parts/ の目録・データ・語彙・リンクを検査します。?manifest=tests/fixtures/manifest.test.json でテスト用目録（tests/fixtures/）を検査できます。判定の正はGitHub Actions。</p>
 <table id="result"><tr><th>判定</th><th>チェック</th><th>詳細</th></tr></table>
 <script>
 (async () => {
@@ -27,6 +27,8 @@
   const RESERVED = ['manifest.json', 'manifest.test.json', 'vocab.json', 'parts.schema.json'];
   const REQUIRED_TOP = ['id', 'name', 'category', 'kind', 'site', 'attrs', 'desc', 'links', 'svg'];
   const bust = 'v=' + Date.now();
+  // TEST-で始まるIDのJSONは検証専用ディレクトリ tests/fixtures/ に置く（本番parts/には置かない）
+  const partDir = (id) => String(id).startsWith('TEST-') ? 'tests/fixtures/' : 'parts/';
   const table = document.getElementById('result');
   const add = (level, check, detail) => {
     const cls = level === 'OK' ? 'ok' : (level === 'NG' ? 'ng' : 'warn');
@@ -57,7 +59,7 @@
   const missing = [];
   for (const id of ids) {
     try {
-      const r = await fetch('parts/' + id + '.json?' + bust);
+      const r = await fetch(partDir(id) + id + '.json?' + bust);
       if (!r.ok) throw new Error('HTTP ' + r.status);
       parts[id] = await r.json();
     } catch (e) { missing.push(id + '（' + e + '）'); }
@@ -105,7 +107,7 @@
     const r = await fetch('https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/parts');
     if (!r.ok) throw new Error('HTTP ' + r.status);
     const list = await r.json();
-    const names = list.filter(f => f.name.endsWith('.json') && !RESERVED.includes(f.name)).map(f => f.name.replace(/\.json$/, ''));
+    const names = list.filter(f => f.name.endsWith('.json') && !RESERVED.includes(f.name) && !f.name.startsWith('TEST-')).map(f => f.name.replace(/\.json$/, ''));
     const orphans = names.filter(n => !ids.includes(n));
     orphans.length ? add('注意', '目録に未登録のJSON', orphans.join(', ')) : add('OK', '目録に未登録のJSON', 'なし');
   } catch (e) {

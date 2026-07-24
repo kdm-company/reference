@@ -2,9 +2,11 @@
 /**
  * カタログ v2 自動検証
  * 使い方: node scripts/validate-catalog.js [manifestPath]
- *   例: node scripts/validate-catalog.js parts/manifest.json
+ *   例: node scripts/validate-catalog.js parts/manifest.json                （本番）
+ *   例: node scripts/validate-catalog.js tests/fixtures/manifest.test.json  （テスト用フィクスチャ。終了コード1が期待結果）
  * 終了コード: FAILが1件以上なら1、なければ0（WARNは0のまま）
  * ログ形式: FAIL [チェック名] id=対象ID file=ファイル名 : 理由
+ * TEST-で始まるIDのJSONは tests/fixtures/ から、それ以外は parts/ から読み込む。
  */
 const fs = require("fs");
 const path = require("path");
@@ -14,6 +16,8 @@ const PARTS_DIR = path.join(ROOT, "parts");
 const manifestPath = process.argv[2] || "parts/manifest.json";
 const RESERVED = ["manifest.json", "manifest.test.json", "vocab.json", "parts.schema.json"];
 const TEST_PREFIX = "TEST-";
+const FIXTURES_DIR = "tests/fixtures";
+const partFile = (id) => (String(id).startsWith(TEST_PREFIX) ? `${FIXTURES_DIR}/${id}.json` : `parts/${id}.json`);
 const REQUIRED_TOP = ["id", "name", "category", "kind", "site", "attrs", "desc", "links", "svg"];
 const AXES = { part: "部位", use: "用途", industry: "業種", taste: "テイスト" };
 
@@ -81,7 +85,7 @@ function finish() {
   let syntaxNg = false;
   let missingNg = false;
   for (const id of ids) {
-    const file = `parts/${id}.json`;
+    const file = partFile(id);
     if (!fs.existsSync(path.join(ROOT, file))) {
       missingNg = true;
       fail("missing-json", id, file, "manifestに登録されているがファイルが存在しない");
@@ -108,7 +112,7 @@ function finish() {
   // 2. 必須項目 / 4. ID一致 / 7. kind / 8. 統制語彙 / 9. 内部リンク / 外部リンク(WARN)
   let reqNg = false, idNg = false, kindNg = false, vocabNg = false, linkNg = false;
   for (const [id, p] of Object.entries(parts)) {
-    const file = `parts/${id}.json`;
+    const file = partFile(id);
 
     // 2. 必須項目（下位キー含む）
     const missing = REQUIRED_TOP.filter((k) => p[k] === undefined);
