@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>024 ダイクレ興産 形の骨格</title>
+<!--
+  形だけのスケルトン（レイアウト・構造のみ）
+  元サイト: https://daikure-kousan.co.jp/company/
+  含む形: DECO-032 会社概要（概要表＋沿革年表）
+  ※ 色はすべて仮色。配色は対象外。
+-->
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:sans-serif;color:#555;background:#fff;}
+.ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+/* DECO-032 会社概要（概要表＋沿革年表） */
+.sec{max-width:960px;margin:0 auto;padding:56px 24px;}
+.en{font-size:30px;font-weight:bold;color:#c4ccd6;letter-spacing:2px;}
+.ja{font-size:13px;color:#8fa3bf;font-weight:bold;margin:4px 0 28px;}
+
+.tbl{border-top:1px solid #e2e2e2;}
+.row{display:flex;border-bottom:1px solid #e2e2e2;}
+.row dt{width:180px;background:#f6f8fa;padding:16px;font-size:13px;font-weight:bold;color:#666;}
+.row dd{flex:1;padding:16px;font-size:13px;line-height:1.8;}
+
+.his{border-top:1px solid #e2e2e2;}
+.hrow{display:flex;border-bottom:1px solid #e2e2e2;padding:18px 8px;}
+.hyear{width:150px;font-size:13px;font-weight:bold;color:#8fa3bf;}
+.htext{flex:1;font-size:13px;line-height:1.8;}
+
+@media(max-width:768px){
+.sec{padding:44px 16px;}
+.row{flex-direction:column;}
+.row dt{width:100%;padding:10px 12px;}
+.hrow{flex-direction:column;gap:4px;padding:14px 4px;}
+.hyear{width:auto;}
+}
+</style>
+</head>
+<body>
+
+<section class="sec">
+  <p class="en">ABOUT</p>
+  <p class="ja">会社概要</p>
+  <dl class="tbl">
+    <div class="row"><dt>社名</dt><dd>〇〇株式会社</dd></div>
+    <div class="row"><dt>設立</dt><dd>19〇〇年〇月</dd></div>
+    <div class="row"><dt>代表者</dt><dd>代表取締役社長 〇〇 〇〇</dd></div>
+    <div class="row"><dt>資本金</dt><dd>〇,〇〇〇万円</dd></div>
+    <div class="row"><dt>事業内容</dt><dd>事業内容の列挙が入ります。複数行になる場合は行間を広めに保ちます。</dd></div>
+    <div class="row"><dt>主要取引先</dt><dd>〇〇株式会社、〇〇株式会社、その他〇〇社</dd></div>
+  </dl>
+</section>
+
+<section class="sec">
+  <p class="en">HISTORY</p>
+  <p class="ja">会社沿革</p>
+  <div class="his">
+    <div class="hrow"><p class="hyear">19〇〇年〇月</p><p class="htext">創業時の出来事が入ります。</p></div>
+    <div class="hrow"><p class="hyear">19〇〇年〇月</p><p class="htext">社名変更や拠点開設などの出来事が入ります。</p></div>
+    <div class="hrow"><p class="hyear">19〇〇年〇月</p><p class="htext"><strong>分離独立など転機の出来事は太字で強調します。</strong></p></div>
+    <div class="hrow"><p class="hyear">20〇〇年〇月</p><p class="htext">認可取得・登録などの出来事が入ります。</p></div>
+    <div class="hrow"><p class="hyear">20〇〇年〇月</p><p class="htext">近年の取り組みが入ります。</p></div>
+  </div>
+</section>
+
+</body>
+</html>

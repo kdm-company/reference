@@ -1,0 +1,71 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/024_daikure/skeleton.html</title></head><body><h1>sites/024_daikure/skeleton.html</h1><p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;024 ダイクレ興産 形の骨格&lt;/title&gt;
+&lt;!--
+  形だけのスケルトン（レイアウト・構造のみ）
+  元サイト: https://daikure-kousan.co.jp/company/
+  含む形: DECO-032 会社概要（概要表＋沿革年表）
+  ※ 色はすべて仮色。配色は対象外。
+--&gt;
+&lt;style&gt;
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:sans-serif;color:#555;background:#fff;}
+.ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+/* DECO-032 会社概要（概要表＋沿革年表） */
+.sec{max-width:960px;margin:0 auto;padding:56px 24px;}
+.en{font-size:30px;font-weight:bold;color:#c4ccd6;letter-spacing:2px;}
+.ja{font-size:13px;color:#8fa3bf;font-weight:bold;margin:4px 0 28px;}
+
+.tbl{border-top:1px solid #e2e2e2;}
+.row{display:flex;border-bottom:1px solid #e2e2e2;}
+.row dt{width:180px;background:#f6f8fa;padding:16px;font-size:13px;font-weight:bold;color:#666;}
+.row dd{flex:1;padding:16px;font-size:13px;line-height:1.8;}
+
+.his{border-top:1px solid #e2e2e2;}
+.hrow{display:flex;border-bottom:1px solid #e2e2e2;padding:18px 8px;}
+.hyear{width:150px;font-size:13px;font-weight:bold;color:#8fa3bf;}
+.htext{flex:1;font-size:13px;line-height:1.8;}
+
+@media(max-width:768px){
+.sec{padding:44px 16px;}
+.row{flex-direction:column;}
+.row dt{width:100%;padding:10px 12px;}
+.hrow{flex-direction:column;gap:4px;padding:14px 4px;}
+.hyear{width:auto;}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;section class="sec"&gt;
+  &lt;p class="en"&gt;ABOUT&lt;/p&gt;
+  &lt;p class="ja"&gt;会社概要&lt;/p&gt;
+  &lt;dl class="tbl"&gt;
+    &lt;div class="row"&gt;&lt;dt&gt;社名&lt;/dt&gt;&lt;dd&gt;〇〇株式会社&lt;/dd&gt;&lt;/div&gt;
+    &lt;div class="row"&gt;&lt;dt&gt;設立&lt;/dt&gt;&lt;dd&gt;19〇〇年〇月&lt;/dd&gt;&lt;/div&gt;
+    &lt;div class="row"&gt;&lt;dt&gt;代表者&lt;/dt&gt;&lt;dd&gt;代表取締役社長 〇〇 〇〇&lt;/dd&gt;&lt;/div&gt;
+    &lt;div class="row"&gt;&lt;dt&gt;資本金&lt;/dt&gt;&lt;dd&gt;〇,〇〇〇万円&lt;/dd&gt;&lt;/div&gt;
+    &lt;div class="row"&gt;&lt;dt&gt;事業内容&lt;/dt&gt;&lt;dd&gt;事業内容の列挙が入ります。複数行になる場合は行間を広めに保ちます。&lt;/dd&gt;&lt;/div&gt;
+    &lt;div class="row"&gt;&lt;dt&gt;主要取引先&lt;/dt&gt;&lt;dd&gt;〇〇株式会社、〇〇株式会社、その他〇〇社&lt;/dd&gt;&lt;/div&gt;
+  &lt;/dl&gt;
+&lt;/section&gt;
+
+&lt;section class="sec"&gt;
+  &lt;p class="en"&gt;HISTORY&lt;/p&gt;
+  &lt;p class="ja"&gt;会社沿革&lt;/p&gt;
+  &lt;div class="his"&gt;
+    &lt;div class="hrow"&gt;&lt;p class="hyear"&gt;19〇〇年〇月&lt;/p&gt;&lt;p class="htext"&gt;創業時の出来事が入ります。&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="hrow"&gt;&lt;p class="hyear"&gt;19〇〇年〇月&lt;/p&gt;&lt;p class="htext"&gt;社名変更や拠点開設などの出来事が入ります。&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="hrow"&gt;&lt;p class="hyear"&gt;19〇〇年〇月&lt;/p&gt;&lt;p class="htext"&gt;&lt;strong&gt;分離独立など転機の出来事は太字で強調します。&lt;/strong&gt;&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="hrow"&gt;&lt;p class="hyear"&gt;20〇〇年〇月&lt;/p&gt;&lt;p class="htext"&gt;認可取得・登録などの出来事が入ります。&lt;/p&gt;&lt;/div&gt;
+    &lt;div class="hrow"&gt;&lt;p class="hyear"&gt;20〇〇年〇月&lt;/p&gt;&lt;p class="htext"&gt;近年の取り組みが入ります。&lt;/p&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></body></html>
