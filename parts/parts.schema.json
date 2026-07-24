@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "参考要素カタログ パーツ定義",
+  "$comment": "attrs等の許可語彙は parts/vocab.json を正とし、validate.html が照合する。本スキーマは構造（必須項目・型）の正。",
+  "type": "object",
+  "required": ["id", "name", "category", "kind", "site", "attrs", "desc", "links", "svg"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^(LAYOUT|DECO|PATTERN|TEST)-[0-9A-Za-z-]+$" },
+    "name": { "type": "string", "minLength": 1 },
+    "category": { "enum": ["LAYOUT", "DECO", "PATTERN"] },
+    "kind": { "enum": ["layout", "section", "component", "style", "background", "page"] },
+    "site": {
+      "type": "object",
+      "required": ["no", "name", "url"],
+      "properties": {
+        "no": { "type": "string" },
+        "name": { "type": "string" },
+        "url": { "type": "string" }
+      }
+    },
+    "attrs": {
+      "type": "object",
+      "required": ["part", "use", "industry", "taste"],
+      "properties": {
+        "part": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "use": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "industry": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+        "taste": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+      }
+    },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "desc": { "type": "string", "minLength": 1 },
+    "links": {
+      "type": "object",
+      "required": ["skeleton", "composition"],
+      "properties": {
+        "skeleton": { "type": "string" },
+        "composition": { "type": "string" }
+      }
+    },
+    "svg": { "type": "string", "pattern": "\\.svg$" }
+  }
+}

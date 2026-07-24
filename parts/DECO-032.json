@@ -2,9 +2,10 @@
   "id": "DECO-032",
   "name": "会社概要（概要表＋沿革年表）",
   "category": "DECO",
+  "kind": "section",
   "site": { "no": "024", "name": "ダイクレ興産", "url": "https://daikure-kousan.co.jp/company/" },
   "attrs": {
-    "part": ["メイン"],
+    "part": ["コンテンツセクション"],
     "use": ["会社概要", "沿革"],
     "industry": ["製造", "老舗", "汎用"],
     "taste": ["コーポレート", "端正"]

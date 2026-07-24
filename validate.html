@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カタログ v2 整合チェッカー</title>
+<style>
+  body{font-family:sans-serif;color:#333;margin:0;padding:24px;background:#f6f8fa;}
+  h1{font-size:20px;margin:0 0 4px;}
+  .note{font-size:12px;color:#888;margin:0 0 16px;}
+  table{border-collapse:collapse;width:100%;background:#fff;font-size:13px;}
+  th,td{border:1px solid #ddd;padding:8px 10px;text-align:left;vertical-align:top;}
+  th{background:#eef2f6;}
+  .ok{color:#2a7a2a;font-weight:bold;}
+  .ng{color:#a33;font-weight:bold;}
+  .warn{color:#a70;font-weight:bold;}
+  @media(max-width:768px){body{padding:12px;}}
+</style>
+</head>
+<body>
+<h1>カタログ v2 整合チェッカー</h1>
+<p class="note">parts/ の目録・データ・語彙・リンクを検査します。?manifest=parts/manifest.test.json でテスト用目録を検査できます。</p>
+<table id="result"><tr><th>判定</th><th>チェック</th><th>詳細</th></tr></table>
+<script>
+(async () => {
+  const OWNER = 'kdm-company', REPO = 'reference';
+  const RESERVED = ['manifest.json', 'manifest.test.json', 'vocab.json', 'parts.schema.json'];
+  const REQUIRED_TOP = ['id', 'name', 'category', 'kind', 'site', 'attrs', 'desc', 'links', 'svg'];
+  const bust = 'v=' + Date.now();
+  const table = document.getElementById('result');
+  const add = (level, check, detail) => {
+    const cls = level === 'OK' ? 'ok' : (level === 'NG' ? 'ng' : 'warn');
+    const tr = document.createElement('tr');
+    tr.innerHTML = '<td class="' + cls + '"></td><td></td><td></td>';
+    tr.children[0].textContent = level;
+    tr.children[1].textContent = check;
+    tr.children[2].textContent = detail;
+    table.appendChild(tr);
+  };
+  const manifestUrl = new URLSearchParams(location.search).get('manifest') || 'parts/manifest.json';
+  let vocab = {};
+  try { vocab = await (await fetch('parts/vocab.json?' + bust)).json(); }
+  catch (e) { add('NG', '語彙ファイル', 'parts/vocab.json 読み込み失敗: ' + e); }
+  let ids = [];
+  try {
+    ids = await (await fetch(manifestUrl + '?' + bust)).json();
+    add('OK', '目録', manifestUrl + ' / ' + ids.length + '件');
+  } catch (e) {
+    add('NG', '目録', manifestUrl + ' 読み込み失敗: ' + e);
+    return;
+  }
+  // 1. ID重複
+  const dup = [...new Set(ids.filter((v, i) => ids.indexOf(v) !== i))];
+  dup.length ? add('NG', 'ID重複', dup.join(', ')) : add('OK', 'ID重複', 'なし');
+  // 2. JSON欠損・破損
+  const parts = {};
+  const missing = [];
+  for (const id of ids) {
+    try {
+      const r = await fetch('parts/' + id + '.json?' + bust);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      parts[id] = await r.json();
+    } catch (e) { missing.push(id + '（' + e + '）'); }
+  }
+  missing.length ? add('NG', '目録にあるJSONの欠損/破損', missing.join(' ｜ ')) : add('OK', '目録にあるJSONの欠損/破損', 'なし');
+  // 3. 必須項目
+  const reqNg = [];
+  for (const [id, p] of Object.entries(parts)) {
+    const bad = REQUIRED_TOP.filter(k => p[k] === undefined);
+    if (p.site) ['no', 'name', 'url'].forEach(k => { if (p.site[k] === undefined) bad.push('site.' + k); });
+    if (p.attrs) ['part', 'use', 'industry', 'taste'].forEach(k => { if (!Array.isArray(p.attrs[k]) || p.attrs[k].length === 0) bad.push('attrs.' + k); });
+    if (p.links) ['skeleton', 'composition'].forEach(k => { if (p.links[k] === undefined) bad.push('links.' + k); });
+    if (p.id !== undefined && p.id !== id) bad.push('idとファイル名の不一致(' + p.id + ')');
+    if (bad.length) reqNg.push(id + ': ' + bad.join(' / '));
+  }
+  reqNg.length ? add('NG', '必須項目の欠落', reqNg.join(' ｜ ')) : add('OK', '必須項目の欠落', 'なし');
+  // 4. 統制語彙
+  const vocabNg = [];
+  for (const [id, p] of Object.entries(parts)) {
+    const bad = [];
+    if (vocab.kind && p.kind !== undefined && !vocab.kind.includes(p.kind)) bad.push('kind: ' + p.kind);
+    if (vocab.category && p.category !== undefined && !vocab.category.includes(p.category)) bad.push('category: ' + p.category);
+    for (const key of ['part', 'use', 'industry', 'taste']) {
+      for (const v of (p.attrs && p.attrs[key]) || []) {
+        if (vocab[key] && !vocab[key].includes(v)) bad.push(key + ': ' + v);
+      }
+    }
+    if (bad.length) vocabNg.push(id + ' → ' + bad.join(', '));
+  }
+  vocabNg.length ? add('NG', '統制語彙にない属性値', vocabNg.join(' ｜ ')) : add('OK', '統制語彙にない属性値', 'なし');
+  // 5. リンク切れ（skeleton / composition / SVG）
+  const linkNg = [];
+  for (const [id, p] of Object.entries(parts)) {
+    const targets = [p.links && p.links.skeleton, p.links && p.links.composition, p.svg].filter(Boolean);
+    for (const t of targets) {
+      try {
+        const r = await fetch(t + '?' + bust, { method: 'HEAD' });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+      } catch (e) { linkNg.push(id + ': ' + t); }
+    }
+  }
+  linkNg.length ? add('NG', 'リンク切れ', linkNg.join(' ｜ ')) : add('OK', 'リンク切れ', 'なし');
+  // 6. 目録に未登録のJSON（GitHub APIでparts/を一覧）
+  try {
+    const r = await fetch('https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/parts');
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const list = await r.json();
+    const names = list.filter(f => f.name.endsWith('.json') && !RESERVED.includes(f.name)).map(f => f.name.replace(/\.json$/, ''));
+    const orphans = names.filter(n => !ids.includes(n));
+    orphans.length ? add('注意', '目録に未登録のJSON', orphans.join(', ')) : add('OK', '目録に未登録のJSON', 'なし');
+  } catch (e) {
+    add('注意', '目録に未登録のJSON', 'GitHub APIで確認できず（レート上限の可能性）: ' + e);
+  }
+})();
+</script>
+</body>
+</html>

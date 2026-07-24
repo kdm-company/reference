@@ -8,8 +8,10 @@
   body{font-family:sans-serif;color:#333;margin:0;padding:24px;background:#f6f8fa;}
   h1{font-size:20px;margin:0 0 4px;}
   .note{font-size:12px;color:#888;margin:0 0 16px;}
+  .errors{display:none;font-size:13px;color:#a33;background:#fdeeee;border:1px solid #e8c8c8;border-radius:6px;padding:10px 12px;margin:0 0 12px;}
+  .errors.show{display:block;}
   .filters{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 8px;}
-  .filters select,.filters input{padding:6px 8px;border:1px solid #ccc;border-radius:4px;font-size:13px;background:#fff;}
+  .filters select,.filters input{padding:6px 8px;border:1px solid #ccc;border-radius:4px;font-size:13px;background:#fff;max-width:100%;}
   .count{font-size:12px;color:#888;margin-bottom:12px;}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
   .card{background:#fff;border:1px solid #ddd;border-radius:8px;padding:14px;}
@@ -18,15 +20,17 @@
   .card img{width:100%;background:#fff;border:1px solid #eee;border-radius:4px;}
   .attrs{display:flex;flex-wrap:wrap;gap:4px;margin:8px 0;}
   .attrs span{font-size:11px;background:#eef2f6;border-radius:10px;padding:2px 8px;color:#555;}
+  .attrs span.kind{background:#e6efe6;}
   .desc{font-size:12px;line-height:1.7;color:#555;margin:0;}
   .links{margin-top:8px;font-size:12px;}
   .links a{margin-right:10px;}
-  @media(max-width:768px){body{padding:12px;}}
+  @media(max-width:768px){body{padding:12px;}.grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
 <h1>参考要素カタログ v2（プロトタイプ）</h1>
-<p class="note">parts/ のデータファイルから自動生成。既存カタログ（catalog-live.html）とは独立。</p>
+<p class="note">parts/ のデータファイルからブラウザ上で動的生成。既存カタログ（catalog-live.html）とは独立。</p>
+<div class="errors" id="errors"></div>
 <div class="filters">
   <select id="f-part"><option value="">部位: すべて</option></select>
   <select id="f-use"><option value="">用途: すべて</option></select>
@@ -38,21 +42,58 @@
 <div class="grid" id="grid"></div>
 <script>
 (async () => {
-  const bust = 'v=' + Date.now();
-  const ids = await (await fetch('parts/manifest.json?' + bust)).json();
-  const parts = await Promise.all(ids.map(id => fetch('parts/' + id + '.json?' + bust).then(r => r.json())));
   const AXES = { part: '部位', use: '用途', industry: '業種', taste: 'テイスト' };
+  const bust = 'v=' + Date.now();
+  const manifestUrl = new URLSearchParams(location.search).get('manifest') || 'parts/manifest.json';
+  let vocab = {};
+  try { vocab = await (await fetch('parts/vocab.json?' + bust)).json(); } catch (e) { /* 語彙なしでも動作 */ }
+  let ids = [];
+  try {
+    ids = await (await fetch(manifestUrl + '?' + bust)).json();
+  } catch (e) {
+    showError('目録（' + manifestUrl + '）を読み込めませんでした: ' + e);
+    return;
+  }
+  // 各JSONを個別に取得し、失敗しても全体を止めない
+  const results = await Promise.all(ids.map(async id => {
+    try {
+      const r = await fetch('parts/' + id + '.json?' + bust);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      return { id, data: await r.json() };
+    } catch (e) {
+      return { id, error: String(e) };
+    }
+  }));
+  const failed = results.filter(r => r.error);
+  if (failed.length) {
+    showError('読み込みエラー ' + failed.length + '件（表示から除外）: ' + failed.map(f => f.id).join(', '));
+  }
+  // 並び順固定: ID昇順
+  const parts = results.filter(r => r.data).map(r => r.data)
+    .sort((a, b) => String(a.id).localeCompare(String(b.id)));
+  // フィルタ選択肢: 語彙順に固定（語彙外の値は末尾に文字コード順）
   for (const key of Object.keys(AXES)) {
     const sel = document.getElementById('f-' + key);
-    const values = [...new Set(parts.flatMap(p => (p.attrs && p.attrs[key]) || []))];
+    const used = [...new Set(parts.flatMap(p => (p.attrs && p.attrs[key]) || []))];
+    const order = vocab[key] || [];
+    const values = [
+      ...order.filter(v => used.includes(v)),
+      ...used.filter(v => !order.includes(v)).sort((a, b) => a.localeCompare(b))
+    ];
     for (const v of values) {
       const o = document.createElement('option');
-      o.value = v; o.textContent = v;
+      o.value = v;
+      o.textContent = order.includes(v) ? v : v + '（語彙外）';
       sel.appendChild(o);
     }
     sel.addEventListener('change', render);
   }
   document.getElementById('f-text').addEventListener('input', render);
+  function showError(msg) {
+    const el = document.getElementById('errors');
+    el.textContent = msg;
+    el.classList.add('show');
+  }
   function render() {
     const cond = {};
     for (const key of Object.keys(AXES)) cond[key] = document.getElementById('f-' + key).value;
@@ -65,19 +106,25 @@
       return true;
     });
     document.getElementById('count').textContent = hits.length + ' / ' + parts.length + ' 件';
-    document.getElementById('grid').innerHTML = hits.map(p => `
+    document.getElementById('grid').innerHTML = hits.map(p => {
+      const site = p.site || {};
+      const links = p.links || {};
+      const chips = ['<span class="kind">kind: ' + (p.kind || '-') + '</span>']
+        .concat(Object.keys(AXES).flatMap(k => ((p.attrs && p.attrs[k]) || []).map(v => '<span>' + AXES[k] + ': ' + v + '</span>')));
+      return `
       <div class="card">
-        <span class="id">${p.id} ｜ ${p.site.no} ${p.site.name}</span>
-        <h2>${p.name}</h2>
-        <img src="${p.svg}" loading="lazy" alt="">
-        <div class="attrs">${Object.keys(AXES).flatMap(k => ((p.attrs && p.attrs[k]) || []).map(v => '<span>' + AXES[k] + ': ' + v + '</span>')).join('')}</div>
-        <p class="desc">${p.desc}</p>
+        <span class="id">${p.id} ｜ ${site.no || ''} ${site.name || ''}</span>
+        <h2>${p.name || ''}</h2>
+        <img src="${p.svg || ''}" loading="lazy" alt="">
+        <div class="attrs">${chips.join('')}</div>
+        <p class="desc">${p.desc || ''}</p>
         <div class="links">
-          <a href="${p.links.skeleton}" target="_blank">骨格HTML ↗</a>
-          <a href="${p.links.composition}" target="_blank">構図メモ ↗</a>
-          <a href="${p.site.url}" target="_blank">元サイト ↗</a>
+          <a href="${links.skeleton || '#'}" target="_blank">骨格HTML ↗</a>
+          <a href="${links.composition || '#'}" target="_blank">構図メモ ↗</a>
+          <a href="${site.url || '#'}" target="_blank">元サイト ↗</a>
         </div>
-      </div>`).join('');
+      </div>`;
+    }).join('');
   }
   render();
 })();
