@@ -1,0 +1,59 @@
+name: validate-catalog
+
+on:
+  push:
+    paths:
+      - "parts/**"
+      - "catalog-v2.html"
+      - "validate.html"
+      - "scripts/**"
+      - "tests/**"
+      - "playwright.config.js"
+      - "package.json"
+      - ".github/workflows/validate-catalog.yml"
+  pull_request:
+    paths:
+      - "parts/**"
+      - "catalog-v2.html"
+      - "scripts/**"
+      - "tests/**"
+  workflow_dispatch:
+
+jobs:
+  validate-data:
+    name: "データ検証"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: "本番manifestの検証（終了コード0を要求）"
+        run: node scripts/validate-catalog.js parts/manifest.json
+      - name: "テストフィクスチャの検証（終了コード1が期待結果。正しく拒否されればPASS）"
+        run: |
+          set +e
+          node scripts/validate-catalog.js parts/manifest.test.json
+          code=$?
+          set -e
+          if [ "$code" -eq 1 ]; then
+            echo "OK: テストデータは意図どおり終了コード1で拒否された（期待された結果のためこのステップはPASS）"
+          else
+            echo "ERROR: 期待は終了コード1、実際は $code"
+            exit 1
+          fi
+
+  e2e:
+    name: "ブラウザ自動テスト（Playwright）"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: "依存インストール"
+        run: npm install
+      - name: "Chromiumインストール"
+        run: npx playwright install --with-deps chromium
+      - name: "E2Eテスト実行"
+        run: npx playwright test
