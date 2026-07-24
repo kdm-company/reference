@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Form Component (reusable source)</title>
+<style>
+/* c-contact-form: 汎用問い合わせフォームコンポーギス */
+:root{
+ --cf-gap: 24px;
+ --cf-border: #d8d8d8;
+ --cf-text: #2b2b2b;
+ --cf-error: #c0392b;
+ --cf-muted: #8a8a8a;
+}
+*{box-sizing:border-box;}
+body{font-family:"Hiragino Sans","Noto Sans JP",sans-serif;color:var(--cf-text);margin:0;padding:48px 20px;background:#fff;}
+.c-contact-form{max-width:560px;margin:0 auto;}
+.c-contact-form__lead{margin-bottom:32px;line-height:1.8;font-size:15px;}
+.c-contact-form__lead h1{font-size:20px;margin:0 0 12px;}
+.c-contact-form__field{margin-bottom:var(--cf-gap);}
+.c-contact-form__label{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;margin-bottom:8px;}
+.c-contact-form__badge{font-size:11px;padding:2px 8px;border-radius:3px;font-weight:600;}
+.c-contact-form__badge--required{background:#fdeaea;color:var(--cf-error);}
+.c-contact-form__badge--optional{background:#f0f0f0;color:var(--cf-muted);}
+.c-contact-form__input,
+.c-contact-form__select,
+.c-contact-form__textarea{width:100%;padding:12px;border:1px solid var(--cf-border);border-radius:4px;font-size:15px;font-family:inherit;}
+.c-contact-form__textarea{min-height:140px;resize:vertical;}
+.c-contact-form__error{color:var(--cf-error);font-size:12px;margin-top:6px;}
+.c-contact-form__field--error .c-contact-form__input,
+.c-contact-form__field--error .c-contact-form__select{border-color:var(--cf-error);}
+.c-contact-form__consent{display:flex;align-items:flex-start;gap:8px;font-size:13px;line-height:1.6;margin:32px 0;}
+.c-contact-form__submit-row{text-align:center;margin-top:8px;}
+.c-contact-form__submit{background:var(--cf-text);color:#fff;border:none;padding:14px 48px;font-size:15px;border-radius:4px;cursor:pointer;}
+@media (max-width:480px){
+ body{padding:32px 16px;}
+ .c-contact-form__submit{width:100%;}
+}
+</style>
+</head>
+<body>
+<!--
+ 再利用メモ:
+ - タイトル、リード文、種別の選択肢は業種に応じて書き換える
+ - フィールドの必須/任意はbadgeクラスの差し替えのみで変更可能
+ - action属性は本番導入時に差し替える（本ソースはダミーのまま）
+-->
+<div class="c-contact-form">
+ <div class="c-contact-form__lead">
+  <h1>お問い合わせ</h1>
+  <p>下記の項目をご入力のうえ、送信してください。</p>
+ </div>
+ <form class="c-contact-form__form" action="#" method="post" novalidate>
+  <div class="c-contact-form__field">
+   <label class="c-contact-form__label" for="cf-company">会社名<span class="c-contact-form__badge c-contact-form__badge--optional">任意</span></label>
+   <input class="c-contact-form__input" type="text" id="cf-company" name="company">
+  </div>
+  <div class="c-contact-form__field">
+   <label class="c-contact-form__label" for="cf-name">お名前<span class="c-contact-form__badge c-contact-form__badge--required">必須</span></label>
+   <input class="c-contact-form__input" type="text" id="cf-name" name="name">
+  </div>
+  <div class="c-contact-form__field c-contact-form__field--error">
+   <label class="c-contact-form__label" for="cf-email">メールアドレス<span class="c-contact-form__badge c-contact-form__badge--required">必須</span></label>
+   <input class="c-contact-form__input" type="email" id="cf-email" name="email">
+   <p class="c-contact-form__error">メールアドレスを入力してください</p>
+  </div>
+  <div class="c-contact-form__field">
+   <label class="c-contact-form__label" for="cf-tel">電話番号<span class="c-contact-form__badge c-contact-form__badge--optional">任意</span></label>
+   <input class="c-contact-form__input" type="tel" id="cf-tel" name="tel">
+  </div>
+  <div class="c-contact-form__field">
+   <label class="c-contact-form__label" for="cf-category">お問い合わせ種別<span class="c-contact-form__badge c-contact-form__badge--required">必須</span></label>
+   <select class="c-contact-form__select" id="cf-category" name="category">
+    <option value="">選択してください</option>
+    <option>種別A</option>
+    <option>種別B</option>
+    <option>その他</option>
+   </select>
+  </div>
+  <div class="c-contact-form__field">
+   <label class="c-contact-form__label" for="cf-message">お問い合わせ内容<span class="c-contact-form__badge c-contact-form__badge--required">必須</span></label>
+   <textarea class="c-contact-form__textarea" id="cf-message" name="message"></textarea>
+  </div>
+  <label class="c-contact-form__consent">
+   <input type="checkbox" name="consent">
+   <span>プライバシーポリシーに同意する<span class="c-contact-form__badge c-contact-form__badge--required">必須</span></span>
+  </label>
+  <div class="c-contact-form__submit-row">
+   <button class="c-contact-form__submit" type="submit">送信する</button>
+  </div>
+ </form>
+</div>
+</body>
+</html>

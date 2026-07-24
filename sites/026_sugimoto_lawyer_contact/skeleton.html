@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>問い合わせフォーム構造サンプル（DECO-034）</title>
+<style>
+:root{--gap:24px;--border:#d8d8d8;--accent:#2b2b2b;--error:#c0392b;--muted:#8a8a8a;}
+*{box-sizing:border-box;}
+body{font-family:"Hiragino Sans","Noto Sans JP",sans-serif;background:#fff;color:var(--accent);margin:0;padding:48px 20px;}
+.form-wrap{max-width:560px;margin:0 auto;}
+.form-lead{margin-bottom:32px;line-height:1.8;font-size:15px;color:#444;}
+.form-lead h1{font-size:20px;margin:0 0 12px;}
+.field{margin-bottom:var(--gap);}
+.field label{display:flex;align-items:center;gap:8px;font-size:14px;font-weight:600;margin-bottom:8px;}
+.badge{font-size:11px;padding:2px 8px;border-radius:3px;font-weight:600;}
+.badge.required{background:#fdeaea;color:var(--error);}
+.badge.optional{background:#f0f0f0;color:var(--muted);}
+input[type=text],input[type=email],input[type=tel],select,textarea{width:100%;padding:12px;border:1px solid var(--border);border-radius:4px;font-size:15px;font-family:inherit;}
+textarea{min-height:140px;resize:vertical;}
+.error-msg{color:var(--error);font-size:12px;margin-top:6px;}
+.field.has-error input,.field.has-error select{border-color:var(--error);}
+.consent{display:flex;align-items:flex-start;gap:8px;font-size:13px;line-height:1.6;margin:32px 0;}
+.consent a{color:var(--accent);text-decoration:underline;}
+.submit-row{text-align:center;margin-top:8px;}
+button[type=submit]{background:var(--accent);color:#fff;border:none;padding:14px 48px;font-size:15px;border-radius:4px;cursor:pointer;}
+@media (max-width:480px){body{padding:32px 16px;}button[type=submit]{width:100%;}}
+</style>
+</head>
+<body>
+<div class="form-wrap">
+ <div class="form-lead">
+  <h1>お問い合わせ</h1>
+  <p>下記の項目をご入力のうえ、送信してください。内容確認後、担当者よりご連絡いたします。</p>
+ </div>
+ <form action="#" method="post" novalidate>
+  <div class="field">
+   <label for="company">会社名<span class="badge optional">任意</span></label>
+   <input type="text" id="company" name="company" placeholder="例：株式会社サンプル">
+  </div>
+  <div class="field">
+   <label for="name">お名前<span class="badge required">必須</span></label>
+   <input type="text" id="name" name="name" placeholder="例：山田 太郎">
+  </div>
+  <div class="field has-error">
+   <label for="email">メールアドレス<span class="badge required">必須</span></label>
+   <input type="email" id="email" name="email" placeholder="例：sample@example.com">
+   <p class="error-msg">メールアドレスを入力してください</p>
+  </div>
+  <div class="field">
+   <label for="tel">電話番号<span class="badge optional">任意</span></label>
+   <input type="tel" id="tel" name="tel" placeholder="例：00-0000-0000">
+  </div>
+  <div class="field">
+   <label for="category">お問い合わせ種別<span class="badge required">必須</span></label>
+   <select id="category" name="category">
+    <option value="">選択してください</option>
+    <option>サービスについて</option>
+    <option>お見積りについて</option>
+    <option>その他のお問い合わせ</option>
+   </select>
+  </div>
+  <div class="field">
+   <label for="message">お問い合わせ内容<span class="badge required">必須</span></label>
+   <textarea id="message" name="message" placeholder="お問い合わせ内容をご記入ください"></textarea>
+  </div>
+  <label class="consent">
+   <input type="checkbox" name="consent">
+   <span><a href="#">プライバシーポリシー</a>に同意する<span class="badge required">必須</span></span>
+  </label>
+  <div class="submit-row">
+   <button type="submit">送信する</button>
+  </div>
+ </form>
+</div>
+</body>
+</html>
