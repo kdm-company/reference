@@ -1,0 +1,75 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/022_kensetsukyoka/skeleton.html</title></head><body><h1>sites/022_kensetsukyoka/skeleton.html</h1><p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;022 行政書士法人ストレート 形の骨格&lt;/title&gt;
+&lt;!--
+  形だけのスケルトン（レイアウト・構造のみ）
+  元サイト: https://www.kensetsukyoka.tokyo/
+  含む形: DECO-030 お客様の声（成果一言タイトル型カード）
+  ※ 色はすべて仮色。配色は対象外。
+--&gt;
+&lt;style&gt;
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:sans-serif;color:#555;background:#fff;}
+.ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+/* DECO-030 お客様の声（成果一言タイトル型カード） */
+.voice{max-width:1080px;margin:0 auto;padding:64px 24px;}
+.voice h2{text-align:center;font-size:24px;color:#444;}
+.bar{width:48px;height:3px;background:#8fa3bf;margin:12px auto 40px;}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.vcard{border:1px solid #e2e2e2;display:flex;flex-direction:column;}
+.vcard .ph{height:150px;}
+.vbody{padding:16px 16px 20px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.vtitle{font-size:14px;font-weight:bold;color:#444;line-height:1.5;}
+.vtitle span{color:#8fa3bf;}
+.vtext{font-size:12px;line-height:1.8;color:#777;}
+.vmore{margin-top:auto;text-align:right;font-size:12px;color:#8fa3bf;font-weight:bold;}
+.vall{display:block;width:280px;margin:40px auto 0;padding:14px 0;text-align:center;border:1px solid #8fa3bf;color:#8fa3bf;font-size:13px;font-weight:bold;text-decoration:none;}
+
+@media(max-width:768px){
+.voice{padding:48px 16px;}
+.vgrid{grid-template-columns:1fr;gap:16px;}
+.vall{width:100%;}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;section class="voice"&gt;
+  &lt;h2&gt;お客様の声&lt;/h2&gt;
+  &lt;div class="bar"&gt;&lt;/div&gt;
+  &lt;div class="vgrid"&gt;
+    &lt;article class="vcard"&gt;
+      &lt;div class="ph"&gt;写真（担当者・訪問先）&lt;/div&gt;
+      &lt;div class="vbody"&gt;
+        &lt;p class="vtitle"&gt;〇〇株式会社様&lt;span&gt;｜&lt;/span&gt;成果がひとことで伝わる見出しが入ります&lt;/p&gt;
+        &lt;p class="vtext"&gt;依頼の経緯と結果の抜粋が入ります。2〜3行で切って詳細ページへ誘導します。ダミーテキストダミーテキスト。&lt;/p&gt;
+        &lt;p class="vmore"&gt;続きを読む →&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+    &lt;article class="vcard"&gt;
+      &lt;div class="ph"&gt;写真（担当者・訪問先）&lt;/div&gt;
+      &lt;div class="vbody"&gt;
+        &lt;p class="vtitle"&gt;〇〇株式会社様&lt;span&gt;｜&lt;/span&gt;依頼して解決したことが見出しになります&lt;/p&gt;
+        &lt;p class="vtext"&gt;依頼の経緯と結果の抜粋が入ります。2〜3行で切って詳細ページへ誘導します。ダミーテキストダミーテキスト。&lt;/p&gt;
+        &lt;p class="vmore"&gt;続きを読む →&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+    &lt;article class="vcard"&gt;
+      &lt;div class="ph"&gt;写真（担当者・訪問先）&lt;/div&gt;
+      &lt;div class="vbody"&gt;
+        &lt;p class="vtitle"&gt;〇〇株式会社様&lt;span&gt;｜&lt;/span&gt;顧客の属性と成果が同時に伝わる見出し&lt;/p&gt;
+        &lt;p class="vtext"&gt;依頼の経緯と結果の抜粋が入ります。2〜3行で切って詳細ページへ誘導します。ダミーテキストダミーテキスト。&lt;/p&gt;
+        &lt;p class="vmore"&gt;続きを読む →&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+  &lt;a class="vall" href="#"&gt;お客様の声一覧&lt;/a&gt;
+&lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></body></html>

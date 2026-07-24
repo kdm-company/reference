@@ -1,0 +1,87 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/023_mwcc/skeleton.html</title></head><body><h1>sites/023_mwcc/skeleton.html</h1><p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;023 マイクロ波化学 形の骨格&lt;/title&gt;
+&lt;!--
+  形だけのスケルトン（レイアウト・構造のみ）
+  元サイト: https://mwcc.jp/
+  含む形: DECO-031 実績（分野タグ付き協業事例カード）
+  ※ 色はすべて仮色。配色は対象外。
+--&gt;
+&lt;style&gt;
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:sans-serif;color:#555;background:#fff;}
+.ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+/* DECO-031 実績（分野タグ付き協業事例カード） */
+.ach{max-width:1120px;margin:0 auto;padding:64px 24px;}
+.label{font-size:12px;letter-spacing:2px;color:#8fa3bf;font-weight:bold;}
+.ach h2{font-size:26px;color:#444;margin:8px 0 16px;}
+.lead{font-size:13px;line-height:1.9;color:#777;max-width:680px;}
+.entry{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0 40px;}
+.entry a{border:1px solid #c4ccd6;padding:18px 20px;display:block;text-decoration:none;}
+.esmall{font-size:11px;color:#999;}
+.ebig{font-size:16px;font-weight:bold;color:#444;margin-top:4px;}
+.ebig span{float:right;color:#8fa3bf;}
+.agrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.acard{border:1px solid #e2e2e2;display:flex;flex-direction:column;}
+.acard .ph{height:130px;}
+.abody{padding:14px 16px 18px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.tags{display:flex;flex-wrap:wrap;gap:6px;}
+.tags span{font-size:10px;border:1px solid #c4ccd6;color:#8fa3bf;padding:2px 8px;}
+.catch{font-size:14px;font-weight:bold;color:#444;line-height:1.6;}
+.client{margin-top:auto;font-size:11px;color:#999;line-height:1.6;}
+.more{display:block;width:240px;margin:36px auto 0;padding:13px 0;text-align:center;background:#8fa3bf;color:#fff;font-size:13px;text-decoration:none;}
+
+@media(max-width:768px){
+.ach{padding:48px 16px;}
+.entry{grid-template-columns:1fr;margin:24px 0 32px;}
+.agrid{grid-template-columns:1fr;gap:16px;}
+.more{width:100%;}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;section class="ach"&gt;
+  &lt;p class="label"&gt;ACHIEVEMENTS&lt;/p&gt;
+  &lt;h2&gt;実績 / 事例紹介&lt;/h2&gt;
+  &lt;p class="lead"&gt;セクションのリード文が入ります。協業の姿勢や事例の広がりを2行程度で説明します。&lt;/p&gt;
+  &lt;div class="entry"&gt;
+    &lt;a href="#"&gt;&lt;p class="esmall"&gt;各社との協業事例を紹介&lt;/p&gt;&lt;p class="ebig"&gt;プロジェクト事例&lt;span&gt;→&lt;/span&gt;&lt;/p&gt;&lt;/a&gt;
+    &lt;a href="#"&gt;&lt;p class="esmall"&gt;開発パートナーを募集&lt;/p&gt;&lt;p class="ebig"&gt;技術シーズ&lt;span&gt;→&lt;/span&gt;&lt;/p&gt;&lt;/a&gt;
+  &lt;/div&gt;
+  &lt;div class="agrid"&gt;
+    &lt;article class="acard"&gt;
+      &lt;div class="ph"&gt;事例画像&lt;/div&gt;
+      &lt;div class="abody"&gt;
+        &lt;p class="tags"&gt;&lt;span&gt;分野A&lt;/span&gt;&lt;span&gt;分野B&lt;/span&gt;&lt;/p&gt;
+        &lt;p class="catch"&gt;成果を印象づけるキャッチコピーが2行で入ります。&lt;/p&gt;
+        &lt;p class="client"&gt;〇〇株式会社様&lt;br&gt;〇〇開発プロジェクト&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+    &lt;article class="acard"&gt;
+      &lt;div class="ph"&gt;事例画像&lt;/div&gt;
+      &lt;div class="abody"&gt;
+        &lt;p class="tags"&gt;&lt;span&gt;分野A&lt;/span&gt;&lt;span&gt;分野C&lt;/span&gt;&lt;span&gt;分野D&lt;/span&gt;&lt;/p&gt;
+        &lt;p class="catch"&gt;挑戦の内容が一文で伝わるキャッチコピーが入ります。&lt;/p&gt;
+        &lt;p class="client"&gt;〇〇株式会社様&lt;br&gt;〇〇リサイクルプロジェクト&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+    &lt;article class="acard"&gt;
+      &lt;div class="ph"&gt;事例画像&lt;/div&gt;
+      &lt;div class="abody"&gt;
+        &lt;p class="tags"&gt;&lt;span&gt;分野B&lt;/span&gt;&lt;span&gt;分野E&lt;/span&gt;&lt;/p&gt;
+        &lt;p class="catch"&gt;意外性のある事例をキャッチコピーで引き立てます。&lt;/p&gt;
+        &lt;p class="client"&gt;〇〇機構様&lt;br&gt;〇〇技術開発プロジェクト&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;
+  &lt;a class="more" href="#"&gt;Read More&lt;/a&gt;
+&lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></body></html>

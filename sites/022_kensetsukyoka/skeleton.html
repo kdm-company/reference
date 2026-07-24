@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>022 行政書士法人ストレート 形の骨格</title>
+<!--
+  形だけのスケルトン（レイアウト・構造のみ）
+  元サイト: https://www.kensetsukyoka.tokyo/
+  含む形: DECO-030 お客様の声（成果一言タイトル型カード）
+  ※ 色はすべて仮色。配色は対象外。
+-->
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:sans-serif;color:#555;background:#fff;}
+.ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+/* DECO-030 お客様の声（成果一言タイトル型カード） */
+.voice{max-width:1080px;margin:0 auto;padding:64px 24px;}
+.voice h2{text-align:center;font-size:24px;color:#444;}
+.bar{width:48px;height:3px;background:#8fa3bf;margin:12px auto 40px;}
+.vgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.vcard{border:1px solid #e2e2e2;display:flex;flex-direction:column;}
+.vcard .ph{height:150px;}
+.vbody{padding:16px 16px 20px;display:flex;flex-direction:column;gap:10px;flex:1;}
+.vtitle{font-size:14px;font-weight:bold;color:#444;line-height:1.5;}
+.vtitle span{color:#8fa3bf;}
+.vtext{font-size:12px;line-height:1.8;color:#777;}
+.vmore{margin-top:auto;text-align:right;font-size:12px;color:#8fa3bf;font-weight:bold;}
+.vall{display:block;width:280px;margin:40px auto 0;padding:14px 0;text-align:center;border:1px solid #8fa3bf;color:#8fa3bf;font-size:13px;font-weight:bold;text-decoration:none;}
+
+@media(max-width:768px){
+.voice{padding:48px 16px;}
+.vgrid{grid-template-columns:1fr;gap:16px;}
+.vall{width:100%;}
+}
+</style>
+</head>
+<body>
+
+<section class="voice">
+  <h2>お客様の声</h2>
+  <div class="bar"></div>
+  <div class="vgrid">
+    <article class="vcard">
+      <div class="ph">写真（担当者・訪問先）</div>
+      <div class="vbody">
+        <p class="vtitle">〇〇株式会社様<span>｜</span>成果がひとことで伝わる見出しが入ります</p>
+        <p class="vtext">依頼の経緯と結果の抜粋が入ります。2〜3行で切って詳細ページへ誘導します。ダミーテキストダミーテキスト。</p>
+        <p class="vmore">続きを読む →</p>
+      </div>
+    </article>
+    <article class="vcard">
+      <div class="ph">写真（担当者・訪問先）</div>
+      <div class="vbody">
+        <p class="vtitle">〇〇株式会社様<span>｜</span>依頼して解決したことが見出しになります</p>
+        <p class="vtext">依頼の経緯と結果の抜粋が入ります。2〜3行で切って詳細ページへ誘導します。ダミーテキストダミーテキスト。</p>
+        <p class="vmore">続きを読む →</p>
+      </div>
+    </article>
+    <article class="vcard">
+      <div class="ph">写真（担当者・訪問先）</div>
+      <div class="vbody">
+        <p class="vtitle">〇〇株式会社様<span>｜</span>顧客の属性と成果が同時に伝わる見出し</p>
+        <p class="vtext">依頼の経緯と結果の抜粋が入ります。2〜3行で切って詳細ページへ誘導します。ダミーテキストダミーテキスト。</p>
+        <p class="vmore">続きを読む →</p>
+      </div>
+    </article>
+  </div>
+  <a class="vall" href="#">お客様の声一覧</a>
+</section>
+
+</body>
+</html>
