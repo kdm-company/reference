@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/025_enkouji/skeleton.html</title></head><body><h1>sites/025_enkouji/skeleton.html</h1><p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;025 圓光寺 形の骨格&lt;/title&gt;
+&lt;!--
+  形だけのスケルトン（レイアウト・構造のみ）
+  元サイト: https://www.enkouji.jp/
+  含む形: DECO-033 和風上質トーン（縦書き見出し＋文章主体＋漢数字）
+  ※ 色はすべて仮色。配色は対象外。
+--&gt;
+&lt;style&gt;
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:serif;color:#555;background:#fff;}
+.ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+/* 最小限ナビ */
+.nav{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:24px 32px;z-index:2;}
+.nav ul{display:flex;gap:28px;list-style:none;font-size:13px;letter-spacing:2px;}
+.lang{display:flex;gap:16px;font-size:11px;letter-spacing:1px;color:#999;}
+
+/* DECO-033 縦書きヒーロー */
+.hero{position:relative;height:100vh;}
+.hero .ph{position:absolute;top:0;left:0;width:100%;height:100%;}
+.season{position:absolute;top:96px;left:40px;writing-mode:vertical-rl;font-size:16px;letter-spacing:10px;}
+.vtitle{position:absolute;top:50%;right:12%;transform:translateY(-50%);writing-mode:vertical-rl;font-size:32px;letter-spacing:16px;color:#444;}
+
+/* 文章主体セクション */
+.prose{max-width:620px;margin:0 auto;padding:110px 24px;}
+.prose h2{font-size:20px;letter-spacing:8px;color:#444;margin-bottom:36px;}
+.prose p{font-size:14px;line-height:2.4;letter-spacing:1px;}
+.morelink{display:inline-block;margin-top:28px;font-size:13px;letter-spacing:2px;color:#8fa3bf;text-decoration:none;}
+
+/* 漢数字フッター */
+.foot{padding:90px 24px 60px;text-align:center;border-top:1px solid #e2e2e2;}
+.fname{font-size:18px;letter-spacing:8px;color:#444;}
+.faddr{margin-top:20px;font-size:13px;line-height:2.2;letter-spacing:2px;}
+.ftime{margin-top:16px;font-size:13px;letter-spacing:4px;}
+.fcontact{margin-top:20px;font-size:12px;line-height:2.2;color:#777;}
+
+@media(max-width:768px){
+.nav{padding:16px;}
+.nav ul{gap:16px;font-size:11px;letter-spacing:1px;}
+.hero{height:72vh;}
+.season{top:64px;left:16px;font-size:13px;letter-spacing:6px;}
+.vtitle{right:10%;font-size:22px;letter-spacing:10px;}
+.prose{padding:72px 20px;}
+.foot{padding:64px 20px 48px;}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class="hero"&gt;
+  &lt;nav class="nav"&gt;
+    &lt;ul&gt;&lt;li&gt;メニュー一&lt;/li&gt;&lt;li&gt;メニュー二&lt;/li&gt;&lt;li&gt;メニュー三&lt;/li&gt;&lt;li&gt;メニュー四&lt;/li&gt;&lt;/ul&gt;
+    &lt;div class="lang"&gt;&lt;span&gt;JAPANESE&lt;/span&gt;&lt;span&gt;ENGLISH&lt;/span&gt;&lt;/div&gt;
+  &lt;/nav&gt;
+  &lt;div class="ph"&gt;季節の写真（全画面）&lt;/div&gt;
+  &lt;p class="season"&gt;季節名&lt;/p&gt;
+  &lt;p class="vtitle"&gt;寺社名が縦書きで入ります&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;section class="prose"&gt;
+  &lt;h2&gt;見出し&lt;/h2&gt;
+  &lt;p&gt;由緒や思想を語る本文が入ります。行間を大きく取り、一段組の狭い幅で静かに読ませます。文章そのものを主役にして、装飾は加えません。ダミーテキストダミーテキストダミーテキスト。&lt;/p&gt;
+  &lt;a class="morelink" href="#"&gt;詳しく見る →&lt;/a&gt;
+&lt;/section&gt;
+
+&lt;section class="prose"&gt;
+  &lt;h2&gt;体験の見出し&lt;/h2&gt;
+  &lt;p&gt;体験や案内の本文が入ります。写真やカードに頼らず、言葉だけで構成します。ダミーテキストダミーテキストダミーテキストダミーテキスト。&lt;/p&gt;
+  &lt;a class="morelink" href="#"&gt;詳しく見る →&lt;/a&gt;
+&lt;/section&gt;
+
+&lt;footer class="foot"&gt;
+  &lt;p class="fname"&gt;山号 寺社名&lt;/p&gt;
+  &lt;p class="faddr"&gt;郵便番号六〇〇 〇〇〇〇&lt;br&gt;所在地の表記も漢数字で十三番地のように書きます&lt;/p&gt;
+  &lt;p class="ftime"&gt;拝観時間 九時 十七時&lt;/p&gt;
+  &lt;p class="fcontact"&gt;TEL 〇〇〇-〇〇〇-〇〇〇〇（九時 十七時）&lt;br&gt;MAIL 〇〇〇@〇〇〇.jp&lt;/p&gt;
+&lt;/footer&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></body></html>
