@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>参考要素カタログ（全件表示）</title>
+<style>body{font-family:sans-serif;color:#555;padding:24px;}</style>
+</head>
+<body>
+<p>カタログを読み込み中…</p>
+<script>
+(async () => {
+  try {
+    const bust = 'v=' + Date.now();
+    // 1. 既存カタログを取得
+    const base = await (await fetch('catalog.html?' + bust)).text();
+    const doc = new DOMParser().parseFromString(base, 'text/html');
+    // 2. 追加カードの一覧（マニフェスト）を取得
+    let files = [];
+    try {
+      const manifest = await (await fetch('indexes/card-chunks.json?' + bust)).json();
+      files = manifest.files || [];
+    } catch (e) { /* 追加分なし */ }
+    // 3. カードグリッドの末尾に追加カードを差し込む
+    const firstCard = doc.querySelector('.card');
+    const grid = firstCard ? firstCard.parentElement : doc.body;
+    for (const file of files) {
+      try {
+        const html = await (await fetch(file + '?' + bust)).text();
+        grid.insertAdjacentHTML('beforeend', html);
+      } catch (e) { /* チャンク取得失敗はスキップ */ }
+    }
+    // 4. 合成結果でページ全体を差し替え
+    document.replaceChild(document.adoptNode(doc.documentElement), document.documentElement);
+    // 5. catalog.html内のscript（絞り込み等）を再実行
+    document.querySelectorAll('script').forEach(old => {
+      const s = document.createElement('script');
+      if (old.src) { s.src = old.src; } else { s.textContent = old.textContent; }
+      old.replaceWith(s);
+    });
+    document.dispatchEvent(new Event('DOMContentLoaded', { bubbles: true }));
+    window.dispatchEvent(new Event('load'));
+  } catch (e) {
+    document.body.innerHTML = '<p>読み込みに失敗しました。<a href="catalog.html">catalog.html</a>を直接開いてください。</p>';
+  }
+})();
+</script>
+</body>
+</html>
