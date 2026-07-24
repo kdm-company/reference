@@ -1,0 +1,20 @@
+{
+  "id": "DECO-034",
+  "name": "必須・任意が明確な問い合わせフォーム",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "026", "name": "杉本拓也弁護士 公式サイト", "url": "https://sugimoto-lawyer.com/contact/" },
+  "attrs": {
+    "part": ["フォーム"],
+    "use": ["問い合わせ"],
+    "industry": ["士業"],
+    "taste": ["コーポレート", "端正"]
+  },
+  "tags": ["#問い合わせフォーム", "#必須任意", "#縦積みフォーム"],
+  "desc": "会社名・氏名・メール・電話・問い合わせ種別・本文を縦方向に整理し、必須/任意表示とプライバシー確認、送信CTAを備えた汎用問い合わせフォーム。項目数を抱えつつ士業以外の業種にも転用しやすい構造。",
+  "links": {
+    "skeleton": "sites/026_sugimoto_lawyer_contact/skeleton.html",
+    "composition": "sites/026_sugimoto_lawyer_contact/composition.md"
+  },
+  "svg": "parts/DECO-034.svg"
+}
