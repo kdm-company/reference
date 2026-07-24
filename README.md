@@ -106,3 +106,4 @@ cd 参考要素倉庫
 | 022 | 行政書士法人ストレート | #お客様の声 #成果一言タイトル #カード3連 | [skeleton.html](sites/022_kensetsukyoka/skeleton.html) | [composition.md](sites/022_kensetsukyoka/composition.md) |
 | 023 | マイクロ波化学 | #実績 #分野タグピル #キャッチコピー主役カード | [skeleton.html](sites/023_mwcc/skeleton.html) | [composition.md](sites/023_mwcc/composition.md) |
 | 024 | ダイクレ興産 | #会社概要 #定義表 #沿革年表 | [skeleton.html](sites/024_daikure/skeleton.html) | [composition.md](sites/024_daikure/composition.md) |
+| 025 | 圓光寺 | #和風 #縦書き #漢数字 #余白極大 | [skeleton.html](sites/025_enkouji/skeleton.html) | [composition.md](sites/025_enkouji/composition.md) |
