@@ -1,0 +1,19 @@
+{
+  "id": "DECO-033",
+  "name": "和風上質トーン（縦書き＋文章主体＋漢数字）",
+  "category": "DECO",
+  "site": { "no": "025", "name": "圓光寺", "url": "https://www.enkouji.jp/" },
+  "attrs": {
+    "part": ["ヒーロー", "メイン", "フッター"],
+    "use": ["トップページ", "ブランド訴求"],
+    "industry": ["寺社・観光", "旅館", "老舗"],
+    "taste": ["和風", "上質", "余白極大"]
+  },
+  "tags": ["#和風", "#縦書き", "#漢数字", "#余白極大"],
+  "desc": "全画面の季節写真+縦書き見出し(字間極大)→狭幅1カラム・行間2.4の文章セクション(「詳しく見る →」のテキストリンクのみ)→漢数字表記の中央寄せフッター。寺社・旅館・老舗など和のトーン向け。",
+  "links": {
+    "skeleton": "sites/025_enkouji/skeleton.html",
+    "composition": "sites/025_enkouji/composition.md"
+  },
+  "svg": "parts/DECO-033.svg"
+}

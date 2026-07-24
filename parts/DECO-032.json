@@ -1,0 +1,19 @@
+{
+  "id": "DECO-032",
+  "name": "会社概要（概要表＋沿革年表）",
+  "category": "DECO",
+  "site": { "no": "024", "name": "ダイクレ興産", "url": "https://daikure-kousan.co.jp/company/" },
+  "attrs": {
+    "part": ["メイン"],
+    "use": ["会社概要", "沿革"],
+    "industry": ["製造", "老舗", "汎用"],
+    "taste": ["コーポレート", "端正"]
+  },
+  "tags": ["#会社概要", "#定義表", "#沿革年表", "#製造業"],
+  "desc": "英字大(薄色)+和文小(アクセント)の2段見出し→左ラベル列(薄背景)+右値の下線区切り定義表→年月(固定幅)+出来事の沿革年表。転機の行だけ太字。製造業・老舗の会社情報向け。",
+  "links": {
+    "skeleton": "sites/024_daikure/skeleton.html",
+    "composition": "sites/024_daikure/composition.md"
+  },
+  "svg": "parts/DECO-032.svg"
+}
