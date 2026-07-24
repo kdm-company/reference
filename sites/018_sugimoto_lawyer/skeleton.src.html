@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="robots" content="all"><title>SRC: sites/018_sugimoto_lawyer/skeleton.html</title></head>
+<body>
+<h1>sites/018_sugimoto_lawyer/skeleton.html</h1>
+<p>参考要素倉庫のソース閲覧用ページ。以下の pre 要素の中身が素のソースコード(HTML/CSS/SVG)です。</p>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html lang="ja"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;018 杉本法律事務所 形の骨格&lt;/title&gt;
+&lt;!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://sugimoto-lawyer.com/fee
+  含む形:
+    DECO-026 / 料金表(基本料金→3プラン比較表→「含まれる/別料金」2リスト→問い合わせ誘導)
+  ※ 色は構造把握用の仮色。
+--&gt;
+&lt;style&gt;
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+  /* DECO-026 料金表 */
+  .fee{max-width:960px;margin:60px auto;padding:0 24px;}
+  .fee .label{width:150px;height:12px;margin:0 auto 10px;background:#cfcfcf;}
+  .fee .h{width:260px;height:24px;margin:0 auto 14px;background:#cfcfcf;}
+  .fee .lead{width:70%;max-width:560px;height:12px;margin:0 auto 48px;background:#e2e2e2;}
+
+  /* 基本料金(月額) */
+  .base{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:14px;}
+  .base .name{width:120px;height:14px;}
+  .base .price{width:240px;height:30px;background:#cfcfcf;}
+  .notes{max-width:560px;margin:0 auto 48px;list-style:none;}
+  .notes li{display:flex;gap:8px;align-items:center;margin-top:8px;}
+  .notes li::before{content:"";width:6px;height:6px;border-radius:50%;background:#bbb;flex:none;}
+  .notes .t{height:11px;flex:1;}
+
+  /* 3プラン比較表(列=プラン/行=項目) */
+  .fee table{width:100%;border-collapse:collapse;margin-bottom:48px;}
+  .fee th,.fee td{border:1px solid #ddd;padding:14px 10px;}
+  .fee thead th{background:#eee;}
+  .fee tbody th{background:#f6f6f6;width:22%;}
+  .cell{height:12px;}
+  .price-row td,.price-row th{padding:20px 10px;}
+  .price-row td .cell{height:20px;background:#cfcfcf;}
+  td.reco{border-top:3px solid #8fa3bf;} /* 推奨プラン列の強調 */
+
+  /* 「含まれる/別料金」2リスト */
+  .scope{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px;}
+  .scope .box{border:1px solid #ddd;border-radius:8px;padding:24px;}
+  .scope .bh{width:180px;max-width:100%;height:16px;margin-bottom:18px;background:#cfcfcf;}
+  .scope ul{list-style:none;}
+  .scope li{display:flex;gap:10px;align-items:center;margin-top:10px;}
+  .scope .mark{width:16px;height:16px;border-radius:50%;background:#c4ccd6;flex:none;}
+  .scope .off .mark{height:3px;border-radius:0;background:#ccc;} /* 別料金側は「―」 */
+  .scope .t{height:11px;flex:1;}
+
+  /* 問い合わせ誘導 */
+  .fee .cta{max-width:680px;margin:0 auto;padding:36px 24px;text-align:center;background:#f6f8fa;border-radius:10px;}
+  .fee .cta .t{width:60%;height:13px;margin:0 auto 18px;}
+  .fee .cta .btn{width:300px;max-width:90%;height:54px;margin:0 auto;border-radius:6px;background:#8fa3bf;}
+
+  @media(max-width:768px){
+    .fee{margin:40px auto;}
+    .fee table{display:block;overflow-x:auto;} /* 比較表は列を保って横スクロール */
+    .fee th,.fee td{min-width:110px;}
+    .scope{grid-template-columns:1fr;}
+    .base{flex-direction:column;gap:8px;}
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;section class="fee"&gt;
+    &lt;div class="ph label"&gt;英字ラベル(LEGAL FEES)&lt;/div&gt;
+    &lt;div class="ph h"&gt;見出し(弁護士費用)&lt;/div&gt;
+    &lt;div class="ph lead"&gt;リード(料金方針の一文)&lt;/div&gt;
+
+    &lt;div class="base"&gt;
+      &lt;div class="ph name"&gt;区分(顧問料)&lt;/div&gt;
+      &lt;div class="ph price"&gt;月額◯◯円〜(大きく)&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;ul class="notes"&gt;
+      &lt;li&gt;&lt;div class="ph t"&gt;注記(税表記・条件)&lt;/div&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;div class="ph t"&gt;注記(税表記・条件)&lt;/div&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;div class="ph cell"&gt;プランA&lt;/div&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;div class="ph cell"&gt;プランB(推奨)&lt;/div&gt;&lt;/th&gt;
+          &lt;th&gt;&lt;div class="ph cell"&gt;プランC&lt;/div&gt;&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;th&gt;&lt;div class="ph cell"&gt;項目1(対応時間)&lt;/div&gt;&lt;/th&gt;
+          &lt;td&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;td class="reco"&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;&lt;div class="ph cell"&gt;項目2(相談回数)&lt;/div&gt;&lt;/th&gt;
+          &lt;td&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;td class="reco"&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr class="price-row"&gt;
+          &lt;th&gt;&lt;div class="ph cell"&gt;月額料金&lt;/div&gt;&lt;/th&gt;
+          &lt;td&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;td class="reco"&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th&gt;&lt;div class="ph cell"&gt;項目3(24時間回答)&lt;/div&gt;&lt;/th&gt;
+          &lt;td&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;td class="reco"&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+          &lt;td&gt;&lt;div class="ph cell"&gt;&lt;/div&gt;&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;div class="scope"&gt;
+      &lt;div class="box on"&gt;
+        &lt;div class="ph bh"&gt;見出し(料金に含まれる内容)&lt;/div&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class="mark"&gt;&lt;/span&gt;&lt;div class="ph t"&gt;項目(✓)&lt;/div&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class="mark"&gt;&lt;/span&gt;&lt;div class="ph t"&gt;項目(✓)&lt;/div&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class="mark"&gt;&lt;/span&gt;&lt;div class="ph t"&gt;項目(✓)&lt;/div&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+      &lt;div class="box off"&gt;
+        &lt;div class="ph bh"&gt;見出し(別料金となる内容)&lt;/div&gt;
+        &lt;ul&gt;
+          &lt;li&gt;&lt;span class="mark"&gt;&lt;/span&gt;&lt;div class="ph t"&gt;項目(―)&lt;/div&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class="mark"&gt;&lt;/span&gt;&lt;div class="ph t"&gt;項目(―)&lt;/div&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;span class="mark"&gt;&lt;/span&gt;&lt;div class="ph t"&gt;項目(―)&lt;/div&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="cta"&gt;
+      &lt;div class="ph t"&gt;案内文(まずはご相談ください)&lt;/div&gt;
+      &lt;div class="ph btn"&gt;CTA(お問い合わせ)&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</body></html>

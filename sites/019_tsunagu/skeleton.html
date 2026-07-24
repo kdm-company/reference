@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>019 つなぐ 形の骨格</title>
+<!--
+  形(レイアウト構造)だけのスケルトン。色・テキスト・実画像は除去。
+  元URL: https://tsunagu-shadan.com/flow/
+  含む形:
+    DECO-027 / 相談の流れ(番号ステップ縦タイムライン+末尾CTA帯)
+  ※ 色は構造把握用の仮色。
+-->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:sans-serif;color:#555;background:#fff;}
+  .ph{background:#e6e6e6;border:1px dashed #bbb;display:flex;align-items:center;justify-content:center;font-size:11px;color:#999;text-align:center;}
+
+  /* DECO-027 相談の流れ */
+  .flow{max-width:800px;margin:60px auto;padding:0 24px;}
+  .flow .h{width:260px;height:24px;margin:0 auto 56px;background:#cfcfcf;}
+  .step{position:relative;display:flex;gap:28px;padding-bottom:48px;}
+  .step::before{content:"";position:absolute;left:33px;top:76px;bottom:0;width:2px;background:#e2e2e2;} /* 次ステップへの縦線 */
+  .step:last-of-type::before{display:none;}
+  .num{flex:none;width:68px;height:68px;border-radius:50%;background:#c4ccd6;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;}
+  .body{flex:1;padding-top:6px;}
+  .body .st{width:240px;max-width:100%;height:18px;margin-bottom:14px;background:#cfcfcf;}
+  .body .t{height:11px;margin-top:8px;}
+  .body .t.short{width:70%;}
+  .inline-cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;} /* 行動ステップ内の導線 */
+  .inline-cta .tel{width:220px;height:40px;}
+  .inline-cta .btn{width:180px;height:40px;border-radius:20px;background:#8fa3bf;border:none;}
+
+  /* 末尾CTA帯 */
+  .contact{margin-top:16px;padding:48px 24px;background:#f2f4f7;text-align:center;}
+  .pills{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;}
+  .pill{width:140px;height:32px;border-radius:16px;background:#fff;border:1px solid #ccc;}
+  .contact .t{width:60%;height:12px;margin:0 auto 20px;}
+  .contact .tel{width:260px;height:30px;margin:0 auto 16px;background:#cfcfcf;}
+  .contact .btn{width:300px;max-width:90%;height:54px;margin:0 auto;border-radius:27px;background:#8fa3bf;}
+
+  @media(max-width:768px){
+    .flow{margin:40px auto;}
+    .step{gap:16px;padding-bottom:36px;}
+    .num{width:48px;height:48px;}
+    .step::before{left:23px;top:56px;}
+    .inline-cta .tel,.inline-cta .btn{width:100%;}
+  }
+</style>
+</head>
+<body>
+
+  <section class="flow">
+    <div class="ph h">見出し(ご相談の流れ)</div>
+
+    <div class="step">
+      <div class="num">Flow 01</div>
+      <div class="body">
+        <div class="ph st">ステップ見出し(お問い合わせ)</div>
+        <div class="ph t">本文</div>
+        <div class="ph t short">本文</div>
+        <div class="inline-cta">
+          <div class="ph tel">TEL+受付時間</div>
+          <div class="ph btn">無料相談ボタン(LINE/フォーム)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">Flow 02</div>
+      <div class="body">
+        <div class="ph st">ステップ見出し(ヒアリング)</div>
+        <div class="ph t">本文</div>
+        <div class="ph t short">本文</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">Flow 03</div>
+      <div class="body">
+        <div class="ph st">ステップ見出し(お見積り・ご提案)</div>
+        <div class="ph t">本文</div>
+        <div class="ph t short">本文</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">Flow 04</div>
+      <div class="body">
+        <div class="ph st">ステップ見出し(ご契約)</div>
+        <div class="ph t">本文</div>
+        <div class="ph t short">本文</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">Flow 05</div>
+      <div class="body">
+        <div class="ph st">ステップ見出し(手続きの実施)</div>
+        <div class="ph t">本文</div>
+        <div class="ph t short">本文</div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="num">Flow 06</div>
+      <div class="body">
+        <div class="ph st">ステップ見出し(完了・アフターフォロー)</div>
+        <div class="ph t">本文</div>
+        <div class="ph t short">本文</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact">
+    <div class="pills">
+      <div class="ph pill">特長ピル(相談料0円)</div>
+      <div class="ph pill">特長ピル(全国対応)</div>
+      <div class="ph pill">特長ピル(オンライン可)</div>
+    </div>
+    <div class="ph t">案内文(お気軽にご相談ください)</div>
+    <div class="ph tel">電話番号(大きく)</div>
+    <div class="ph btn">CTA(無料相談を予約)</div>
+  </section>
+
+</body>
+</html>
