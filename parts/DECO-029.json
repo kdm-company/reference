@@ -1,0 +1,20 @@
+{
+  "id": "DECO-029",
+  "name": "代表挨拶（キャッチコピー主役）",
+  "category": "DECO",
+  "kind": "section",
+  "site": { "no": "021", "name": "Angelux", "url": "https://angelux.co.jp/voices/president/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["代表挨拶", "会社概要"],
+    "industry": ["汎用"],
+    "taste": ["上質", "余白極大"]
+  },
+  "tags": ["#代表挨拶", "#キャッチコピー主役", "#署名", "#会社紹介"],
+  "desc": "思想を表すキャッチ2行を最大サイズで先頭に置き、サブ見出し→名乗り→本文→理念引用（左アクセント線＋薄背景）→右寄せ署名へと4段階で文字サイズを落とす。写真なしでも成立する挨拶文の型。",
+  "links": {
+    "skeleton": "sites/021_angelux/skeleton.html",
+    "composition": "sites/021_angelux/composition.md"
+  },
+  "svg": "parts/DECO-029.svg"
+}

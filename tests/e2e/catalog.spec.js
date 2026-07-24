@@ -5,26 +5,29 @@ test.describe("カタログ v2（本番manifest）", () => {
     await page.goto("/catalog-v2.html");
   });
 
-  test("初期表示でDECO-032・033の2件が表示され、ID昇順で固定", async ({ page }) => {
-    await expect(page.locator(".card")).toHaveCount(2);
+  test("初期表示でDECO-026〜033の8件が表示され、ID昇順で固定", async ({ page }) => {
+    await expect(page.locator(".card")).toHaveCount(8);
     const ids = await page.locator(".card .id").allTextContents();
-    expect(ids[0]).toContain("DECO-032");
-    expect(ids[1]).toContain("DECO-033");
+    const expected = ["DECO-026", "DECO-027", "DECO-028", "DECO-029", "DECO-030", "DECO-031", "DECO-032", "DECO-033"];
+    expected.forEach((id, i) => expect(ids[i]).toContain(id));
   });
 
   test("4軸フィルター（部位・用途・業種・テイスト）が動く", async ({ page }) => {
-    await expect(page.locator(".card")).toHaveCount(2);
+    await expect(page.locator(".card")).toHaveCount(8);
     await page.selectOption("#f-part", "コンテンツセクション");
-    await expect(page.locator(".card")).toHaveCount(1);
-    await expect(page.locator(".card .id").first()).toContainText("DECO-032");
-    await page.selectOption("#f-part", "");
-    await page.selectOption("#f-use", "ブランド訴求");
+    await expect(page.locator(".card")).toHaveCount(7);
+    await expect(page.locator(".card .id").first()).toContainText("DECO-026");
+    await page.selectOption("#f-part", "ページ全体");
     await expect(page.locator(".card")).toHaveCount(1);
     await expect(page.locator(".card .id").first()).toContainText("DECO-033");
-    await page.selectOption("#f-use", "");
-    await page.selectOption("#f-industry", "製造");
+    await page.selectOption("#f-part", "");
+    await page.selectOption("#f-use", "料金表");
     await expect(page.locator(".card")).toHaveCount(1);
-    await expect(page.locator(".card .id").first()).toContainText("DECO-032");
+    await expect(page.locator(".card .id").first()).toContainText("DECO-026");
+    await page.selectOption("#f-use", "");
+    await page.selectOption("#f-industry", "寺社・観光");
+    await expect(page.locator(".card")).toHaveCount(1);
+    await expect(page.locator(".card .id").first()).toContainText("DECO-033");
     await page.selectOption("#f-industry", "");
     await page.selectOption("#f-taste", "和風");
     await expect(page.locator(".card")).toHaveCount(1);
@@ -32,7 +35,7 @@ test.describe("カタログ v2（本番manifest）", () => {
   });
 
   test("キーワード検索が動く", async ({ page }) => {
-    await expect(page.locator(".card")).toHaveCount(2);
+    await expect(page.locator(".card")).toHaveCount(8);
     await page.fill("#f-text", "沿革年表");
     await expect(page.locator(".card")).toHaveCount(1);
     await expect(page.locator(".card .id").first()).toContainText("DECO-032");
@@ -41,11 +44,11 @@ test.describe("カタログ v2（本番manifest）", () => {
   });
 
   test("内部リンク（skeleton・composition・SVG）が取得できる", async ({ page }) => {
-    await expect(page.locator(".card")).toHaveCount(2);
+    await expect(page.locator(".card")).toHaveCount(8);
     const hrefs = await page.locator(".card .links a").evaluateAll((els) => els.map((e) => e.getAttribute("href")));
     const srcs = await page.locator(".card img").evaluateAll((els) => els.map((e) => e.getAttribute("src")));
     const internal = [...hrefs, ...srcs].filter((u) => u && !/^https?:/.test(u));
-    expect(internal.length).toBeGreaterThanOrEqual(6);
+    expect(internal.length).toBeGreaterThanOrEqual(24);
     for (const u of internal) {
       const res = await page.request.get("http://localhost:8080/" + u);
       expect(res.ok(), u + " が取得できない").toBeTruthy();
@@ -58,7 +61,7 @@ test.describe("スマートフォン幅（375px）", () => {
 
   test("表示と操作ができる", async ({ page }) => {
     await page.goto("/catalog-v2.html");
-    await expect(page.locator(".card")).toHaveCount(2);
+    await expect(page.locator(".card")).toHaveCount(8);
     await page.selectOption("#f-taste", "和風");
     await expect(page.locator(".card")).toHaveCount(1);
     await page.selectOption("#f-taste", "");

@@ -1,0 +1,20 @@
+{
+  "id": "DECO-027",
+  "name": "相談の流れ（番号ステップ＋CTA帯）",
+  "category": "DECO",
+  "kind": "section",
+  "site": { "no": "019", "name": "つなぐ", "url": "https://tsunagu-shadan.com/flow/" },
+  "attrs": {
+    "part": ["コンテンツセクション", "CTA"],
+    "use": ["相談の流れ", "問い合わせ"],
+    "industry": ["士業", "汎用"],
+    "taste": ["親しみ"]
+  },
+  "tags": ["#相談の流れ", "#番号ステップ", "#縦タイムライン", "#CTA帯"],
+  "desc": "Flow 01〜06の番号円＋見出し＋本文を細い縦線で接続。行動が必要な最初のステップにだけTEL＋無料相談のインラインCTAを埋め込む。末尾は特長ピル3連→電話番号→ピル型CTAの帯。初回相談のハードルを下げる手順説明向け。",
+  "links": {
+    "skeleton": "sites/019_tsunagu/skeleton.html",
+    "composition": "sites/019_tsunagu/composition.md"
+  },
+  "svg": "parts/DECO-027.svg"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "DECO-028",
+  "name": "FAQ（カテゴリ内リンク→Q&A縦積み）",
+  "category": "DECO",
+  "kind": "section",
+  "site": { "no": "020", "name": "弁護士法人ステラ", "url": "https://stellalaw.jp/faq/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["FAQ"],
+    "industry": ["士業", "汎用"],
+    "taste": ["端正"]
+  },
+  "tags": ["#FAQ", "#カテゴリ内リンク", "#QA縦積み", "#士業"],
+  "desc": "冒頭に枠線ボタン3連のページ内リンク→左バー付きカテゴリ見出し→Q（塗り円バッジ）/A（枠線円バッジ）のQ&Aを下線1本で区切って縦積み。質問数が多くカテゴリ分けが要るFAQ向け。",
+  "links": {
+    "skeleton": "sites/020_stellalaw/skeleton.html",
+    "composition": "sites/020_stellalaw/composition.md"
+  },
+  "svg": "parts/DECO-028.svg"
+}

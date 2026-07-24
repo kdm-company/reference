@@ -1,0 +1,20 @@
+{
+  "id": "DECO-030",
+  "name": "お客様の声（成果一言タイトル型カード）",
+  "category": "DECO",
+  "kind": "section",
+  "site": { "no": "022", "name": "行政書士法人ストレート", "url": "https://www.kensetsukyoka.tokyo/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["お客様の声", "実績"],
+    "industry": ["士業", "汎用"],
+    "taste": ["コーポレート", "親しみ"]
+  },
+  "tags": ["#お客様の声", "#成果一言タイトル", "#カード3連", "#士業"],
+  "desc": "写真＋「顧客名様｜成果の一言」タイトル＋抜粋2〜3行＋続きリンクのカード3連→枠線の一覧ボタン中央配置。タイトルで成果を先出しする声の型。士業・BtoBの実績訴求向け。",
+  "links": {
+    "skeleton": "sites/022_kensetsukyoka/skeleton.html",
+    "composition": "sites/022_kensetsukyoka/composition.md"
+  },
+  "svg": "parts/DECO-030.svg"
+}

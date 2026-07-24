@@ -1,0 +1,20 @@
+{
+  "id": "DECO-031",
+  "name": "実績（分野タグ付き協業事例カード）",
+  "category": "DECO",
+  "kind": "section",
+  "site": { "no": "023", "name": "マイクロ波化学", "url": "https://mwcc.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["実績"],
+    "industry": ["製造", "IT", "汎用"],
+    "taste": ["先進", "コーポレート"]
+  },
+  "tags": ["#実績", "#分野タグピル", "#キャッチコピー主役カード", "#BtoB"],
+  "desc": "英字ラベル＋見出し＋リード→同形の入口2ボックス→「分野タグピル→キャッチコピー（主役）→顧客名＋プロジェクト名（従）」のカード群→Read More。多分野にまたがるBtoB技術系の実績向け。",
+  "links": {
+    "skeleton": "sites/023_mwcc/skeleton.html",
+    "composition": "sites/023_mwcc/composition.md"
+  },
+  "svg": "parts/DECO-031.svg"
+}

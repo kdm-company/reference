@@ -1,0 +1,20 @@
+{
+  "id": "DECO-026",
+  "name": "料金表（プラン比較＋含む/別料金）",
+  "category": "DECO",
+  "kind": "section",
+  "site": { "no": "018", "name": "杉本法律事務所", "url": "https://sugimoto-lawyer.com/fee" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["料金表"],
+    "industry": ["士業", "汎用"],
+    "taste": ["コーポレート", "端正"]
+  },
+  "tags": ["#料金表", "#プラン比較表", "#含む含まないリスト", "#士業"],
+  "desc": "月額基本料金を大きく先出し→3プラン比較表（推奨列に上辺アクセント）→「含まれる(✓)/別料金(―)」の同形2ボックス対置→問い合わせ誘導帯。誤解を残さない料金提示の型。士業・コンサル・保守契約向け。",
+  "links": {
+    "skeleton": "sites/018_sugimoto_lawyer/skeleton.html",
+    "composition": "sites/018_sugimoto_lawyer/composition.md"
+  },
+  "svg": "parts/DECO-026.svg"
+}
