@@ -103,3 +103,6 @@ cd 参考要素倉庫
 | 019 | つなぐ | #相談の流れ #番号ステップ #CTA帯 | [skeleton.html](sites/019_tsunagu/skeleton.html) | [composition.md](sites/019_tsunagu/composition.md) |
 | 020 | 弁護士法人ステラ | #FAQ #カテゴリ内リンク #QA縦積み | [skeleton.html](sites/020_stellalaw/skeleton.html) | [composition.md](sites/020_stellalaw/composition.md) |
 | 021 | Angelux | #代表挨拶 #キャッチコピー主役 #署名 | [skeleton.html](sites/021_angelux/skeleton.html) | [composition.md](sites/021_angelux/composition.md) |
+| 022 | 行政書士法人ストレート | #お客様の声 #成果一言タイトル #カード3連 | [skeleton.html](sites/022_kensetsukyoka/skeleton.html) | [composition.md](sites/022_kensetsukyoka/composition.md) |
+| 023 | マイクロ波化学 | #実績 #分野タグピル #キャッチコピー主役カード | [skeleton.html](sites/023_mwcc/skeleton.html) | [composition.md](sites/023_mwcc/composition.md) |
+| 024 | ダイクレ興産 | #会社概要 #定義表 #沿革年表 | [skeleton.html](sites/024_daikure/skeleton.html) | [composition.md](sites/024_daikure/composition.md) |
