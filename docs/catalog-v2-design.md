@@ -8,7 +8,7 @@
 
 ## 生成方式（動的生成）
 
-- ビルド工程は持たない。**catalog-v2.html を開いたブラウザが parts/manifest.json と各パーツJSONを表示時に取得し、その場でカードを描画する（クライアントサイドの動的生成）**。GitHub Actions等による静的生成は行っていない。
+- カタログの描画にビルド工程は持たない。**catalog-v2.html を開いたブラウザが parts/manifest.json と各パーツJSONを表示時に取得し、その場でカードを描画する（クライアントサイドの動的生成）**。GitHub Actionsによる静的生成は行っていない（Actionsは後述の自動検証にのみ使用）。
 - 対象環境は GitHub Pages（https://kdm-company.github.io/reference/）。file:// 直開きでは動かない。
 - **障害分離**: JSONが1件破損・欠損していても該当カードのみ除外し、画面上部にエラー件数と対象IDを表示する。カタログ全体は表示され続ける。
 - **並び順の固定**: カードはID昇順。フィルタ選択肢は parts/vocab.json の語彙順（語彙外の値は末尾に文字コード順）。表示のたびに順序が変わることはない。
@@ -17,19 +17,28 @@
 
 ```
 parts/
-  manifest.json        … 登録パーツIDの配列（目録）
-  vocab.json           … 統制語彙（kind・4軸・category）※語彙の正はこのファイル
-  parts.schema.json    … パーツJSONのJSON Schema（構造の正はこのファイル）
+  manifest.json        … 登録パーツIDの配列（目録。ID昇順を維持）
+  vocab.json           … 統制語彙（kind・4軸・category）。統制語彙の正本
+  parts.schema.json    … パーツJSONのJSON Schema。構造（必須項目・型）の正本
   DECO-0XX.json        … 1パーツ=1データファイル
   DECO-0XX.svg         … ワイヤーフレーム（単体SVG）
-  manifest.test.json / TEST-*.json … 検証用フィクスチャ（正式運用開始時に削除可）
+  manifest.test.json / TEST-*.json … 検証用フィクスチャ（自動検証の機能確認専用）
+scripts/validate-catalog.js … 自動検証スクリプト（Node、依存なし）
+.github/workflows/validate-catalog.yml … push / Pull Request時に自動検証を実行
 catalog-v2.html        … 動的生成ビューア（?manifest= で読込先を差し替え可能）
-validate.html          … 整合チェッカー（ブラウザ実行）
+validate.html          … 整合チェッカー（ブラウザ実行の補助ツール）
 docs/catalog-v2-design.md … 本書
 ```
 
 - git が正。Notion DB は従（従来通り）。
 - SVGをJSONに埋めず別ファイルにする理由: エスケープ不要、`<img loading="lazy">` で遅延読み込みでき件数増に耐える。
+
+## 役割分担（二重管理しない）
+
+| ファイル | 管理するもの |
+|---|---|
+| parts/parts.schema.json | 構造：必須項目・型・ID形式 |
+| parts/vocab.json | 属性語彙：kind・category・部位・用途・業種・テイストの許可値 |
 
 ## パーツJSONスキーマ
 
@@ -56,9 +65,9 @@ docs/catalog-v2-design.md … 本書
 }
 ```
 
-構造の必須項目・型は parts/parts.schema.json が正。属性値の許可語彙は parts/vocab.json が正（二重管理しない）。
-
 ## kind（種別）
+
+許可値は以下の6種のみ。
 
 | 値 | 意味 |
 |---|---|
@@ -69,42 +78,55 @@ docs/catalog-v2-design.md … 本書
 | background | 背景表現 |
 | page | 複数部位にまたがる1ページ分の型 |
 
-## 統制語彙（vocab.json の内容）
+## 統制語彙
 
-新しい値が必要な場合は vocab.json に追加してから使う（野放図な増殖を防ぐ）。
+**統制語彙の正本は parts/vocab.json**。以下はその写し。新しい値が必要な場合は vocab.json に追加してから使う。
 
-| 軸 | 候補 |
+| 軸 | 許可値 |
 |---|---|
-| 部位 (part) | ヘッダー / ナビ / ヒーロー / コンテンツセクション / CTA / フォーム / フッター / ページ全体 |
+| 部位 (part) | ヘッダー / ナビ / ヒーロー / コンテンツセクション / CTA / フォーム / フッター / ページ全体（この8語のみ） |
 | 用途 (use) | トップページ / 会社概要 / 沿革 / 代表挨拶 / 実績 / お客様の声 / 料金表 / FAQ / 相談の流れ / お知らせ / ブランド訴求 / 問い合わせ |
 | 業種 (industry) | 汎用 / 士業 / 製造 / 医療 / IT / 政治家 / 寺社・観光 / 旅館 / 老舗 |
 | テイスト (taste) | ミニマル / コーポレート / 上質 / 和風 / 親しみ / 先進 / 余白極大 / 端正 |
 
-注意: 部位は**物理的な場所のみ**を表す。会社概要・沿革・料金表・FAQ等の内容分類は「用途」で管理する。「メイン」「サイド」は範囲が広すぎるため廃止した。
+部位は**物理的な場所のみ**を表す。会社概要・沿革・料金表・FAQ等の内容分類は「用途」で管理する。範囲が広すぎる語は許可語彙に含めない。
 
-## 検証（validate.html）
+## 検証（2層）
 
-ブラウザで開くと以下を自動チェックし、PASS/FAILを一覧表示する。
+### 正式ゲート: GitHub Actionsによる自動検証
 
-1. 必須項目の欠落（id/name/category/kind/site/attrs/desc/links/svg、下位キー含む）
-2. manifest内のID重複
-3. manifestにあるJSONの欠損・破損
-4. JSONは存在するがmanifestにない状態（GitHub APIでparts/を一覧して比較）
-5. 統制語彙にない属性値（kind・category・4軸）
-6. skeleton / composition / SVG のリンク切れ（HEADリクエスト）
+parts/ または検証スクリプトへのpush / Pull Request時に `scripts/validate-catalog.js` が自動実行される。検出項目:
 
-使い方:
+1. JSON構文エラー
+2. 必須項目の欠落（下位キー含む）
+3. ID重複
+4. JSON内IDとファイル名の不一致
+5. manifestにあるJSONの欠損
+6. JSONは存在するがmanifestにない状態（TEST-*とシステムファイルは対象外）
+7. kindの許可値違反
+8. 部位・用途・業種・テイストの統制語彙違反（category含む）
+9. skeleton / composition / SVG の内部リンク切れ（**FAIL**）
+10. manifestの並び順の不整合（ID昇順でなければFAIL）
+
+外部リンク（元サイトURL）はHEADを拒否するサイトがあるため、HEAD→GETのフォールバックで確認し、到達不能でも**FAILではなくWARNING**とする。
+
+ログは `FAIL [チェック名] id=対象ID file=ファイル名 : 理由` 形式で出力する。
+
+### 補助: validate.html（ブラウザ実行）
+
+手元で即座に確認したいときの補助ツール。判定の正はGitHub Actions。
+
 - 通常チェック: `validate.html`
 - テストデータでのチェック: `validate.html?manifest=parts/manifest.test.json`
 
-制約: 項目4はGitHub APIの未認証枠（60回/時）を使う。上限超過時はその項目のみスキップ表示。
-
 ## 追加手順（v2でのSTEP4以降）
 
-1. 使う属性値が vocab.json にあるか確認。なければ vocab.json に追加してpush
-2. `parts/DECO-0XX.json` と `parts/DECO-0XX.svg` を新規作成してpush
-3. `parts/manifest.json` にIDを1行追記
-4. `validate.html` でPASSを確認
+**新規パーツは自動検証を通過してからmanifestへの追加を確定させる。**
+
+1. 使う属性値が vocab.json にあるか確認。なければ vocab.json に先に追加
+2. `parts/DECO-0XX.json` と `parts/DECO-0XX.svg` を新規作成
+3. `parts/manifest.json` にIDを追記（ID昇順を維持）
+4. 1〜3をpushするとGitHub Actionsの自動検証が実行される。**PASSを確認してから次へ進む**（FAILの場合は即修正。Pull Request経由なら検証通過後にmainへ反映でき、より安全）
 5. Notion DBに行追加（従来通り）
 6. catalog-v2.html は自動反映（編集不要）
 
@@ -116,10 +138,12 @@ docs/catalog-v2-design.md … 本書
 
 ## 検証項目
 
-- [ ] 初期表示で2件とも表示される
+- [ ] 初期表示で2件とも表示される（ID昇順で固定）
 - [ ] 4軸フィルターが動く
 - [ ] キーワード検索が動く
 - [ ] 各リンク（骨格HTML・構図メモ・元サイト）が開く
 - [ ] スマートフォン幅で操作できる
 - [ ] JSONが1件壊れていても他のカードが表示され、エラー件数とIDが出る（manifest.test.jsonで確認）
-- [ ] 未定義語彙が validate.html で検出される
+- [ ] 未定義語彙が検出される
+- [ ] GitHub Actionsの本番manifest検証がPASSする
+- [ ] テストフィクスチャではGitHub Actionsの検証が意図どおりFAILする
