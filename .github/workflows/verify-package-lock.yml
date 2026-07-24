@@ -1,0 +1,62 @@
+name: verify-package-lock
+
+on:
+  push:
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/verify-package-lock.yml"
+  pull_request:
+    paths:
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/verify-package-lock.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: "package-lock.json正規生成検証"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - name: "Node.js / npmバージョンをログへ出力"
+        run: |
+          echo "Node.js: $(node --version)"
+          echo "npm: $(npm --version)"
+
+      - name: "一時ディレクトリでpackage-lock.jsonを正規生成"
+        run: |
+          set -e
+          TMP_DIR="$(mktemp -d)"
+          echo "TMP_DIR=$TMP_DIR" >> "$GITHUB_ENV"
+          cp package.json "$TMP_DIR/package.json"
+          if [ -f .npmrc ]; then
+            cp .npmrc "$TMP_DIR/.npmrc"
+          fi
+          (cd "$TMP_DIR" && npm install --package-lock-only --ignore-scripts)
+
+      - name: "npm正規生成版とリポジトリのpackage-lock.jsonを比較"
+        run: |
+          set -e
+          if diff -u package-lock.json "$TMP_DIR/package-lock.json" > /tmp/lockfile.diff; then
+            echo "package-lock.json はnpm正規生成結果と一致します。" | tee -a "$GITHUB_STEP_SUMMARY"
+          else
+            echo "package-lock.json がnpm正規生成結果と一致しません。" | tee -a "$GITHUB_STEP_SUMMARY"
+            echo '```diff' >> "$GITHUB_STEP_SUMMARY"
+            cat /tmp/lockfile.diff >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            cat /tmp/lockfile.diff
+            exit 1
+          fi
+
+      - name: "npm ci"
+        run: |
+          set -e
+          npm ci
+          echo "npm ci: PASS" | tee -a "$GITHUB_STEP_SUMMARY"
