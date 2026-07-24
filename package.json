@@ -1,0 +1,11 @@
+{
+  "name": "reference-catalog",
+  "private": true,
+  "scripts": {
+    "validate": "node scripts/validate-catalog.js parts/manifest.json",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}
