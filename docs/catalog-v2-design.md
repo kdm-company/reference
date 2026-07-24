@@ -27,7 +27,6 @@ tests/
   e2e/catalog.spec.js  … Playwrightブラウザ自動テスト
 scripts/validate-catalog.js … 自動検証スクリプト（Node、依存なし）
 .github/workflows/validate-catalog.yml   … push / Pull Request時にデータ検証＋ブラウザ自動テスト
-.github/workflows/generate-lockfile.yml  … package.json変更時にpackage-lock.jsonを自動生成
 package.json / package-lock.json … E2Eテストの依存定義。依存はlockfileで固定し、CIは npm ci を使う
 playwright.config.js   … E2Eテスト設定（ローカルHTTPサーバーを自動起動）
 catalog-v2.html        … 動的生成ビューア（?manifest= で読込先を差し替え可能）
@@ -38,6 +37,7 @@ docs/catalog-v2-design.md … 本書
 - git が正。Notion DB は従（従来通り）。
 - SVGをJSONに埋めず別ファイルにする理由: エスケープ不要、`<img loading="lazy">` で遅延読み込みでき件数増に耐える。
 - **TEST-IDの解決ルール**: TEST- で始まるIDのJSONは tests/fixtures/ から、それ以外は parts/ から読み込む（catalog-v2.html・validate.html・validate-catalog.js 共通）。
+- lockfile運用: package-lock.json は公開npmレジストリのintegrityハッシュに基づき直接コミットする方式（CI自動生成ワークフローはトークン権限制約のため廃止済み）。依存を変更する場合は package.json 更新後、npm正規生成結果と一致するよう package-lock.json を更新すること。
 
 ## 役割分担（二重管理しない）
 
@@ -101,7 +101,7 @@ docs/catalog-v2-design.md … 本書
 
 ### 正式ゲート1: GitHub Actionsによるデータ検証
 
-parts/・tests/・検証スクリプト等へのpush / Pull Request時に `scripts/validate-catalog.js` が自動実行される。検出項目:
+parts/・tests/・検証スクリプト等へのpush / Pull Request時に `scripts/validate-catalog.js` が自動実行される。push と pull_request の対象パスは同一（parts/**・catalog-v2.html・validate.html・scripts/**・tests/**・playwright.config.js・package.json・package-lock.json・ワークフロー自身）。検出項目:
 
 1. JSON構文エラー
 2. 必須項目の欠落（下位キー含む）
@@ -146,12 +146,12 @@ parts/・tests/・検証スクリプト等へのpush / Pull Request時に `scrip
 ## 移行計画（既存は一括変更しない）
 
 1. **検証期（完了）**: パイロット2件（DECO-032, 033）＋テストフィクスチャで検証。既存ファイルは一切変更しない。
-2. **並行期（今）**: 新規パーツはv2形式で追加。DECO-026〜031をv2に変換。catalog.html / catalog-live.html はそのまま残す。
-3. **統合期**: 既存001〜025をClaude Codeで一度だけv2形式に変換（属性付与込み）。以降 catalog-v2.html を正とし、旧catalog.htmlはアーカイブ扱い。
+2. **並行期（現在稼働中）**: DECO-026〜033の8件がv2形式で稼働中（parts/manifest.jsonにID昇順で登録）。catalog.html / catalog-live.html はそのまま残す。新規パーツは今後もv2形式で追加する。
+3. **統合期（未着手）**: 既存001〜025をClaude Codeで一度だけv2形式に変換（属性付与込み）。以降 catalog-v2.html を正とし、旧catalog.htmlはアーカイブ扱い。
 
 ## 検証項目
 
-- [x] 初期表示で2件とも表示される（ID昇順で固定）
+- [x] 初期表示で8件とも表示される（ID昇順で固定：DECO-026〜033）
 - [x] 4軸フィルターが動く
 - [x] キーワード検索が動く
 - [x] 各リンク（骨格HTML・構図メモ・元サイト）が開く

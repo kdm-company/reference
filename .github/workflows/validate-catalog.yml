@@ -16,8 +16,13 @@ on:
     paths:
       - "parts/**"
       - "catalog-v2.html"
+      - "validate.html"
       - "scripts/**"
       - "tests/**"
+      - "playwright.config.js"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/validate-catalog.yml"
   workflow_dispatch:
 
 jobs:
