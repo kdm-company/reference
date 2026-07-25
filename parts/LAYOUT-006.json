@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-006",
+  "name": "角丸カード非対称グリッド",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "005", "name": "Apple", "url": "https://support.apple.com/ja-jp" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["お知らせ"],
+    "industry": ["IT", "汎用"],
+    "taste": ["ミニマル"]
+  },
+  "tags": ["#角丸カード", "#非対称グリッド", "#全幅+2カラム"],
+  "desc": "大きな角丸の白カードを、上段=全幅1枚/下段=非対称2カラム(2:1)で組むグリッド。重要度の異なる情報の整理に向き、サポート・お知らせ等で使う。",
+  "links": {
+    "skeleton": "sites/005_apple/skeleton.html",
+    "composition": "sites/005_apple/composition.md"
+  },
+  "svg": "parts/LAYOUT-006.svg"
+}

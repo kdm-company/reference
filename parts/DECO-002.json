@@ -1,0 +1,20 @@
+{
+  "id": "DECO-002",
+  "name": "カード重ねオフセット",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "002", "name": "日立", "url": "https://www.hitachi.com/ja-jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["製造", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#カード重ねオフセット", "#画像とカードの重ね", "#左右反転交互配置"],
+  "desc": "大きな横長画像の下角にテキストカード(白地・薄い影・枠線)をオーバーラップ配置し、見出し+本文+ピル型CTAを収める。奇数=画像右/カード左下、偶数=反転、で交互に並べてリズムを作る。トップページの誘導ブロック(採用・IR等)を縦に並べる用途向け。",
+  "links": {
+    "skeleton": "sites/002_hitachi/skeleton.html",
+    "composition": "sites/002_hitachi/composition.md"
+  },
+  "svg": "parts/DECO-002.svg"
+}

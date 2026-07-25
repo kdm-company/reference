@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-003",
+  "name": "テキスト左・画像右セクション",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "003", "name": "岩崎電気", "url": "https://www.iwasaki.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["会社概要"],
+    "industry": ["製造", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#テキスト左画像右", "#交互積み", "#濃色背景", "#英語ラベル付き見出し"],
+  "desc": "濃色背景に2カラム(左テキスト/右画像)を組み、同じ型を縦に積む。テキストは英語ラベル+和文見出し+左寄せ短下線(DECO-003)の型。反転(.rev)も型として用意。企業サイトの「採用」「企業情報」などの誘導セクション群向け。",
+  "links": {
+    "skeleton": "sites/003_iwasaki/skeleton.html",
+    "composition": "sites/003_iwasaki/composition.md"
+  },
+  "svg": "parts/LAYOUT-003.svg"
+}

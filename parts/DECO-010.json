@@ -1,0 +1,20 @@
+{
+  "id": "DECO-010",
+  "name": "スライダー型ヒーロー",
+  "category": "DECO",
+  "kind": "section",
+  "site": { "no": "006", "name": "安川電機", "url": "https://www.yaskawa.co.jp/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ"],
+    "industry": ["製造", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#スライダーヒーロー", "#ドットインジケータ", "#再生停止ボタン", "#左右矢印"],
+  "desc": "全幅ビジュアルを自動切替するスライダー。下中央にドットインジケータ(現在位置だけ濃色)+一時停止/再生ボタン、左右端に送り矢印。複数の訴求を順に見せたいトップページ向けで、自動再生の制御UIまで含むのが特徴。",
+  "links": {
+    "skeleton": "sites/006_yaskawa/skeleton.html",
+    "composition": "sites/006_yaskawa/composition.md"
+  },
+  "svg": "parts/DECO-010.svg"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "DECO-023",
+  "name": "アイコン付き正方ダブルCTA(ヘッダー右端)",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "016", "name": "Ubie", "url": "https://ubie.life/" },
+  "attrs": {
+    "part": ["ヘッダー", "CTA"],
+    "use": ["問い合わせ"],
+    "industry": ["医療", "汎用"],
+    "taste": ["ミニマル"]
+  },
+  "tags": ["#正方ダブルCTA", "#アイコン+ラベル", "#ヘッダー右端", "#色違い2導線"],
+  "desc": "ヘッダー右端に「アイコン上+ラベル下」の正方形CTAを色違いで2個、ヘッダー高いっぱいに角丸なし・隙間なしで並べる。導線の性質で色を分け(問い合わせ/採用情報等)、性質の違う2導線を常時見せたいヘッダー向け。LAYOUT-015の横長ダブルCTAより省スペースでアイコンが主役の版。",
+  "links": {
+    "skeleton": "sites/016_ubie/skeleton.html",
+    "composition": "sites/016_ubie/composition.md"
+  },
+  "svg": "parts/DECO-023.svg"
+}
