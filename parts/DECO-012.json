@@ -1,0 +1,20 @@
+{
+  "id": "DECO-012",
+  "name": "浮き立体カードのサービス紹介",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "007", "name": "PROGRIT", "url": "https://about.progrit.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#浮き立体カード", "#ドロップシャドウ", "#3D回転", "#左右2カラム"],
+  "desc": "角丸の塗りカードを強い影+わずかな3D回転(perspective rotateY)で浮かせ、隣にサービス名+サブ見出し+本文+ピル型CTAを置く左右2カラムのサービス紹介。主力サービスを1つずつ印象的に見せるトップページのブロック。",
+  "links": {
+    "skeleton": "sites/007_progrit/skeleton.html",
+    "composition": "sites/007_progrit/composition.md"
+  },
+  "svg": "parts/DECO-012.svg"
+}

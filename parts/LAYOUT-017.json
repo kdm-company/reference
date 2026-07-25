@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-017",
+  "name": "淡グラデヒーロー+対象者別リンク3連バー",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "016", "name": "Ubie", "url": "https://ubie.life/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ"],
+    "industry": ["医療", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#淡グラデヒーロー", "#対象者別導線", "#枠線ボタン3連", "#振り分け"],
+  "desc": "白〜淡色の斜めグラデ(写真なし)に黒の大コピー2行+サブを左寄せし、下に「〇〇の方はこちら」の枠線ボタン(アイコン+ラベル+矢印)を等幅3連で置くヒーロー。ファーストビューで顧客/パートナー/求職者を振り分ける、複数の対象者が来るコーポレートトップページ向け。",
+  "links": {
+    "skeleton": "sites/016_ubie/skeleton.html",
+    "composition": "sites/016_ubie/composition.md"
+  },
+  "svg": "parts/LAYOUT-017.svg"
+}

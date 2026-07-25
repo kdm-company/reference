@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-008",
+  "name": "超大型見出しヒーロー",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "007", "name": "PROGRIT", "url": "https://about.progrit.co.jp/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ"],
+    "industry": ["汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#超大型見出し", "#太い下線", "#斜め装飾シェイプ", "#角丸切り抜き画像"],
+  "desc": "特大の和文見出しを2段、間に太い下線を挟み、周囲に斜めの角丸装飾シェイプを散らし、右下に角丸の大きな切り抜き画像を置くヒーロー。ナビは右上に控えめ。勢いとメッセージ性重視のトップページ向け。",
+  "links": {
+    "skeleton": "sites/007_progrit/skeleton.html",
+    "composition": "sites/007_progrit/composition.md"
+  },
+  "svg": "parts/LAYOUT-008.svg"
+}

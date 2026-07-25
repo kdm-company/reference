@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-012",
+  "name": "全画面KV+右下オーバーラップ情報カード",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "011", "name": "幕張ベイパーク耳鼻咽喉科", "url": "https://makuhari-jibika.yukenkai.com/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ"],
+    "industry": ["医療"],
+    "taste": ["親しみ"]
+  },
+  "tags": ["#全画面KV", "#オーバーラップカード", "#受付時間表", "#クリニック"],
+  "desc": "全画面の写真スライドショーの中央に「小バッジ→キャッチ2行→サブ1文」、右下に受付時間表+TELの白カードをマイナスbottomで次セクションへはみ出させるKV構図。左下にお知らせ小箱。営業時間と電話を最初に見せたいクリニックのトップページ向け。",
+  "links": {
+    "skeleton": "sites/011_makuhari_jibika/skeleton.html",
+    "composition": "sites/011_makuhari_jibika/composition.md"
+  },
+  "svg": "parts/LAYOUT-012.svg"
+}

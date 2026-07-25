@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-018",
+  "name": "余白極大タイポヒーロー",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "017", "name": "LayerX", "url": "https://layerx.co.jp/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ"],
+    "industry": ["IT"],
+    "taste": ["余白極大"]
+  },
+  "tags": ["#余白極大", "#特大タイポ", "#ミニマル", "#スクロール演出"],
+  "desc": "画面の大半を余白にして、下1/3に特大の黒コピー2行だけを左寄せで置くタイポグラフィ主導のヒーロー。写真なし。背景に細いラインSVG(円・斜線)を薄く敷いてスクロール連動で動かし、右下にscroll指標、右上に丸い進捗インジケータ。コピーの強度で勝負するスタートアップ・テック企業のトップページ向け。",
+  "links": {
+    "skeleton": "sites/017_layerx/skeleton.html",
+    "composition": "sites/017_layerx/composition.md"
+  },
+  "svg": "parts/LAYOUT-018.svg"
+}

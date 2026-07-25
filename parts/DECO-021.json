@@ -1,0 +1,20 @@
+{
+  "id": "DECO-021",
+  "name": "番号ページャ付き テキスト×画像 同期スライダ",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "013", "name": "ノダRFテクノロジーズ", "url": "https://www.n-rf.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["製造", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#同期スライダ", "#番号ページャ", "#3つの強み", "#2カラム"],
+  "desc": "左のテキスト(01/03の番号ページャ+見出し+説明+next矢印)と右の画像が同時に切り替わる2カラムスライダ。トップページの「3つの強み」など少数の訴求を1つずつじっくり見せたいとき向け。",
+  "links": {
+    "skeleton": "sites/013_nrf/skeleton.html",
+    "composition": "sites/013_nrf/composition.md"
+  },
+  "svg": "parts/DECO-021.svg"
+}

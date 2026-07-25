@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-016",
+  "name": "ソリッドカラーヒーロー+ロゴマーキー帯",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "015", "name": "primeNumber", "url": "https://primenumber.com/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ"],
+    "industry": ["IT"],
+    "taste": ["先進"]
+  },
+  "tags": ["#ソリッドヒーロー", "#幾何タイル装飾", "#ロゴマーキー", "#写真不要"],
+  "desc": "ブランド色ベタ1面のヒーローに白の大見出し2行+リード4行を左寄せ、右側〜右下に明度・透明度違いの矩形タイルを4〜5枚重ねた装飾。直下は白帯の顧客ロゴマーキー(1列無限スクロール)で、ファーストビューで「コピー→社会的証明」を完結させる。データ/AI系SaaSのトップページ向け。",
+  "links": {
+    "skeleton": "sites/015_primenumber/skeleton.html",
+    "composition": "sites/015_primenumber/composition.md"
+  },
+  "svg": "parts/LAYOUT-016.svg"
+}
