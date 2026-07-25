@@ -30,6 +30,8 @@ function expectedIdsForSearch(query) {
 }
 
 const deco034 = productionParts.find((p) => p.id === "DECO-034");
+const pattern001 = productionParts.find((p) => p.id === "PATTERN-001");
+const deco005 = productionParts.find((p) => p.id === "DECO-005");
 
 test.describe("カタログ v2（本番manifest）", () => {
   test.beforeEach(async ({ page }) => {
@@ -60,6 +62,7 @@ test.describe("カタログ v2（本番manifest）", () => {
 
     await assertFilter("#f-use", "料金表", expectedIdsFor("use", "料金表"));
     await assertFilter("#f-use", "問い合わせ", expectedIdsFor("use", "問い合わせ"));
+    await assertFilter("#f-use", "背景装飾", expectedIdsFor("use", "背景装飾"));
 
     await assertFilter("#f-industry", "寺社・観光", expectedIdsFor("industry", "寺社・観光"));
     await assertFilter("#f-industry", "士業", expectedIdsFor("industry", "士業"));
@@ -83,6 +86,21 @@ test.describe("カタログ v2（本番manifest）", () => {
     await expect(card.locator("a", { hasText: "骨格HTML" })).toHaveAttribute("href", deco034.links.skeleton);
     await expect(card.locator("a", { hasText: "構図メモ" })).toHaveAttribute("href", deco034.links.composition);
     await expect(card.locator("a", { hasText: "元サイト" })).toHaveAttribute("href", deco034.site.url);
+  });
+
+  test("内部制作資産PATTERN-001と外部参照資産DECO-005のリンク表示が適切に分岐する", async ({ page }) => {
+    const patternCard = page.locator(".card").filter({ hasText: "PATTERN-001" });
+    await expect(patternCard).toHaveCount(1);
+    await expect(patternCard.locator("a", { hasText: "元サイト" })).toHaveCount(0);
+    await expect(patternCard.locator(".internal-badge")).toHaveCount(1);
+    await expect(patternCard.locator(".internal-badge")).toContainText("KDM内製");
+    await expect(patternCard.locator("a", { hasText: "骨格HTML" })).toHaveAttribute("href", pattern001.links.skeleton);
+    await expect(patternCard.locator("a", { hasText: "構図メモ" })).toHaveAttribute("href", pattern001.links.composition);
+
+    const decoCard = page.locator(".card").filter({ hasText: "DECO-005" });
+    await expect(decoCard).toHaveCount(1);
+    await expect(decoCard.locator(".internal-badge")).toHaveCount(0);
+    await expect(decoCard.locator("a", { hasText: "元サイト" })).toHaveAttribute("href", deco005.site.url);
   });
 
   test("キーワード検索が動く", async ({ page }) => {
@@ -117,6 +135,11 @@ test.describe("カタログ v2（本番manifest）", () => {
       "sites/026_sugimoto_lawyer_contact/skeleton.html",
       "sites/026_sugimoto_lawyer_contact/composition.md",
       "parts/DECO-034.svg",
+      "patterns/PATTERN-001.src.html",
+      "indexes/patterns.md",
+      "parts/PATTERN-001.svg",
+      "sites/003_iwasaki/skeleton.html",
+      "parts/DECO-005.svg",
     ]) {
       expect(internal).toContain(u);
     }
@@ -158,10 +181,12 @@ test.describe("テストmanifest（破損・語彙違反フィクスチャ。tes
   });
 
   test("JSONが1件壊れても正常なカードが表示される", async ({ page }) => {
-    await expect(page.locator(".card")).toHaveCount(3);
+    await expect(page.locator(".card")).toHaveCount(5);
     const ids = await page.locator(".card .id").allTextContents();
     expect(ids.join(" ")).toContain("DECO-032");
     expect(ids.join(" ")).toContain("DECO-033");
+    expect(ids.join(" ")).toContain("TEST-INTERNAL-BAD");
+    expect(ids.join(" ")).toContain("TEST-EXTERNAL-BAD");
   });
 
   test("エラー件数と対象IDが表示される", async ({ page }) => {
@@ -173,5 +198,12 @@ test.describe("テストmanifest（破損・語彙違反フィクスチャ。tes
   test("未定義語彙が（語彙外）として検出・表示される", async ({ page }) => {
     await expect(page.locator("#f-part option:has-text('メイン（語彙外）')")).toHaveCount(1);
     await expect(page.locator("#f-taste option:has-text('サイバー（語彙外）')")).toHaveCount(1);
+  });
+
+  test("site.urlがない内部制作資産テストデータは壊れたリンクを出さずバッジ表示になる", async ({ page }) => {
+    const card = page.locator(".card").filter({ hasText: "TEST-INTERNAL-BAD" });
+    await expect(card).toHaveCount(1);
+    await expect(card.locator("a", { hasText: "元サイト" })).toHaveCount(0);
+    await expect(card.locator(".internal-badge")).toHaveCount(1);
   });
 });

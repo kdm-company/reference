@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120" viewBox="0 0 240 120" role="img" aria-label="市松柄 PATTERN-004">
+  <!-- PATTERN-004 市松(チェッカー) -->
+  <!-- 主要色: #334155 / 濃さは fill-opacity で調整 / マス20・タイル40x40 -->
+  <!-- 再利用: 下記 <pattern> をCSS/SVGにコピー、または本ファイルを background-size:40px 40px; background-repeat:repeat で敷く -->
+  <defs>
+    <pattern id="pattern-004" width="40" height="40" patternUnits="userSpaceOnUse">
+      <rect x="0" y="0" width="20" height="20" fill="#334155" fill-opacity="0.12"/>
+      <rect x="20" y="20" width="20" height="20" fill="#334155" fill-opacity="0.12"/>
+    </pattern>
+  </defs>
+  <rect width="240" height="120" fill="url(#pattern-004)"/>
+</svg>
