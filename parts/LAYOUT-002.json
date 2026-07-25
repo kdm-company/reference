@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-002",
+  "name": "フルブリードヒーロー(コピー中央+左右矢印スライダー)",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "002", "name": "日立", "url": "https://www.hitachi.com/ja-jp/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ"],
+    "industry": ["汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#中央寄せヒーロー", "#フルブリードスライダー", "#2段ヘッダー", "#ピル型CTA"],
+  "desc": "画面いっぱいの背景にコピーを中央寄せで置くフルブリードヒーロー。左右に矢印がつくスライダー構成。ヘッダーは2段(上=ユーティリティ右寄せ、下=ロゴ+メニュー横並び)。CTAは白地の完全な丸みピル型。大企業・グローバル系トップの力強い印象向け。",
+  "links": {
+    "skeleton": "sites/002_hitachi/skeleton.html",
+    "composition": "sites/002_hitachi/composition.md"
+  },
+  "svg": "parts/LAYOUT-002.svg"
+}
