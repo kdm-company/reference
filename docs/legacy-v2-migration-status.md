@@ -1,23 +1,24 @@
 # 旧カタログ資産のv2移行状況
 
-最終更新: 2026-07-25（第4バッチPR時点）
+最終更新: 2026-07-26（個別確認バッチPR時点）
 
 ## 集計
 
 - 対象旧資産: 51件（DECO 23 / LAYOUT 18 / PATTERN 10。DECO-001・DECO-007は欠番のため、想定50件と1件差）
-- A. そのままv2移行可能: 40件
+- A. そのままv2移行可能: 35件
 - B. 一部情報不足: 11件（PATTERN-001〜010、DECO-005）
 - C. 重複・統合候補: 0件
-- D. 旧版として維持: 0件
+- D. 旧版として維持: 5件（DECO-004 / DECO-006 / DECO-008 / DECO-009 / LAYOUT-007。個別確認の結果、用途属性を裏付ける明示的根拠が旧資料になく、vocabのuse語彙で正確に表現できないため）
 - 未判定: 0件
 - 第1バッチ移行済み: 5件（DECO-003 / DECO-011 / DECO-014 / LAYOUT-005 / LAYOUT-011）
 - 第2バッチ移行済み: 10件（DECO-002 / DECO-010 / DECO-013 / DECO-023 / LAYOUT-001 / LAYOUT-003 / LAYOUT-004 / LAYOUT-006 / LAYOUT-010 / LAYOUT-015）
 - 第3バッチ移行済み: 10件（DECO-012 / DECO-015 / DECO-019 / DECO-020 / DECO-021 / LAYOUT-008 / LAYOUT-012 / LAYOUT-016 / LAYOUT-017 / LAYOUT-018）
 - 第4バッチ移行済み: 9件（DECO-016 / DECO-017 / DECO-018 / DECO-022 / DECO-024 / DECO-025 / LAYOUT-009 / LAYOUT-013 / LAYOUT-014）
-- v2移行済み合計(本ドキュメント対象の旧資産51件のうち): 34件
-- 分類A(移行可能)のうち、高確度で移行可能な未移行残り: 0件
-- 分類A(移行可能)のうち、個別確認が必要な残り: 6件（DECO-004 / DECO-006 / DECO-008 / DECO-009 / LAYOUT-002 / LAYOUT-007。用途属性の明示的根拠不足、またはNotion名称重複のため）
-- 参考: parts/manifest.json 全体は43件（本ドキュメントの対象外である DECO-026〜034 の9件〈旧資産51件のカウント外・既存v2ネイティブパーツ〉を含む）
+- 個別確認バッチ移行済み: 1件（LAYOUT-002。Notion側の名称誤記〈LAYOUT-001と同一の「トップビュー」〉をGitHub側の一貫した記述(indexes/layouts.md・composition.md・skeleton.html・catalog.src.html)に基づき「フルブリードヒーロー(コピー中央+左右矢印スライダー)」へ訂正したうえで移行）
+- v2移行済み合計(本ドキュメント対象の旧資産51件のうち): 35件
+- 分類A(移行可能)のうち、未移行残り: 0件
+- 個別確認が必要だった6件の最終判定: 移行1件(LAYOUT-002。分類Aのまま、Notion名称誤記を訂正して移行)、分類D(旧版として維持)へ確定5件(DECO-004 / DECO-006 / DECO-008 / DECO-009 / LAYOUT-007)。「個別確認が必要」の状態は残っていない。
+- 参考: parts/manifest.json 全体は44件（本ドキュメントの対象外である DECO-026〜034 の9件〈旧資産51件のカウント外・既存v2ネイティブパーツ〉を含む）
 
 ## 分類基準の解釈
 
@@ -25,8 +26,11 @@
 - PATTERN-001〜010は既存SVG原本（`patterns/*.svg`）があるが、横断的な柄のため元サイトURL（schema必須の`site.url`）と用途軸の統制語彙を根拠を持って設定できない。schema/vocab整備後に移行判断。
 - DECO-005はSVG原本がなく実体はCSS（radial-gradient）のコード。用途軸の該当語彙もないためB。
 - 第2バッチでは、`vocab.json`の`use`語彙に一致する明示的な用途記述が旧資料(indexes/*.md・composition.md)に直接存在する資産のみを対象とした。ヘッダー・フッター等のサイト全体UIチュームで、旧資料に用途軸を裏付ける明示的な記述がないもの（DECO-004固定ヘッダー、DECO-006フッター、DECO-008/DECO-009、LAYOUT-007の2段ヘッダー）は、属性を推測で埋めることになるため見送り、分類Aの未移行のまま残した。
-- 第3バッチでは、未移行の分類A・25件を「現行schemaでの移行候補集合(Notion正式DB − manifest − 情報不足11件)」として機械的に再計算した。その結果、LAYOUT-002は25件の内数であり別枠の追加1件ではないことを確認した。あわせて、DECO-004・006・008・009・LAYOUT-007（用途属性の明示的根拠が不足）とLAYOUT-002（Notion名称がLAYOUT-001と重複し個別確認が必要）の6件を「A(個別確認が必要)」として区別し、残り19件を「高確度で移行可能」として整理した。第2バッチ報告にあった「分類A未移行:25件」と「残る移行可能件数:25件＋LAYOUT-002 1件」という矛盾した表現は、LAYOUT-002が25件の内数であるにもかかわらず外側に1件追加されるかのように誤って併記したことが原因であり、今回の整理でLAYOUT-002を25件の内数として一本化した。
+- 第3バッチでは、未移行の分類A・25件を「現行schemaでの移行候補集合(Notion正式DB − manifest − 情報不足11件)」として機械的に再計算した。その結果、LAYOUT-002は25件の内数であり別枠の追加1件ではないことを確認した。あわせて、DECO-004・006・008・009・LAYOUT-007（用途属性の明示的根拠が不足）とLAYOUT-002（Notion名称がLAYOUT-001と重複し個別確認が必要）の6件を「A(個別確認が必要)」として区別し、残り19件を「高確度で移行可能」として整理した。
 - 第4バッチでは、単体では用途軸の直接記述がないナビ・コンテンツセクション(DECO-017・018・022・024)およびヘッダーCTA(DECO-025)について、同一sites/<サイト>/composition.mdが対象範囲として明示する同一ページ文脈を共有し、かつ同一composition内の既存v2パーツ(LAYOUT-012・016・017・018等)がすでに用途「トップページ」で移行済みであることを根拠に、用途「トップページ」を設定した(第2〜3バッチで確立した方法論と同一)。LAYOUT-013・014はcomposition.mdの見出しが「トップページ全体テンプレ(形のみ)」と明記しているため、既存の layout/component/style/background とは区別し、kind=page(ページ全体)として丸ごとテンプレを新設した。
+- 個別確認バッチでは、残る6件を1件ずつ、indexes/**・sites/**/skeleton.html・sites/**/skeleton.src.html・sites/**/composition.md・catalog.html・catalog.src.htmlの全資料とNotion正式DBを突き合わせて確認した。
+  - LAYOUT-002: indexes/layouts.md「## LAYOUT-002 / 002 日立 トップビュー」、composition.md「## LAYOUT-002 / トップビュー」、skeleton.htmlのラベル、catalog.src.htmlのカード見出しの4資料が一致して「トップビュー」という短い区分見出しを使っていた。ただしこれは同一Notion DB内でLAYOUT-001にも使われている非識別的なプレースホルダ的表記であり、実際の構図(フルブリード・コピー中央寄せ・左右矢印スライダー・2段ヘッダー・ピル型CTA)を区別できない。既存v2パーツの命名慣行(例: LAYOUT-001は同資料の短い見出し「ヒーロー」を、タグ・説明文に基づく記述的な名称「フルブリードヒーロー(左コピー+斜め曲線リボン)」へ展開して命名)にならい、composition.md本文・タグ(#中央寄せヒーロー #フルブリードスライダー #2段ヘッダー #ピル型CTA)・catalog.src.htmlのdescから一貫して裏付けられる「フルブリードヒーロー(コピー中央+左右矢印スライダー)」を正式名称として採用し、Notionの「トップビュー」表記を誤記(非識別的な重複表記)として訂正した。用途は composition.md/indexes/layouts.md 双方に明示される「適する用途: 大企業・グローバル系トップ、力強い印象」からvocabの「トップページ」を採用。業種・テイストは、資料に具体的な業種の明示がないため、根拠のある範囲で「汎用」「コーポレート」を設定した。
+  - DECO-004・DECO-006・DECO-008・DECO-009・LAYOUT-007: 名称はGitHub(composition.md見出し・skeleton.htmlラベル・catalog.src.htmlカード見出し)とNotionで完全に一致しており誤記はなかった。一方、いずれも用途がページ横断的なUIチューム(固定ヘッダー・フッター・関連情報カード・セグメントタブ・2段ヘッダー)であり、composition.md/indexes/*.mdの「適する用途」記述がvocab.jsonのuse語彙(トップページ/会社概要/沿革/代表挨拶/実績/お客様の声/料金表/FAQ/相談の流れ/お知らせ/ブランド訴求/問い合わせ)のいずれにも一致しないことを個別に確認した。同一サイトの他パーツ(例: LAYOUT-003やDECO-003)に設定済みの用途を代用することも検討したが、それらは異なるセクションの属性であり、この5件自体の用途を裏付ける根拠にはならないため採用しなかった。以上より、根拠不足のため旧資産として維持(分類D)と判定し、v2属性は設定しない。
 
 ## 一覧
 
@@ -34,11 +38,11 @@
 |---|---|---|---|---|---|---|---|
 | DECO-002 | カード重ねオフセット | DECO | 日立 | parts/DECO-002.json、parts/DECO-002.svg、sites/002_hitachi/ | A | なし | 第2バッチで移行済み |
 | DECO-003 | 見出しの型(英語ラベル+和文見出し+短下線) | DECO | 岩崎電気 | parts/DECO-003.json、parts/DECO-003.svg、sites/003_iwasaki/ | A | なし | 第1バッチで移行済み |
-| DECO-004 | 固定ヘッダー(スクロール表示・言語トグル+検索併設) | DECO | 岩崎電気 | indexes/decorations.md、sites/003_iwasaki/ | A(個別確認が必要) | 用途軸の明示的根拠なし | 個別確認のうえ次バッチ以降で移行 |
+| DECO-004 | 固定ヘッダー(スクロール表示・言語トグル+検索併設) | DECO | 岩崎電気 | indexes/decorations.md、sites/003_iwasaki/ | D | 用途軸を裏付ける明示的根拠なし(個別確認済み) | 個別確認の結果、旧資産として維持。サイト全体共通の固定ヘッダーで、composition.md/indexes/decorations.mdに用途(ページ文脈)の明示的記述がなく、vocabのuse語彙で根拠をもって設定できない。再検討条件: 用途を明示する追加資料が見つかった場合 |
 | DECO-005 | 放射状グロー背景 | DECO(柄扱いでpatterns.mdへ移動済み) | 岩崎電気 | indexes/patterns.md、sites/003_iwasaki/ | B | SVG原本なし(実体はCSS radial-gradient)、用途軸の該当語彙なし | vocab整備後に移行判断 |
-| DECO-006 | フッター(濃色中央寄せ縦積み) | DECO | 福助 | indexes/decorations.md、sites/004_fukuske/ | A(個別確認が必要) | 用途軸の明示的根拠なし | 個別確認のうえ次バッチ以降で移行 |
-| DECO-008 | 2カラム関連情報カード | DECO | Apple | indexes/decorations.md、sites/005_apple/ | A(個別確認が必要) | 用途軸の明示的根拠なし | 個別確認のうえ次バッチ以降で移行 |
-| DECO-009 | ピル型セグメントタブ | DECO | Apple | indexes/decorations.md、sites/005_apple/ | A(個別確認が必要) | 用途軸の明示的根拠なし | 個別確認のうえ次バッチ以降で移行 |
+| DECO-006 | フッター(濃色中央寄せ縦積み) | DECO | 福助 | indexes/decorations.md、sites/004_fukuske/ | D | 用途軸を裏付ける明示的根拠なし(個別確認済み) | 個別確認の結果、旧資産として維持。サイト全体共通のフッターで、用途(ページ文脈)の明示的根拠が旧資料にない。再検討条件: 用途を明示する追加資料が見つかった場合 |
+| DECO-008 | 2カラム関連情報カード | DECO | Apple | indexes/decorations.md、sites/005_apple/ | D | 用途軸を裏付ける明示的根拠なし(個別確認済み) | 個別確認の結果、旧資産として維持。「サポート導線の並列紹介」という用途がvocabのuse語彙のいずれにも該当しない。再検討条件: vocab整備、または用途を明示する追加資料が見つかった場合 |
+| DECO-009 | ピル型セグメントタブ | DECO | Apple | indexes/decorations.md、sites/005_apple/ | D | 用途軸を裏付ける明示的根拠なし(個別確認済み) | 個別確認の結果、旧資産として維持。「製品カテゴリのフィルター切替」という用途がvocabのuse語彙のいずれにも該当しない。再検討条件: vocab整備、または用途を明示する追加資料が見つかった場合 |
 | DECO-010 | スライダー型ヒーロー | DECO | 安川電機 | parts/DECO-010.json、parts/DECO-010.svg、sites/006_yaskawa/ | A | なし | 第2バッチで移行済み |
 | DECO-011 | ニュース行リスト(日付+カラーラベル+タイトル) | DECO | 安川電機 | parts/DECO-011.json、parts/DECO-011.svg、sites/006_yaskawa/ | A | なし | 第1バッチで移行済み |
 | DECO-012 | 浮き立体カードのサービス紹介 | DECO | PROGRIT | parts/DECO-012.json、parts/DECO-012.svg、sites/007_progrit/ | A | なし | 第3バッチで移行済み |
@@ -56,12 +60,12 @@
 | DECO-024 | 対象者タグピル付きサービス交互ブロック | DECO | Ubie | parts/DECO-024.json、parts/DECO-024.svg、sites/016_ubie/ | A | なし | 第4バッチで移行済み |
 | DECO-025 | 複合ピルCTA | DECO | LayerX | parts/DECO-025.json、parts/DECO-025.svg、sites/017_layerx/ | A | なし | 第4バッチで移行済み |
 | LAYOUT-001 | フルブリードヒーロー(左コピー+斜め曲線リボン) | LAYOUT | 日新ネットワークス | parts/LAYOUT-001.json、parts/LAYOUT-001.svg、sites/001_nisshin/ | A | なし | 第2バッチで移行済み |
-| LAYOUT-002 | フルブリードヒーロー(コピー中央+左右矢印スライダー) | LAYOUT | 日立 | indexes/layouts.md、sites/002_hitachi/ | A(個別確認が必要) | Notion DB上の名称がLAYOUT-001と同一。内容は別のため移行時に要確認 | 個別確認のうえ次バッチ以降で移行 |
+| LAYOUT-002 | フルブリードヒーロー(コピー中央+左右矢印スライダー) | LAYOUT | 日立 | parts/LAYOUT-002.json、parts/LAYOUT-002.svg、sites/002_hitachi/ | A | なし | 個別確認により移行済み(Notion名称を「トップビュー」→「フルブリードヒーロー(コピー中央+左右矢印スライダー)」に訂正) |
 | LAYOUT-003 | テキスト左・画像右セクション | LAYOUT | 岩崎電気 | parts/LAYOUT-003.json、parts/LAYOUT-003.svg、sites/003_iwasaki/ | A | なし | 第2バッチで移行済み |
 | LAYOUT-004 | 円形カードナビ+バナー(1セット) | LAYOUT | 福助 | parts/LAYOUT-004.json、parts/LAYOUT-004.svg、sites/004_fukuske/ | A | なし | 第2バッチで移行済み |
 | LAYOUT-005 | 中央寄せ製品ヒーロー(ピル型CTA2連+製品画像) | LAYOUT | Apple | parts/LAYOUT-005.json、parts/LAYOUT-005.svg、sites/005_apple/ | A | なし | 第1バッチで移行済み |
 | LAYOUT-006 | 角丸カード非対称グリッド | LAYOUT | Apple | parts/LAYOUT-006.json、parts/LAYOUT-006.svg、sites/005_apple/ | A | なし | 第2バッチで移行済み |
-| LAYOUT-007 | 情報密度の高い2段ヘッダー | LAYOUT | 安川電機 | indexes/layouts.md、sites/006_yaskawa/ | A(個別確認が必要) | 用途軸の明示的根拠なし | 個別確認のうえ次バッチ以降で移行 |
+| LAYOUT-007 | 情報密度の高い2段ヘッダー | LAYOUT | 安川電機 | indexes/layouts.md、sites/006_yaskawa/ | D | 用途軸を裏付ける明示的根拠なし(個別確認済み) | 個別確認の結果、旧資産として維持。サイト全体共通の2段ヘッダーで、用途(ページ文脈)の明示的根拠が旧資料にない。再検討条件: 用途を明示する追加資料が見つかった場合 |
 | LAYOUT-008 | 超大型見出しヒーロー | LAYOUT | PROGRIT | parts/LAYOUT-008.json、parts/LAYOUT-008.svg、sites/007_progrit/ | A | なし | 第3バッチで移行済み |
 | LAYOUT-009 | 価値観カードグリッド(3+2中央寄せ) | LAYOUT | PROGRIT | parts/LAYOUT-009.json、parts/LAYOUT-009.svg、sites/007_progrit/ | A | なし | 第4バッチで移行済み |
 | LAYOUT-010 | ダーク中央CONTACT + 大型フッター | LAYOUT | PROGRIT | parts/LAYOUT-010.json、parts/LAYOUT-010.svg、sites/007_progrit/ | A | なし | 第2バッチで移行済み |
@@ -86,9 +90,10 @@
 
 ## 注記
 
-- 一覧の名称は indexes/decorations.md・indexes/layouts.md・indexes/patterns.md の記載に基づく。
+- 一覧の名称は indexes/decorations.md・indexes/layouts.md・indexes/patterns.md の記載、および個別確認バッチで訂正したLAYOUT-002の正式名称に基づく。
 - 旧資産（indexes/**、sites/**、patterns/**、catalog.html系）は削除しない。移行はv2ファイルの追加のみで行う。
 - Notion正式DB「参考要素倉庫カタログ」のv2属性同期は、各バッチのPRマージ後に実施する。
 - DECO-023とLAYOUT-015は旧資料(composition.md)で「golfcartの横長ダブルCTA(LAYOUT-015)のバリエーション」と明記された関係にあるが、ヘッダー内の配置(正方アイコン型/横長テキスト型)とサイト(Ubie/Golfcart Vision)が異なるため、それぞれ別パーツとして第2バッチで移行した。
-- 第3バッチでは、DECO-004・006・008・009・LAYOUT-002・007の6件を「A(個別確認が必要)」に区分した。schema上の分類自体(A/B)は変更していないが、実務上は高確度で移行可能な残り9件とは扱いを分けている。個別確認の内容(用途根拠の直接確認、またはLAYOUT-001との名称重複解消)が済むまで、これらは移行対象に含めない。
-- 第4バッチにより、高確度で移行可能と分類されていた9件(DECO-016・017・018・022・024・025、LAYOUT-009・013・014)の移行が完了し、分類Aの未移行は個別確認が必要な6件のみとなった。
+- 第3バッチでは、DECO-004・006・008・009・LAYOUT-002・007の6件を「A(個別確認が必要)」に区分した。個別確認バッチでこの6件すべてに最終判定を行い、LAYOUT-002は分類Aのまま名称訂正のうえ移行、残り5件(DECO-004・006・008・009・LAYOUT-007)は分類D(旧版として維持)に確定した。
+- 第4バッチにより、高確度で移行可能と分類されていた9件(DECO-016・017・018・022・024・025、LAYOUT-009・013・014)の移行が完了した。
+- 個別確認バッチ(本更新)により、分類Aの個別確認対象6件すべての最終判定が確定し、「個別確認が必要」という中間状態の資産はなくなった。DECO-004・006・008・009・LAYOUT-007は根拠不足のため旧資産として維持し、v2属性は設定していない。これらを再度移行対象とするには、用途(ページ文脈)を明示する追加資料、またはvocab.jsonのuse語彙整備が必要。
