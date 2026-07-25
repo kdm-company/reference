@@ -1,0 +1,21 @@
+{
+  "id": "TEST-INTERNAL-BAD",
+  "name": "内部制作資産テスト（正本ファイル欠落・意図的に失敗させる）",
+  "category": "DECO",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "999", "name": "テスト" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["ミニマル"]
+  },
+  "tags": ["#テスト"],
+  "desc": "internalSourceを意図的に欠落させたテスト用データ。validatorがrequired-fields(internalSource欠落)で失敗することを確認する。",
+  "links": {
+    "skeleton": "sites/999_test/skeleton.html",
+    "composition": "sites/999_test/composition.md"
+  },
+  "svg": "parts/TEST-INTERNAL-BAD.svg"
+}

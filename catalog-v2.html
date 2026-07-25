@@ -24,6 +24,7 @@
   .desc{font-size:12px;line-height:1.7;color:#555;margin:0;}
   .links{margin-top:8px;font-size:12px;}
   .links a{margin-right:10px;}
+  .links .internal-badge{color:#888;font-style:italic;}
   @media(max-width:768px){body{padding:12px;}.grid{grid-template-columns:1fr;}}
 </style>
 </head>
@@ -113,6 +114,9 @@
       const links = p.links || {};
       const chips = ['<span class="kind">kind: ' + (p.kind || '-') + '</span>']
         .concat(Object.keys(AXES).flatMap(k => ((p.attrs && p.attrs[k]) || []).map(v => '<span>' + AXES[k] + ': ' + v + '</span>')));
+      const siteLink = site.url
+        ? '<a href="' + site.url + '" target="_blank">元サイト ↗</a>'
+        : '<span class="internal-badge">KDM内製' + (p.internalSource ? '（正本: ' + p.internalSource + '）' : '') + '</span>';
       return `
       <div class="card">
         <span class="id">${p.id} ｜ ${site.no || ''} ${site.name || ''}</span>
@@ -123,7 +127,7 @@
         <div class="links">
           <a href="${links.skeleton || '#'}" target="_blank">骨格HTML ↗</a>
           <a href="${links.composition || '#'}" target="_blank">構図メモ ↗</a>
-          <a href="${site.url || '#'}" target="_blank">元サイト ↗</a>
+          ${siteLink}
         </div>
       </div>`;
     }).join('');

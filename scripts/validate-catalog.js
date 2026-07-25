@@ -7,6 +7,11 @@
  * 終了コード: FAILが1件以上なら1、なければ0（WARNは0のまま）
  * ログ形式: FAIL [チェック名] id=対象ID file=ファイル名 : 理由
  * TEST-で始まるIDのJSONは tests/fixtures/ から、それ以外は parts/ から読み込む。
+ *
+ * sourceType（省略可。既定は外部参照資産）:
+ *   - 省略 または "external": 外部Webサイトから抽出したパーツ。site.url必須（http(s)形式）。
+ *   - "internal": KDMが自作した背景・柄・CSS表現など。site.urlは任意の代わりに internalSource（正本ファイルへの相対パス）が必須。
+ * 既存パーツ（sourceType省略）の検証結果はこの拡張の前後で変わらない。
  */
 const fs = require("fs");
 const path = require("path");
@@ -20,6 +25,8 @@ const FIXTURES_DIR = "tests/fixtures";
 const partFile = (id) => (String(id).startsWith(TEST_PREFIX) ? `${FIXTURES_DIR}/${id}.json` : `parts/${id}.json`);
 const REQUIRED_TOP = ["id", "name", "category", "kind", "site", "attrs", "desc", "links", "svg"];
 const AXES = { part: "部位", use: "用途", industry: "業種", taste: "テイスト" };
+const SOURCE_TYPES = ["external", "internal"];
+const URL_PATTERN = /^https?:\/\//;
 
 let failCount = 0;
 let warnCount = 0;
@@ -109,17 +116,28 @@ function finish() {
   if (orphans.length) orphans.forEach((o) => fail("orphan-json", o, `parts/${o}.json`, "JSONは存在するがmanifestに登録されていない"));
   else pass("orphan-json");
 
-  // 2. 必須項目 / 4. ID一致 / 7. kind / 8. 統制語彙 / 9. 内部リンク / 外部リンク(WARN)
-  let reqNg = false, idNg = false, kindNg = false, vocabNg = false, linkNg = false;
+  // 2. 必須項目 / 4. ID一致 / 7. kind / 8. 統制語彙 / 9. 内部リンク / 外部リンク(WARN) / 11. sourceType / 12. site.url書式
+  let reqNg = false, idNg = false, kindNg = false, vocabNg = false, linkNg = false, sourceNg = false;
   for (const [id, p] of Object.entries(parts)) {
     const file = partFile(id);
 
+    // sourceType（省略時は外部参照資産として扱う。既存パーツはこの分岐で従来どおり）
+    const isInternal = p.sourceType === "internal";
+    if (p.sourceType !== undefined && !SOURCE_TYPES.includes(p.sourceType)) { sourceNg = true; fail("source-type-vocab", id, file, `許可値外のsourceType: ${p.sourceType}`); }
+
     // 2. 必須項目（下位キー含む）
     const missing = REQUIRED_TOP.filter((k) => p[k] === undefined);
-    if (p.site) for (const k of ["no", "name", "url"]) { if (p.site[k] === undefined) missing.push(`site.${k}`); }
+    const siteRequiredKeys = isInternal ? ["no", "name"] : ["no", "name", "url"];
+    if (p.site) for (const k of siteRequiredKeys) { if (p.site[k] === undefined) missing.push(`site.${k}`); }
+    if (isInternal && (typeof p.internalSource !== "string" || !p.internalSource.trim())) missing.push("internalSource");
     if (p.attrs) for (const k of Object.keys(AXES)) { if (!Array.isArray(p.attrs[k]) || p.attrs[k].length === 0) missing.push(`attrs.${k}`); }
     if (p.links) for (const k of ["skeleton", "composition"]) { if (p.links[k] === undefined) missing.push(`links.${k}`); }
     if (missing.length) { reqNg = true; fail("required-fields", id, file, `欠落: ${missing.join(", ")}`); }
+
+    // 12. site.urlの書式（外部参照資産のみ。空文字・架空値でschemaを通さない）
+    if (!isInternal && p.site && p.site.url !== undefined && !URL_PATTERN.test(String(p.site.url).trim())) {
+      reqNg = true; fail("site-url-format", id, file, `site.urlがhttp(s)形式でない: ${JSON.stringify(p.site.url)}`);
+    }
 
     // 4. JSON内IDとファイル名の一致
     if (p.id !== undefined && p.id !== id) { idNg = true; fail("id-filename-mismatch", id, file, `JSON内id "${p.id}" がファイル名と不一致`); }
@@ -135,14 +153,14 @@ function finish() {
       }
     }
 
-    // 9. 内部リンク（FAIL）
-    const internal = [p.links && p.links.skeleton, p.links && p.links.composition, p.svg].filter(Boolean);
+    // 9. 内部リンク（FAIL。内部制作資産は internalSource も対象に含める）
+    const internal = [p.links && p.links.skeleton, p.links && p.links.composition, p.svg, isInternal ? p.internalSource : undefined].filter(Boolean);
     for (const rel of internal) {
       if (!fs.existsSync(path.join(ROOT, rel))) { linkNg = true; fail("internal-link", id, file, `内部リンク切れ: ${rel}`); }
     }
 
-    // 外部リンク（WARNのみ。HEAD→GETフォールバック）
-    const ext = p.site && p.site.url;
+    // 外部リンク（WARNのみ。HEAD→GETフォールバック。内部制作資産はurlがないため対象外）
+    const ext = !isInternal && p.site && p.site.url;
     if (ext) {
       const reachable = await checkExternal(ext);
       if (!reachable) warn("external-link", id, file, `外部リンクに到達できない: ${ext}`);
@@ -153,6 +171,7 @@ function finish() {
   if (!kindNg) pass("kind-vocab");
   if (!vocabNg) pass("attr-vocab");
   if (!linkNg) pass("internal-link");
+  if (!sourceNg) pass("source-type-vocab");
 
   finish();
 })();

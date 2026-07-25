@@ -1,0 +1,20 @@
+{
+  "id": "TEST-EXTERNAL-BAD",
+  "name": "外部参照資産テスト（不正なURL・意図的に失敗させる）",
+  "category": "DECO",
+  "kind": "background",
+  "site": { "no": "999", "name": "テスト", "url": "not-a-real-url" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["ミニマル"]
+  },
+  "tags": ["#テスト"],
+  "desc": "site.urlをhttps?://形式でない不正な値にしたテスト用データ。validatorがsite-url-formatで失敗することを確認する。",
+  "links": {
+    "skeleton": "sites/999_test/skeleton.html",
+    "composition": "sites/999_test/composition.md"
+  },
+  "svg": "parts/TEST-EXTERNAL-BAD.svg"
+}

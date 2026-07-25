@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "参考要素カタログ パーツ定義",
-  "$comment": "attrs等の許可語彙は parts/vocab.json を正とし、validate.html が照合する。本スキーマは構造（必須項目・型）の正。",
+  "$comment": "attrs等の許可語彙は parts/vocab.json を正とし、validate.html が照合する。本スキーマは構造（必須項目・型）の正。sourceTypeが\"internal\"のときのみ site.url を任意にし、代わりに internalSource（正本ファイルの参照）を必須とする。sourceType省略時は従来どおり外部参照資産として site.url を必須とする（既存44件はこの分岐に該当し無変更で有効）。",
   "type": "object",
   "required": ["id", "name", "category", "kind", "site", "attrs", "desc", "links", "svg"],
   "properties": {
@@ -9,13 +9,15 @@
     "name": { "type": "string", "minLength": 1 },
     "category": { "enum": ["LAYOUT", "DECO", "PATTERN"] },
     "kind": { "enum": ["layout", "section", "component", "style", "background", "page"] },
+    "sourceType": { "enum": ["external", "internal"], "$comment": "省略時は\"external\"と同じ扱い。既存44件は省略のまま変更しない。" },
+    "internalSource": { "type": "string", "minLength": 1, "$comment": "sourceType=internalのとき必須。正本ファイル(例: patterns/PATTERN-001.svg)へのリポジトリ相対パス。" },
     "site": {
       "type": "object",
-      "required": ["no", "name", "url"],
+      "required": ["no", "name"],
       "properties": {
         "no": { "type": "string" },
         "name": { "type": "string" },
-        "url": { "type": "string" }
+        "url": { "type": "string", "pattern": "^https?://" }
       }
     },
     "attrs": {
@@ -39,5 +41,19 @@
       }
     },
     "svg": { "type": "string", "pattern": "\\.svg$" }
+  },
+  "if": {
+    "properties": { "sourceType": { "const": "internal" } },
+    "required": ["sourceType"]
+  },
+  "then": {
+    "required": ["internalSource"]
+  },
+  "else": {
+    "properties": {
+      "site": {
+        "required": ["no", "name", "url"]
+      }
+    }
   }
 }
