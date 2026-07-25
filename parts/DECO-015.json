@@ -1,0 +1,20 @@
+{
+  "id": "DECO-015",
+  "name": "見出し+リード訴求ブロック",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "009", "name": "京都きもの学院", "url": "https://www.kyoto-kimono.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["ブランド訴求"],
+    "industry": ["老舗"],
+    "taste": ["和風"]
+  },
+  "tags": ["#リード訴求", "#中央寄せ", "#キャッチ見出し", "#余白広め"],
+  "desc": "中央寄せのキャッチ見出し(1行)の下に、やや長めのリード文を複数行で読ませる文章主体の訴求ブロック。締めの行は幅を狭め中央に収める。画像やボタンに頼らず、老舗・教育・ブランドなど理念や世界観を言葉で伝えたい導入部向け。",
+  "links": {
+    "skeleton": "sites/009_kyoto_kimono/skeleton.html",
+    "composition": "sites/009_kyoto_kimono/composition.md"
+  },
+  "svg": "parts/DECO-015.svg"
+}

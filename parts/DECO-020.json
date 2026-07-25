@@ -1,0 +1,20 @@
+{
+  "id": "DECO-020",
+  "name": "大画像+はみ出し白ボックスの特集カード",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "012", "name": "日本ゼトック", "url": "https://www.zettoc.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["製造", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#特集カード", "#白ボックスはみ出し", "#番号右上", "#LP誘導"],
+  "desc": "大きな画像(角丸は右上のみ)の右上に番号スクエア、左下に白い情報ボックス(タイトル+サブ、下辺にアクセント色border)をマイナスbottomで下へはみ出させた特集バナー。トップページの特設コンテンツ・LP誘導向け。",
+  "links": {
+    "skeleton": "sites/012_zettoc/skeleton.html",
+    "composition": "sites/012_zettoc/composition.md"
+  },
+  "svg": "parts/DECO-020.svg"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "DECO-019",
+  "name": "番号バッジ付き画像カード3連(帯に上はみ出し)",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "012", "name": "日本ゼトック", "url": "https://www.zettoc.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["製造", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#番号バッジ", "#カード3連", "#上はみ出し", "#3つの強み"],
+  "desc": "画像の左下に正方形の番号バッジ(01〜03)を載せた「画像→見出し→説明→More」のカードを3枚、背景帯へtransform:translateY(マイナス)で半分乗せる。トップページの「3つの強み」訴求向け。",
+  "links": {
+    "skeleton": "sites/012_zettoc/skeleton.html",
+    "composition": "sites/012_zettoc/composition.md"
+  },
+  "svg": "parts/DECO-019.svg"
+}

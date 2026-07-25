@@ -3,8 +3,13 @@
   "DECO-003",
   "DECO-010",
   "DECO-011",
+  "DECO-012",
   "DECO-013",
   "DECO-014",
+  "DECO-015",
+  "DECO-019",
+  "DECO-020",
+  "DECO-021",
   "DECO-023",
   "DECO-026",
   "DECO-027",
@@ -20,7 +25,12 @@
   "LAYOUT-004",
   "LAYOUT-005",
   "LAYOUT-006",
+  "LAYOUT-008",
   "LAYOUT-010",
   "LAYOUT-011",
-  "LAYOUT-015"
+  "LAYOUT-012",
+  "LAYOUT-015",
+  "LAYOUT-016",
+  "LAYOUT-017",
+  "LAYOUT-018"
 ]
