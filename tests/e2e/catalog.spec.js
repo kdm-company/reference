@@ -40,7 +40,7 @@ test.describe("カタログ v2（本番manifest）", () => {
     await expect(page.locator(".card")).toHaveCount(expectedIds.length);
     const ids = await page.locator(".card .id").allTextContents();
     expectedIds.forEach((id, i) => expect(ids[i]).toContain(id));
-    expect(ids[ids.length - 1]).toContain("DECO-034");
+    expect(ids[ids.length - 1]).toContain(expectedIds[expectedIds.length - 1]);
   });
 
   test("4軸フィルター（部位・用途・業種・テイスト）が動く", async ({ page }) => {

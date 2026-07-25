@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-005",
+  "name": "中央寄せ製品ヒーロー(ピル型CTA2連+製品画像)",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "005", "name": "Apple", "url": "https://www.apple.com/jp/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ", "ブランド訴求"],
+    "industry": ["IT", "汎用"],
+    "taste": ["ミニマル"]
+  },
+  "tags": ["#中央寄せヒーロー", "#ピル型CTA2連", "#製品画像下置き", "#薄グレー背景"],
+  "desc": "薄グレー背景に「製品名(大)→サブコピー→ピル型CTA2つ(主=塗りつぶし/副=線)→製品画像」を中央寄せで縦積み。Apple定番の製品紹介ヒーロー。複数縦に並べてラインナップを見せる使い方もできる。",
+  "links": {
+    "skeleton": "sites/005_apple/skeleton.html",
+    "composition": "sites/005_apple/composition.md"
+  },
+  "svg": "parts/LAYOUT-005.svg"
+}

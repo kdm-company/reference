@@ -1,0 +1,20 @@
+{
+  "id": "DECO-003",
+  "name": "見出しの型(英語ラベル+和文見出し+短下線)",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "003", "name": "岩崎電気", "url": "https://www.iwasaki.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ", "会社概要"],
+    "industry": ["製造", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#見出しの型", "#英語ラベル+和文見出し", "#左寄せ短下線", "#斜めtick"],
+  "desc": "英語ラベル(小)→和文見出し(大)の縦積み+左寄せ短下線+右下に細い斜め線(tick)。「会社情報 ― Corporate」のように水平線+英語を並べる派生もあり。LAYOUT-003のテキスト側で使用する見出しパーツ。",
+  "links": {
+    "skeleton": "sites/003_iwasaki/skeleton.html",
+    "composition": "sites/003_iwasaki/composition.md"
+  },
+  "svg": "parts/DECO-003.svg"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-011",
+  "name": "サービス案内リンクグリッド(見出し+説明の小ブロック多数)",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "010", "name": "セブン-イレブン", "url": "https://www.sej.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["汎用"],
+    "taste": ["コーポレート", "端正"]
+  },
+  "tags": ["#リンクグリッド", "#サービス案内", "#見出し+説明", "#3列グリッド"],
+  "desc": "「リンク見出し→1〜2行の説明」の小ブロックを、3列前後の均等グリッド(項目数で2〜4列)で並べたサービス・導線一覧。各ブロックは枠線で仕切る。画像を使わずテキストリンク中心で多数の入口をコンパクトに見せる型。大規模サイトのトップ向け。",
+  "links": {
+    "skeleton": "sites/010_seven/skeleton.html",
+    "composition": "sites/010_seven/composition.md"
+  },
+  "svg": "parts/LAYOUT-011.svg"
+}
