@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-009",
+  "name": "価値観カードグリッド(3+2中央寄せ)",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "007", "name": "PROGRIT", "url": "https://about.progrit.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#価値観カード", "#3+2中央寄せ", "#アイコン+英語見出し+本文"],
+  "desc": "中央見出しの下に、丸アイコン+英語見出し+本文のカードを上段3列・下段2列でどちらも中央寄せに配置するグリッド。奇数個(5枚)を均整よく見せる型。バリュー・行動指針などトップページの訴求向け。",
+  "links": {
+    "skeleton": "sites/007_progrit/skeleton.html",
+    "composition": "sites/007_progrit/composition.md"
+  },
+  "svg": "parts/LAYOUT-009.svg"
+}

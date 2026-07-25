@@ -1,0 +1,20 @@
+{
+  "id": "DECO-017",
+  "name": "画像カード付きフルワイドメガメニュー",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "011", "name": "幕張ベイパーク耳鼻咽喉科", "url": "https://makuhari-jibika.yukenkai.com/" },
+  "attrs": {
+    "part": ["ナビ"],
+    "use": ["トップページ"],
+    "industry": ["医療"],
+    "taste": ["親しみ"]
+  },
+  "tags": ["#メガメニュー", "#全幅ドロップダウン", "#サムネ付きカード5列"],
+  "desc": "固定ヘッダーのnavにhoverすると、画面幅いっぱいのドロップダウンが開く。左に「一覧を見る」、右にサムネ+ラベルの小カードを5列グリッドで配置する。下層が多く画像で選ばせたいクリニックのナビ向け。",
+  "links": {
+    "skeleton": "sites/011_makuhari_jibika/skeleton.html",
+    "composition": "sites/011_makuhari_jibika/composition.md"
+  },
+  "svg": "parts/DECO-017.svg"
+}

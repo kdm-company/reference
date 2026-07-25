@@ -1,0 +1,20 @@
+{
+  "id": "DECO-024",
+  "name": "対象者タグピル付きサービス交互ブロック",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "016", "name": "Ubie", "url": "https://ubie.life/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["医療", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#対象者タグピル", "#製品ロゴ見出し", "#交互2カラム"],
+  "desc": "「対象者タグピル→製品ロゴ(見出し扱い)→説明→ボタン」のテキスト構成で、画像と左右交互に組む2カラムを縦積みにするサービス紹介。対象者ごとに製品が分かれるマルチプロダクト企業のトップページ向け。",
+  "links": {
+    "skeleton": "sites/016_ubie/skeleton.html",
+    "composition": "sites/016_ubie/composition.md"
+  },
+  "svg": "parts/DECO-024.svg"
+}

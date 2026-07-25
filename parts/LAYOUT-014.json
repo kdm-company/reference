@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-014",
+  "name": "製造業トップ全体構成(丸ごとテンプレ)",
+  "category": "LAYOUT",
+  "kind": "page",
+  "site": { "no": "013", "name": "ノダRFテクノロジーズ", "url": "https://www.n-rf.co.jp/" },
+  "attrs": {
+    "part": ["ページ全体"],
+    "use": ["トップページ"],
+    "industry": ["製造", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#トップ全体", "#ケンバーンズMV", "#同期スライダ", "#CVフッター"],
+  "desc": "「全画面MV(コピー右寄せ+scroll指標)→番号ページャ付き同期スライダ→左帯にずらした製品2カラム→写真帯の採用→ニュース3カード→濃色帯+白ボックスのCVフッター」の一直線構成。BtoB製造業・技術系企業のトップページ向けで、電話+問い合わせのCVフッターまで含む丸ごとテンプレ。",
+  "links": {
+    "skeleton": "sites/013_nrf/skeleton.html",
+    "composition": "sites/013_nrf/composition.md"
+  },
+  "svg": "parts/LAYOUT-014.svg"
+}
