@@ -1,0 +1,22 @@
+{
+  "id": "PATTERN-007",
+  "name": "プラス(十字マーク)",
+  "category": "PATTERN",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "000", "name": "KDM(内部制作)" },
+  "internalSource": "patterns/PATTERN-007.svg",
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#プラス柄", "#十字マーク", "#控えめ背景"],
+  "desc": "タイル24x24に十字マーク(長さ10・太さ2、主要色#334155、fill-opacity 0.16)を敷いた背景パターン。資料的・技術系セクションの控えめな下地に用いる。KDM自作の横断的な柄素材(正本: patterns/PATTERN-007.svg)。",
+  "links": {
+    "skeleton": "patterns/PATTERN-007.src.html",
+    "composition": "indexes/patterns.md"
+  },
+  "svg": "parts/PATTERN-007.svg"
+}

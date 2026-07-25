@@ -1,0 +1,22 @@
+{
+  "id": "PATTERN-001",
+  "name": "ドット(規則正しい水玉)",
+  "category": "PATTERN",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "000", "name": "KDM(内部制作)" },
+  "internalSource": "patterns/PATTERN-001.svg",
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["ミニマル"]
+  },
+  "tags": ["#ドット柄", "#背景パターン", "#タイル24x24"],
+  "desc": "規則正しい水玉を24x24のタイルで敷き詰めた背景パターン(円半径2.4、主要色#334155、fill-opacity 0.18で濃さを調整)。淡く控えめでどんな背景にも重ねやすく、余白の単調さを抑えたい広い背景・セクションの下地に用いる。外部サイトからの抽出ではなくKDMが自作した横断的な柄素材(正本: patterns/PATTERN-001.svg)。",
+  "links": {
+    "skeleton": "patterns/PATTERN-001.src.html",
+    "composition": "indexes/patterns.md"
+  },
+  "svg": "parts/PATTERN-001.svg"
+}

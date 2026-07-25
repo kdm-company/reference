@@ -1,0 +1,22 @@
+{
+  "id": "PATTERN-009",
+  "name": "波線(水平のなみ線)",
+  "category": "PATTERN",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "000", "name": "KDM(内部制作)" },
+  "internalSource": "patterns/PATTERN-009.svg",
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["親しみ"]
+  },
+  "tags": ["#波線柄", "#なみ線", "#やわらかい背景"],
+  "desc": "タイル40x20の水平ななみ線(線幅2、主要色#334155、stroke-opacity 0.16)。親しみ・柔らかさを出したい背景、区切り帯に用いる。KDM自作の横断的な柄素材(正本: patterns/PATTERN-009.svg)。",
+  "links": {
+    "skeleton": "patterns/PATTERN-009.src.html",
+    "composition": "indexes/patterns.md"
+  },
+  "svg": "parts/PATTERN-009.svg"
+}

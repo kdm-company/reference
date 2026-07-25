@@ -1,0 +1,22 @@
+{
+  "id": "PATTERN-003",
+  "name": "グリッド(細い格子)",
+  "category": "PATTERN",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "000", "name": "KDM(内部制作)" },
+  "internalSource": "patterns/PATTERN-003.svg",
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#グリッド柄", "#格子", "#技術系背景"],
+  "desc": "24x24マスの細い格子線(線幅1、主要色#334155、stroke-opacity 0.18)を敷いた背景パターン。設計図的で専門性を出したい技術紹介・資料的セクションの下地に用いる。KDM自作の横断的な柄素材(正本: patterns/PATTERN-003.svg)。",
+  "links": {
+    "skeleton": "patterns/PATTERN-003.src.html",
+    "composition": "indexes/patterns.md"
+  },
+  "svg": "parts/PATTERN-003.svg"
+}

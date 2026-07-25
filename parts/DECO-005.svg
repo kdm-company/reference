@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" role="img" aria-label="DECO-005 放射状グロー背景プレビュー(CSSのradial-gradientから決定的に再現)">
+  <!-- DECO-005 プレビュー専用SVG。正本はCSS: sites/003_iwasaki/skeleton.html の .dark::before -->
+  <!-- 元CSS: position:absolute; top:-10%; left:18%; width:60%; height:70%;
+       background:radial-gradient(ellipse at center, rgba(174,196,230,0.55) 0%, rgba(60,90,150,0.25) 35%, rgba(13,31,71,0) 70%); -->
+  <!-- 400x280換算: 楕円中心(192,70) rx=120 ry=98。色・位置・停止値はCSSからそのまま転記(推測なし)。 -->
+  <defs>
+    <radialGradient id="deco-005-glow">
+      <stop offset="0%" stop-color="rgba(174,196,230,0.55)"/>
+      <stop offset="35%" stop-color="rgba(60,90,150,0.25)"/>
+      <stop offset="70%" stop-color="rgba(13,31,71,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="280" fill="#0d1f47"/>
+  <ellipse cx="192" cy="70" rx="120" ry="98" fill="url(#deco-005-glow)"/>
+</svg>

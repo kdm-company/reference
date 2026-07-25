@@ -1,0 +1,22 @@
+{
+  "id": "PATTERN-002",
+  "name": "ストライプ(斜めの細い線)",
+  "category": "PATTERN",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "000", "name": "KDM(内部制作)" },
+  "internalSource": "patterns/PATTERN-002.svg",
+  "attrs": {
+    "part": ["CTA", "コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["端正"]
+  },
+  "tags": ["#ストライプ柄", "#斜め線", "#CTA背景"],
+  "desc": "45度に傾けた斜めストライプ(線幅2・間隔14、パターン単位14x14をrotate(45)で回転、主要色#334155、fill-opacity 0.16)。端正で動きを出したい帯・CTA・見出し背景に用いる。KDM自作の横断的な柄素材(正本: patterns/PATTERN-002.svg)。",
+  "links": {
+    "skeleton": "patterns/PATTERN-002.src.html",
+    "composition": "indexes/patterns.md"
+  },
+  "svg": "parts/PATTERN-002.svg"
+}
