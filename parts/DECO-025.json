@@ -1,0 +1,20 @@
+{
+  "id": "DECO-025",
+  "name": "複合ピルCTA",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "017", "name": "LayerX", "url": "https://layerx.co.jp/" },
+  "attrs": {
+    "part": ["ヘッダー", "CTA"],
+    "use": ["トップページ"],
+    "industry": ["IT"],
+    "taste": ["ミニマル"]
+  },
+  "tags": ["#複合ピルCTA", "#2重ボタン", "#塗りピル+枠ピル"],
+  "desc": "影付きの白いピル形の器の中に、主導線の塗りピルと副導線の枠/淡色ピルを2つ並べた2重構造のCTA。ミニマルな1行ヘッダーの右端に置き、1つのCTAに2つの入口を持たせたいトップページ向け。",
+  "links": {
+    "skeleton": "sites/017_layerx/skeleton.html",
+    "composition": "sites/017_layerx/composition.md"
+  },
+  "svg": "parts/DECO-025.svg"
+}

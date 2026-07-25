@@ -1,0 +1,20 @@
+{
+  "id": "DECO-022",
+  "name": "見出しグループ付きドロップダウンナビ",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "015", "name": "primeNumber", "url": "https://primenumber.com/" },
+  "attrs": {
+    "part": ["ナビ"],
+    "use": ["トップページ"],
+    "industry": ["IT"],
+    "taste": ["先進"]
+  },
+  "tags": ["#ドロップダウンナビ", "#カテゴリ見出し", "#3カラム"],
+  "desc": "navの項目にhoverすると、薄色の英字カテゴリ小見出しごとに製品名リンクを束ねた3カラムパネルが開く。製品が複数あるSaaS・BtoB企業のサービスメニュー向け。",
+  "links": {
+    "skeleton": "sites/015_primenumber/skeleton.html",
+    "composition": "sites/015_primenumber/composition.md"
+  },
+  "svg": "parts/DECO-022.svg"
+}

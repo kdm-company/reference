@@ -1,0 +1,20 @@
+{
+  "id": "DECO-018",
+  "name": "正方形リンクパネル横並び(診療メニュー5連)",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "011", "name": "幕張ベイパーク耳鼻咽喉科", "url": "https://makuhari-jibika.yukenkai.com/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["医療"],
+    "taste": ["親しみ"]
+  },
+  "tags": ["#正方形パネル", "#アイコン+名称+補足", "#5連横並び"],
+  "desc": "1:1の正方形リンクパネルを5枚横一列に並べた診療・サービスメニュー。各パネルは「アイコン→名称→補足」の中央寄せ縦積み。診療科目など5±2個の入口を均等に見せたいクリニックのトップページ向け。",
+  "links": {
+    "skeleton": "sites/011_makuhari_jibika/skeleton.html",
+    "composition": "sites/011_makuhari_jibika/composition.md"
+  },
+  "svg": "parts/DECO-018.svg"
+}

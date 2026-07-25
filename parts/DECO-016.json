@@ -1,0 +1,20 @@
+{
+  "id": "DECO-016",
+  "name": "取組み紹介カード横並び",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "010", "name": "セブン-イレブン", "url": "https://www.sej.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["トップページ"],
+    "industry": ["汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#取組み紹介カード", "#画像+見出し+説明", "#3〜4列グリッド"],
+  "desc": "中央のセクション見出しの下に、サムネ画像+見出し+説明文を縦積みしたカードを3〜4列の等幅グリッドで横並びにする。テキストのみのLAYOUT-011より視覚的で、画像で内容を示す。CSR・特集・キャンペーンなど複数トピックを紹介するトップページのブロック向け。",
+  "links": {
+    "skeleton": "sites/010_seven/skeleton.html",
+    "composition": "sites/010_seven/composition.md"
+  },
+  "svg": "parts/DECO-016.svg"
+}

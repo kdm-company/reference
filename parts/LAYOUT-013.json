@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-013",
+  "name": "コーポレートトップ全体構成(丸ごとテンプレ)",
+  "category": "LAYOUT",
+  "kind": "page",
+  "site": { "no": "012", "name": "日本ゼトック", "url": "https://www.zettoc.co.jp/" },
+  "attrs": {
+    "part": ["ページ全体"],
+    "use": ["トップページ"],
+    "industry": ["製造", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#トップ全体", "#インセット動画MV", "#ニュース2列"],
+  "desc": "「言語バー付きヘッダー→インセット動画MV(ニュースバー付き)→強みリード+帯に上はみ出す3カード→定義リストの会社概要→横型ミニカード4連の事業→特集大カード→ニュース2列→CONTACT→フッター」の一直線構成。メーカー・BtoBコーポレートのトップページ向けで、セクション順をそのまま流用できる丸ごとテンプレ。",
+  "links": {
+    "skeleton": "sites/012_zettoc/skeleton.html",
+    "composition": "sites/012_zettoc/composition.md"
+  },
+  "svg": "parts/LAYOUT-013.svg"
+}
