@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-001",
+  "name": "フルブリードヒーロー(左コピー+斜め曲線リボン)",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "001", "name": "日新ネットワークス", "url": "https://www.nisshin-networks.co.jp/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ"],
+    "industry": ["IT", "汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#フルブリードヒーロー", "#斜め曲線リボン", "#三層オーバーレイ", "#横並びナビ"],
+  "desc": "左にコピー、背景に俯瞰ビジュアルを敷き、斜めの曲線リボンが奥行き方向に走るフルブリードヒーロー。背景/リボン/コピーを絶対配置で重ねる三層構造。ヘッダーはロゴ左・CTA右上・下に横並びナビ(斜線区切り)。BtoB企業トップ、信頼感・テック系向け。",
+  "links": {
+    "skeleton": "sites/001_nisshin/skeleton.html",
+    "composition": "sites/001_nisshin/composition.md"
+  },
+  "svg": "parts/LAYOUT-001.svg"
+}

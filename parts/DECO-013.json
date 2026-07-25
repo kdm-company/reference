@@ -1,0 +1,20 @@
+{
+  "id": "DECO-013",
+  "name": "人物はみ出しメッセージカード",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "007", "name": "PROGRIT", "url": "https://about.progrit.co.jp/" },
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["代表挨拶"],
+    "industry": ["汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#人物はみ出し", "#メッセージカード", "#英語ラベル+見出し2行", "#ピルCTA"],
+  "desc": "横長の白い角丸カード(影付き)に「英語ラベル(CEO MESSAGE)→見出し2行→ピル型CTA」を収め、人物写真をカード右端から外側へはみ出させて立体感と視線誘導を作る。代表メッセージなど人物を主役にした紹介向け。",
+  "links": {
+    "skeleton": "sites/007_progrit/skeleton.html",
+    "composition": "sites/007_progrit/composition.md"
+  },
+  "svg": "parts/DECO-013.svg"
+}

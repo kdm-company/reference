@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-015",
+  "name": "ダブルCTAブロック付き浮きヘッダ",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "014", "name": "Golfcart Vision", "url": "https://www.golfcart-vision.jp/mediasheet" },
+  "attrs": {
+    "part": ["ヘッダー", "CTA"],
+    "use": ["問い合わせ"],
+    "industry": ["IT", "汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#浮きヘッダ", "#ダブルCTA", "#リード獲得", "#色違い2連ボタン"],
+  "desc": "白背景+box-shadowで浮かせた固定ヘッダー。左に横長ロゴ、右にアンカーnav5本+右端に色違いの四角いCTAボタン2連(角丸なし)。主CTA(資料DL)と副CTA(問い合わせ)を色の強弱で並べ常時追従させる。広告媒体・SaaS・BtoBリード獲得系サイト向け。",
+  "links": {
+    "skeleton": "sites/014_golfcart/skeleton.html",
+    "composition": "sites/014_golfcart/composition.md"
+  },
+  "svg": "parts/LAYOUT-015.svg"
+}

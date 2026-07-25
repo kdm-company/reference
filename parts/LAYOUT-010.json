@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-010",
+  "name": "ダーク中央CONTACT + 大型フッター",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "007", "name": "PROGRIT", "url": "https://about.progrit.co.jp/" },
+  "attrs": {
+    "part": ["CTA", "フッター"],
+    "use": ["問い合わせ"],
+    "industry": ["汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#ダークCONTACT", "#大型フッター", "#多カラムリンク群"],
+  "desc": "暗い背景に大型英字「CONTACT」を中央寄せ+白ピルCTA、その下にダーク背景の多カラム大型フッター(ロゴ+4カラムリンク群+コピーライト行)。ページ末尾の問い合わせ誘導とサイトマップを兼ねる締め。",
+  "links": {
+    "skeleton": "sites/007_progrit/skeleton.html",
+    "composition": "sites/007_progrit/composition.md"
+  },
+  "svg": "parts/LAYOUT-010.svg"
+}

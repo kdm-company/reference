@@ -1,0 +1,20 @@
+{
+  "id": "LAYOUT-004",
+  "name": "円形カードナビ + バナー(1セット)",
+  "category": "LAYOUT",
+  "kind": "layout",
+  "site": { "no": "004", "name": "福助", "url": "https://f-fukuske.jp/fukuske/" },
+  "attrs": {
+    "part": ["ヒーロー"],
+    "use": ["トップページ", "ブランド訴求"],
+    "industry": ["製造", "汎用"],
+    "taste": ["親しみ"]
+  },
+  "tags": ["#円形カードナビ", "#3カード横並び", "#長方形バナー2連", "#ぼかし写真背景"],
+  "desc": "ぼかした写真をフル背景に敷き、その上に円形画像カード3連(主ナビ)→長方形バナー2連(副導線)→見出し+補足を縦に中央寄せで積んだ、ブランド紹介の入口画面1セット。右上にハンバーガー。視覚的でやわらかい印象。",
+  "links": {
+    "skeleton": "sites/004_fukuske/skeleton.html",
+    "composition": "sites/004_fukuske/composition.md"
+  },
+  "svg": "parts/LAYOUT-004.svg"
+}
