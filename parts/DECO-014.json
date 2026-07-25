@@ -1,0 +1,20 @@
+{
+  "id": "DECO-014",
+  "name": "問い合わせ案内ブロック(見出し→主CTA→電話→補足)",
+  "category": "DECO",
+  "kind": "component",
+  "site": { "no": "008", "name": "ビズリーチ", "url": "https://bizreach.biz/service/bizreach/" },
+  "attrs": {
+    "part": ["CTA"],
+    "use": ["問い合わせ"],
+    "industry": ["IT", "汎用"],
+    "taste": ["コーポレート"]
+  },
+  "tags": ["#問い合わせ案内", "#中央寄せ", "#主CTA+電話", "#補足リンク文"],
+  "desc": "中央寄せの薄い背景の囲み(角丸)に「見出し→主CTAボタン→電話受付の案内→電話番号(大)→補足リンク文」を縦に積んだ問い合わせ誘導ブロック。優先度=CTA>電話>補足の順に視覚的な大きさを付ける。窓口が複数あるサービス紹介ページ末尾向け。",
+  "links": {
+    "skeleton": "sites/008_bizreach/skeleton.html",
+    "composition": "sites/008_bizreach/composition.md"
+  },
+  "svg": "parts/DECO-014.svg"
+}
