@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="120" viewBox="0 0 240 120" role="img" aria-label="波線柄 PATTERN-009">
+  <!-- PATTERN-009 波線(水平のなみ線) -->
+  <!-- 主要色: #334155 / 濃さは stroke-opacity で調整 / 線幅2・タイル40x20 -->
+  <!-- 再利用: 下記 <pattern> をCSS/SVGにコピー、または本ファイルを background-size:40px 20px; background-repeat:repeat で敷く -->
+  <defs>
+    <pattern id="pattern-009" width="40" height="20" patternUnits="userSpaceOnUse">
+      <path d="M0 10 Q10 0 20 10 T40 10" fill="none" stroke="#334155" stroke-opacity="0.16" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="240" height="120" fill="url(#pattern-009)"/>
+</svg>

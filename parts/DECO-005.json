@@ -1,0 +1,20 @@
+{
+  "id": "DECO-005",
+  "name": "放射状グロー背景(003 岩崎電気)",
+  "category": "DECO",
+  "kind": "background",
+  "site": { "no": "003", "name": "岩崎電気", "url": "https://www.iwasaki.co.jp/" },
+  "attrs": {
+    "part": ["ヒーロー", "コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["製造", "汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#放射状グロー", "#radialgradient", "#濃紺背景", "#CSS装飾"],
+  "desc": "濃紺(#0d1f47)背景の左上寄りから、ぼんやり明るい光が差すCSS装飾。写真ではなくradial-gradientで描くコード表現が正本(sites/003_iwasaki/skeleton.html の .dark::before)。位置top:-10%/left:18%/幅60%/高さ70%、色停止0%(rgba(174,196,230,0.55))→35%(rgba(60,90,150,0.25))→70%(rgba(13,31,71,0))というCSS値から、本SVGは見た目を推測せず決定的に再現したプレビュー専用の図。テック・光関連の濃色ヒーロー/セクション背景向け。",
+  "links": {
+    "skeleton": "sites/003_iwasaki/skeleton.html",
+    "composition": "sites/003_iwasaki/composition.md"
+  },
+  "svg": "parts/DECO-005.svg"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "PATTERN-008",
+  "name": "三角(上向き三角の敷き詰め)",
+  "category": "PATTERN",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "000", "name": "KDM(内部制作)" },
+  "internalSource": "patterns/PATTERN-008.svg",
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#三角柄", "#幾何学模様", "#モダン背景"],
+  "desc": "タイル22x22に上向き三角(主要色#334155、fill-opacity 0.12)を敷き詰めた背景パターン。モダン・幾何学的な雰囲気を出したい背景に用いる。KDM自作の横断的な柄素材(正本: patterns/PATTERN-008.svg)。",
+  "links": {
+    "skeleton": "patterns/PATTERN-008.src.html",
+    "composition": "indexes/patterns.md"
+  },
+  "svg": "parts/PATTERN-008.svg"
+}

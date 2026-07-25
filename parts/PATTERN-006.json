@@ -1,0 +1,22 @@
+{
+  "id": "PATTERN-006",
+  "name": "シェブロン(山形のジグザグ)",
+  "category": "PATTERN",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "000", "name": "KDM(内部制作)" },
+  "internalSource": "patterns/PATTERN-006.svg",
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["先進"]
+  },
+  "tags": ["#シェブロン柄", "#ジグザグ", "#アクセント帯"],
+  "desc": "タイル24x12の山形ジグザグ線(線幅2、主要色#334155、stroke-opacity 0.18)。アクセント帯・見出し背景・動きを足したい面に用いる。KDM自作の横断的な柄素材(正本: patterns/PATTERN-006.svg)。",
+  "links": {
+    "skeleton": "patterns/PATTERN-006.src.html",
+    "composition": "indexes/patterns.md"
+  },
+  "svg": "parts/PATTERN-006.svg"
+}

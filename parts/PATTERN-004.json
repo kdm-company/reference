@@ -1,0 +1,22 @@
+{
+  "id": "PATTERN-004",
+  "name": "市松(チェッカー)",
+  "category": "PATTERN",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "000", "name": "KDM(内部制作)" },
+  "internalSource": "patterns/PATTERN-004.svg",
+  "attrs": {
+    "part": ["コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["ミニマル"]
+  },
+  "tags": ["#市松模様", "#チェッカー柄", "#背景パターン"],
+  "desc": "20マス角・タイル40x40の市松模様(主要色#334155、fill-opacity 0.12)。軽い装飾感を足したい背景、写真の無い面の単調さ回避に用いる。KDM自作の横断的な柄素材(正本: patterns/PATTERN-004.svg)。",
+  "links": {
+    "skeleton": "patterns/PATTERN-004.src.html",
+    "composition": "indexes/patterns.md"
+  },
+  "svg": "parts/PATTERN-004.svg"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "PATTERN-010",
+  "name": "菱形格子(ダイヤの格子)",
+  "category": "PATTERN",
+  "kind": "background",
+  "sourceType": "internal",
+  "site": { "no": "000", "name": "KDM(内部制作)" },
+  "internalSource": "patterns/PATTERN-010.svg",
+  "attrs": {
+    "part": ["フッター", "コンテンツセクション"],
+    "use": ["背景装飾"],
+    "industry": ["汎用"],
+    "taste": ["上質"]
+  },
+  "tags": ["#菱形格子", "#ダイヤ柄", "#上質背景"],
+  "desc": "タイル24x24の菱形格子(線幅1、主要色#334155、stroke-opacity 0.18)。上質感を出したい背景、フッターや見出し背景に用いる。KDM自作の横断的な柄素材(正本: patterns/PATTERN-010.svg)。",
+  "links": {
+    "skeleton": "patterns/PATTERN-010.src.html",
+    "composition": "indexes/patterns.md"
+  },
+  "svg": "parts/PATTERN-010.svg"
+}
